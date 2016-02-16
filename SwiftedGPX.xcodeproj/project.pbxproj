@@ -40,7 +40,7 @@
 		725BDD481C72F78100E18696 /* PositionDOP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD471C72F78100E18696 /* PositionDOP.swift */; };
 		725BDD4A1C72F7AA00E18696 /* AGeoFdGPSData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD491C72F7AA00E18696 /* AGeoFdGPSData.swift */; };
 		725BDD4C1C72F7CC00E18696 /* DGPSId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD4B1C72F7CC00E18696 /* DGPSId.swift */; };
-		725BDD4E1C72F80100E18696 /* GPSRouteNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD4D1C72F80100E18696 /* GPSRouteNumber.swift */; };
+		725BDD4E1C72F80100E18696 /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD4D1C72F80100E18696 /* Number.swift */; };
 		725BDD501C72FCBF00E18696 /* RoutePoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD4F1C72FCBF00E18696 /* RoutePoints.swift */; };
 		727392581C68A82400F169BF /* SwiftedGPX.h in Headers */ = {isa = PBXBuildFile; fileRef = 727392571C68A82400F169BF /* SwiftedGPX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7273925F1C68A82400F169BF /* SwiftedGPX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 727392541C68A82400F169BF /* SwiftedGPX.framework */; };
@@ -96,7 +96,7 @@
 		725BDD471C72F78100E18696 /* PositionDOP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionDOP.swift; sourceTree = "<group>"; };
 		725BDD491C72F7AA00E18696 /* AGeoFdGPSData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AGeoFdGPSData.swift; sourceTree = "<group>"; };
 		725BDD4B1C72F7CC00E18696 /* DGPSId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DGPSId.swift; sourceTree = "<group>"; };
-		725BDD4D1C72F80100E18696 /* GPSRouteNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPSRouteNumber.swift; sourceTree = "<group>"; };
+		725BDD4D1C72F80100E18696 /* Number.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Number.swift; sourceTree = "<group>"; };
 		725BDD4F1C72FCBF00E18696 /* RoutePoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutePoints.swift; sourceTree = "<group>"; };
 		727392541C68A82400F169BF /* SwiftedGPX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftedGPX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		727392571C68A82400F169BF /* SwiftedGPX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftedGPX.h; sourceTree = "<group>"; };
@@ -208,7 +208,7 @@
 				725BDD471C72F78100E18696 /* PositionDOP.swift */,
 				725BDD491C72F7AA00E18696 /* AGeoFdGPSData.swift */,
 				725BDD4B1C72F7CC00E18696 /* DGPSId.swift */,
-				725BDD4D1C72F80100E18696 /* GPSRouteNumber.swift */,
+				725BDD4D1C72F80100E18696 /* Number.swift */,
 				725BDD4F1C72FCBF00E18696 /* RoutePoints.swift */,
 			);
 			path = Elements;
@@ -355,7 +355,7 @@
 				727392781C68A9BC00F169BF /* GPX.swift in Sources */,
 				725BDD341C72F4FB00E18696 /* Elevation.swift in Sources */,
 				725BDD461C72F76800E18696 /* VerticalDOP.swift in Sources */,
-				725BDD4E1C72F80100E18696 /* GPSRouteNumber.swift in Sources */,
+				725BDD4E1C72F80100E18696 /* Number.swift in Sources */,
 				725BDD0E1C72BCB500E18696 /* Track.swift in Sources */,
 				725BDD2E1C72F12100E18696 /* Description.swift in Sources */,
 				725BDD181C72BDC000E18696 /* Email.swift in Sources */,
