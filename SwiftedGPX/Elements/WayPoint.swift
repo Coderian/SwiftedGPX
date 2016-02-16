@@ -219,7 +219,7 @@ public class WptType {
     public var cmt:Comment?
     public var desc:Description?
     public var src:Source?
-    public var link:Link = Link()
+    public var link:Link?
     public var sym:Symbol?
     public var type:Type?
     public var fix:Fix?

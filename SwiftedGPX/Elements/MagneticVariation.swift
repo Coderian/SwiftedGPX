@@ -17,9 +17,39 @@ import Foundation
 //      </xsd:element>
 public class MagneticVariation : HasXMLElementValue {
     public static var elementName: String = "magvar"
-    public var parent:HasXMLElementName?
-    public var childs:[HasXMLElementName]=[]
+    public var parent:HasXMLElementName? {
+        willSet {
+            if newValue == nil {
+                let index = self.parent?.childs.indexOf({
+                    if let v = $0 as? MagneticVariation {
+                        return v === self
+                    }
+                    return false
+                })
+                self.parent?.childs.removeAtIndex(index!)
+            }
+        }
+        didSet {
+            // 複数回呼ばれたて同じものがある場合は追加しない
+            let selects = self.parent?.select(self.dynamicType)
+            if selects!.contains({ $0 === self }) {
+                return
+            }
+            self.parent?.childs.append(self)
+            switch parent {
+            case let v as WayPoint: v.value.magvar = self
+            case let v as TrackPoint: v.value.magvar = self
+            default: break
+            }
+        }
+    }
+    public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value:DegreesType?
+    public init(attributes:[String:String]){
+        // TODO:
+    }
+    
 }
 
 

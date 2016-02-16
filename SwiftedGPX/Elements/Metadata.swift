@@ -124,7 +124,7 @@ public class MetadataType {
     var desc:Description?
     var author:Author?
     var copyright:Copyright?
-    var link:Link = Link()
+    var link:Link?
     var time:Time?
     var keywords:Keywords?
     var bounds:Bounds?

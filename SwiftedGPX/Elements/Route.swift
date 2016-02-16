@@ -124,9 +124,9 @@ public class RteType {
     public var cmt:Comment?
     public var desc:Description?
     public var src:Source?
-    public var link:Link = Link()
+    public var link:Link?
     public var number:Number?
     public var type:Type?
     public var extensions:Extensions?
-    public var rtept:RoutePoints = RoutePoints()
+    public var rtept:[RoutePoint] = [RoutePoint]()
 }

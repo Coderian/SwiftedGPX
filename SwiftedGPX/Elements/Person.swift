@@ -16,10 +16,38 @@ import Foundation
 //        </xsd:annotation>
 //      </xsd:element>
 public class Author : HasXMLElementValue {
-    public static var elementName: String = "metadata"
-    public var parent:HasXMLElementName?
-    public var childs:[HasXMLElementName]=[]
+    public static var elementName: String = "author"
+    public var parent:HasXMLElementName? {
+        willSet {
+            if newValue == nil {
+                let index = self.parent?.childs.indexOf({
+                    if let v = $0 as? Author {
+                        return v === self
+                    }
+                    return false
+                })
+                self.parent?.childs.removeAtIndex(index!)
+            }
+        }
+        didSet {
+            // 複数回呼ばれたて同じものがある場合は追加しない
+            let selects = self.parent?.select(self.dynamicType)
+            if selects!.contains({ $0 === self }) {
+                return
+            }
+            self.parent?.childs.append(self)
+            switch parent {
+            case let v as Metadata: v.value.author = self
+            default: break
+            }
+        }
+    }
+    public var childs:[HasXMLElementName] = []
+    public var attributes:[String:String] = [:]
     public var value:PersonType = PersonType()
+    public init(attributes:[String:String]){
+        // TODO:
+    }
     
 }
 
