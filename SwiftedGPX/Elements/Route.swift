@@ -8,38 +8,24 @@
 
 import Foundation
 
-public class Route : HasXMLElementValue {
+public class Route : XMLElement, HasXMLElementValue {
     public static var elementName: String = "rte"
-    public var parent:HasXMLElementName? {
-        willSet {
-            if newValue == nil {
-                let index = self.parent?.childs.indexOf({
-                    if let v = $0 as? Route {
-                        return v === self
-                    }
-                    return false
-                })
-                self.parent?.childs.removeAtIndex(index!)
-            }
-        }
+    public override var parent:XMLElement? {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            let selects = self.parent?.select(self.dynamicType)
-            if selects!.contains({ $0 === self }) {
-                return
-            }
-            self.parent?.childs.append(self)
-            switch parent {
-            case let v as Gpx: v.value.rte.append(self)
+            switch self.parent {
+            case let v as Gpx:
+                v.value.rte.append(self)
+                if v.childs.contains(self) == false {
+                    v.childs.insert(self)
+                }
             default: break
             }
         }
     }
-    public var childs:[HasXMLElementName] = []
-    public var attributes:[String:String] = [:]
     public var value: RteType = RteType()
-    public init(attributes:[String:String]){
-        self.attributes = attributes
+    public override init(attributes:[String:String]){
+        super.init(attributes: attributes)
     }
     
 }

@@ -31,9 +31,10 @@ class SwiftedGPXTests: XCTestCase {
         print(childs)
         let root = gpx?.root
         XCTAssert(root is Gpx, "root is nil")
-        let rootfromChild = gpx?.childs[0].root
+        let rootfromChild = gpx?.childs.first?.root
         XCTAssert(rootfromChild is Gpx, "first child is nil")
-        
+        let names = gpx?.select(Name)
+        XCTAssert(names!.count == 9)
     }
     
     func testGpxfromMyTracks() {
@@ -45,7 +46,7 @@ class SwiftedGPXTests: XCTestCase {
         print(childs)
         let root = gpx?.root
         XCTAssert(root is Gpx, "root is nil")
-        let rootfromChild = gpx?.childs[0].root
+        let rootfromChild = gpx?.childs.first?.root
         XCTAssert(rootfromChild is Gpx, "first child is nil")
         
     }
@@ -61,7 +62,7 @@ class SwiftedGPXTests: XCTestCase {
         print(childs)
         let root = gpx?.root
         XCTAssert(root is Gpx, "root is nil")
-        let rootfromChild = gpx?.childs[0].root
+        let rootfromChild = gpx?.childs.first?.root
         XCTAssert(rootfromChild is Gpx, "first child is nil")
         
     }
@@ -77,7 +78,7 @@ class SwiftedGPXTests: XCTestCase {
         print(childs)
         let root = gpx?.root
         XCTAssert(root is Gpx, "root is nil")
-        let rootfromChild = gpx?.childs[0].root
+        let rootfromChild = gpx?.childs.first?.root
         XCTAssert(rootfromChild is Gpx, "first child is nil")
         
     }

@@ -15,38 +15,24 @@ import Foundation
 //          </xsd:documentation>
 //        </xsd:annotation>
 //      </xsd:element>
-public class Bounds : HasXMLElementValue {
+public class Bounds : XMLElement, HasXMLElementValue {
     public static var elementName: String = "bounds"
-    public var parent:HasXMLElementName? {
-        willSet {
-            if newValue == nil {
-                let index = self.parent?.childs.indexOf({
-                    if let v = $0 as? Bounds {
-                        return v === self
-                    }
-                    return false
-                })
-                self.parent?.childs.removeAtIndex(index!)
-            }
-        }
+    public override var parent:XMLElement? {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            let selects = self.parent?.select(self.dynamicType)
-            if selects!.contains({ $0 === self }) {
+            if self.parent?.childs.contains(self) == true {
                 return
             }
-            self.parent?.childs.append(self)
+            self.parent?.childs.insert(self)
             switch parent {
             case let v as Metadata: v.value.bounds = self
             default: break
             }
         }
     }
-    public var childs:[HasXMLElementName] = []
-    public var attributes:[String:String] = [:]
     public var value:BoundsType = BoundsType()
-    public init(attributes:[String:String]){
-        self.attributes = attributes
+    public override init(attributes:[String:String]){
+        super.init(attributes: attributes)
         self.value.minlat.value.value = Double(attributes[BoundsType.MinLatitude.attributeName]!)!
         self.value.minlon.value.value = Double(attributes[BoundsType.MinLongitude.attributeName]!)!
         self.value.maxlat.value.value = Double(attributes[BoundsType.MaxLatitude.attributeName]!)!

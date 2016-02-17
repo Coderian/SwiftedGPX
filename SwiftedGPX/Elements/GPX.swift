@@ -19,14 +19,11 @@ import Foundation
 ///         </xsd:documentation>
 ///       </xsd:annotation>
 ///     </xsd:element>
-public class Gpx : HasXMLElementValue {
+public class Gpx : XMLElement, HasXMLElementValue {
     public static var elementName: String = "gpx"
-    public var parent:HasXMLElementName?
-    public var childs:[HasXMLElementName] = []
-    public var attributes:[String:String] = [:]
     public var value : GPXType = GPXType()
-    public init(attributes:[String:String]){
-        self.attributes = attributes
+    public override init(attributes:[String:String]){
+        super.init(attributes: attributes)
         self.value.version = GPXType.Version(value: attributes[GPXType.Version.attributeName]!)
         self.value.creator = GPXType.Creator(value: attributes[GPXType.Creator.attributeName]!)
     }

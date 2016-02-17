@@ -12,7 +12,7 @@ import Foundation
 class KMLNSXMLParser : NSObject,NSXMLParserDelegate{
     var parser:NSXMLParser!
 
-    private var stack:Stack<HasXMLElementName> = Stack()
+    private var stack:Stack<XMLElement> = Stack()
     private var isCallEnded:Bool = false
     private var contents:String = ""
     private var previewStackCount:Int = 0
@@ -30,7 +30,7 @@ class KMLNSXMLParser : NSObject,NSXMLParserDelegate{
         return gpx
     }
     
-    internal func createXMLElement(stack:Stack<HasXMLElementName>, elementName:String,attributes:[String:String]) -> HasXMLElementName? {
+    internal func createXMLElement(stack:Stack<XMLElement>, elementName:String,attributes:[String:String]) -> XMLElement? {
         switch elementName {
         case Gpx.elementName:               return Gpx(attributes: attributes)
         case Metadata.elementName:          return Metadata(attributes: attributes)
@@ -89,15 +89,17 @@ class KMLNSXMLParser : NSObject,NSXMLParserDelegate{
             gpx = stack.pop() as? Gpx
         }
         else{
-            var current = stack.pop()
+            let current = stack.pop()
             debugPrint("OnEnd poped=\(current) == \(elementName)")
-            if current.dynamicType.elementName == elementName {
-                let parent = stack.pop()
-                current.parent = parent
-                stack.push(parent)
-            }
-            else{
-                stack.push(current)
+            if let v = current as? HasXMLElementName {
+                if v.dynamicType.elementName == elementName {
+                    let parent = stack.pop()
+                    current.parent = parent
+                    stack.push(parent)
+                }
+                else {
+                    stack.push(current)
+                }
             }
         }
         isCallEnded = true

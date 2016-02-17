@@ -16,38 +16,23 @@ import Foundation
 //        </xsd:annotation>
 //      </xsd:element>
 
-public class RoutePoint : HasXMLElementValue {
+public class RoutePoint : XMLElement, HasXMLElementValue {
     public static var elementName: String = "rtept"
-    public var parent:HasXMLElementName? {
-        willSet {
-            if newValue == nil {
-                let index = self.parent?.childs.indexOf({
-                    if let v = $0 as? RoutePoint {
-                        return v === self
-                    }
-                    return false
-                })
-                self.parent?.childs.removeAtIndex(index!)
-            }
-        }
+    public override var parent:XMLElement? {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            let selects = self.parent?.select(self.dynamicType)
-            if selects!.contains({ $0 === self }) {
+            if self.parent?.childs.contains(self) == true {
                 return
             }
-            self.parent?.childs.append(self)
+            self.parent?.childs.insert(self)
             switch parent {
             case let v as Route: v.value.rtept.append(self)
             default: break
             }
         }
     }
-    public var childs:[HasXMLElementName] = []
-    public var attributes:[String:String] = [:]
     public var value: WptType = WptType()
-    public init(attributes:[String:String]){
-        self.attributes = attributes
+    public override init(attributes:[String:String]){
+        super.init(attributes: attributes)
     }
-    
 }

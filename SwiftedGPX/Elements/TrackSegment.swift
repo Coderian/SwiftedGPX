@@ -15,38 +15,24 @@ import Foundation
 //          </xsd:documentation>
 //        </xsd:annotation>
 //      </xsd:element>
-public class TrackSegment : HasXMLElementValue {
+public class TrackSegment : XMLElement, HasXMLElementValue {
     public static var elementName: String = "trkseg"
-    public var parent:HasXMLElementName? {
-        willSet {
-            if newValue == nil {
-                let index = self.parent?.childs.indexOf({
-                    if let v = $0 as? TrackSegment {
-                        return v === self
-                    }
-                    return false
-                })
-                self.parent?.childs.removeAtIndex(index!)
-            }
-        }
+    public override var parent:XMLElement? {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            let selects = self.parent?.select(self.dynamicType)
-            if selects!.contains({ $0 === self }) {
+            if self.parent?.childs.contains(self) == true {
                 return
             }
-            self.parent?.childs.append(self)
+            self.parent?.childs.insert(self)
             switch parent {
             case let v as Track: v.value.trkseg.append(self)
             default: break
             }
         }
     }
-    public var childs:[HasXMLElementName] = []
-    public var attributes:[String:String] = [:]
     public var value:TrkSegType = TrkSegType()
-    public init(attributes:[String:String]){
-        self.attributes = attributes
+    public override init(attributes:[String:String]){
+        super.init(attributes: attributes)
     }
     
 }
@@ -77,38 +63,24 @@ public class TrackSegment : HasXMLElementValue {
 //    </xsd:sequence>
 //  </xsd:complexType>
 
-public class TrackPoint : HasXMLElementValue {
+public class TrackPoint : XMLElement, HasXMLElementValue {
     public static var elementName: String = "trkpt"
-    public var parent:HasXMLElementName? {
-        willSet {
-            if newValue == nil {
-                let index = self.parent?.childs.indexOf({
-                    if let v = $0 as? TrackSegment {
-                        return v === self
-                    }
-                    return false
-                })
-                self.parent?.childs.removeAtIndex(index!)
-            }
-        }
+    public override var parent:XMLElement? {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            let selects = self.parent?.select(self.dynamicType)
-            if selects!.contains({ $0 === self }) {
+            if self.parent?.childs.contains(self) == true {
                 return
             }
-            self.parent?.childs.append(self)
+            self.parent?.childs.insert(self)
             switch parent {
             case let v as TrackSegment: v.value.trkpt.append(self)
             default: break
             }
         }
     }
-    public var childs:[HasXMLElementName] = []
-    public var attributes:[String:String] = [:]
     public var value:WptType = WptType()
-    public init(attributes:[String:String]){
-        self.attributes = attributes
+    public override init(attributes:[String:String]){
+        super.init(attributes: attributes)
         self.value.lat.value.value = Double(attributes[WptType.Latitude.attributeName]!)!
         self.value.lon.value.value = Double(attributes[WptType.Longitude.attributeName]!)!        
     }

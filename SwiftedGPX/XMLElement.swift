@@ -34,12 +34,6 @@ public protocol HasXMLElementName {
     static var elementName:String {
         get
     }
-    var parent:HasXMLElementName? {
-        get
-        set
-    }
-    var root:HasXMLElementName { get }
-    var childs:[HasXMLElementName] { get set }
 }
 
 
@@ -57,7 +51,7 @@ public protocol HasXMLElementSimpleValue: HasXMLElementValue {
         get
         set
     }
-    func makeRelation(contents: String, parent: HasXMLElementName) -> HasXMLElementName
+    func makeRelation(contents: String, parent: XMLElement) -> XMLElement
 }
 
 public extension HasXMLElementName {
@@ -66,8 +60,11 @@ public extension HasXMLElementName {
             return Self.elementName
         }
     }
-    var root:HasXMLElementName {
-        var currentParent:HasXMLElementName = self
+}
+
+public extension XMLElement {
+    var root:XMLElement {
+        var currentParent:XMLElement = self
         while currentParent.parent != nil {
             currentParent = self.parent!
         }
@@ -81,28 +78,36 @@ public extension HasXMLElementName {
         }
         return ret
     }
-
-/*  実現できてもよさそうだけどできない
-    var hasReleation:Bool {
-        get {
-            // 複数回呼ばれたて同じものがある場合は追加しない
-            let selects = self.parent?.select(self.dynamicType)
-            // Binary operator '===' cannot be applied to two 'Self' operands
-            return selects!.contains({
-                $0 === self
-            })
-        }
-    }
-    */
-    func allChilds() -> [HasXMLElementName]{
-        var all:[HasXMLElementName] = []
+    public func allChilds() -> [XMLElement]{
+        var all:[XMLElement] = []
         allChilds( &all, current:self)
         return all
     }
-    internal func allChilds( inout ret:[HasXMLElementName], current: HasXMLElementName ){
+    internal func allChilds( inout ret:[XMLElement], current: XMLElement ){
         for child in current.childs {
             allChilds(&ret, current: child)
         }
         ret.append(current)
     }
+}
+
+public class XMLElement : Hashable {
+    public var hashValue: Int { return unsafeAddressOf(self).hashValue }
+    public var parent:XMLElement? {
+        willSet {
+            if newValue == nil {
+                self.parent?.childs.remove(self)
+            }
+        }
+    }
+    public var childs:Set<XMLElement> = Set<XMLElement>()
+    public var attributes:[String:String] = [:]
+    public init(attributes:[String:String]){
+        self.attributes = attributes
+    }
+    
+}
+
+public func == ( lhs: XMLElement, rhs: XMLElement) -> Bool {
+    return lhs === rhs
 }

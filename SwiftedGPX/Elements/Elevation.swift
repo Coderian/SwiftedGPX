@@ -16,27 +16,15 @@ import Foundation
 //        </xsd:annotation>
 //      </xsd:element>
 
-public class Elevation : HasXMLElementSimpleValue {
+public class Elevation : XMLElement, HasXMLElementSimpleValue {
     public static var elementName: String = "ele"
-    public var parent:HasXMLElementName? {
-        willSet {
-            if newValue == nil {
-                let index = self.parent?.childs.indexOf({
-                    if let v = $0 as? Name {
-                        return v === self
-                    }
-                    return false
-                })
-                self.parent?.childs.removeAtIndex(index!)
-            }
-        }
+    public override var parent:XMLElement? {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            let selects = self.parent?.select(self.dynamicType)
-            if selects!.contains({ $0 === self }) {
+            if self.parent?.childs.contains(self) == true {
                 return
             }
-            self.parent?.childs.append(self)
+            self.parent?.childs.insert(self)
             switch parent {
             case let v as WayPoint: v.value.ele = self
             case let v as TrackPoint: v.value.ele = self
@@ -45,16 +33,14 @@ public class Elevation : HasXMLElementSimpleValue {
             }
         }
     }
-    public var childs:[HasXMLElementName] = []
-    public var attributes:[String:String] = [:]
     public var value: Double?
-    public func makeRelation(contents:String, parent:HasXMLElementName) -> HasXMLElementName{
+    public func makeRelation(contents:String, parent:XMLElement) -> XMLElement{
         self.value = Double(contents)
         self.parent = parent
         return parent
     }
-    public init(attributes:[String:String]){
-        self.attributes = attributes
+    public override init(attributes:[String:String]){
+        super.init(attributes: attributes)
     }
     
 }

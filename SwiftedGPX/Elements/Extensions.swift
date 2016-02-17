@@ -8,27 +8,15 @@
 
 import Foundation
 
-public class Extensions : HasXMLElementValue {
+public class Extensions : XMLElement,HasXMLElementValue {
     public static var elementName: String = "extensions"
-    public var parent:HasXMLElementName? {
-        willSet {
-            if newValue == nil {
-                let index = self.parent?.childs.indexOf({
-                    if let v = $0 as? Extensions {
-                        return v === self
-                    }
-                    return false
-                })
-                self.parent?.childs.removeAtIndex(index!)
-            }
-        }
+    public override var parent:XMLElement? {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            let selects = self.parent?.select(self.dynamicType)
-            if selects!.contains({ $0 === self }) {
+            if self.parent?.childs.contains(self) == true {
                 return
             }
-            self.parent?.childs.append(self)
+            self.parent?.childs.insert(self)
             switch parent {
             case let v as Metadata: v.value.extensions = self
             case let v as WayPoint: v.value.extensions = self
@@ -38,11 +26,9 @@ public class Extensions : HasXMLElementValue {
             }
         }
     }
-    public var childs:[HasXMLElementName] = []
-    public var attributes:[String:String] = [:]
     public var value:extensionsType = extensionsType()
-    public init(attributes:[String:String]){
-        self.attributes = attributes
+    public override init(attributes:[String:String]){
+        super.init(attributes: attributes)
     }
     
 }
