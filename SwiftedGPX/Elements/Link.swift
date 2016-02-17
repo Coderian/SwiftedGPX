@@ -46,7 +46,7 @@ public class Link : HasXMLElementValue {
     public var attributes:[String:String] = [:]
     public var value:LinkType = LinkType()
     public init(attributes:[String:String]){
-        // TODO:
+        self.attributes = attributes
     }
     
 }
@@ -117,12 +117,18 @@ public class Text: HasXMLElementSimpleValue {
         self.parent = parent
         return parent
     }
+    public init(attributes:[String:String]){
+        self.attributes = attributes
+    }
     
 }
 
 public class LinkType {
     var text:Text?
     var type:Type?
-    // TODO: attribute
-    var href:String = String()
+    public struct Href : XMLAttributed {
+        public static var attributeName: String = "href"
+        public var value: String = String()
+    }
+    public var href:Href = Href()
 }

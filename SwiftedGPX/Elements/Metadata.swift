@@ -39,7 +39,7 @@ public class Metadata : HasXMLElementValue {
     public var attributes:[String:String] = [:]
     public var value:MetadataType = MetadataType()
     public init(attributes:[String:String]){
-        // TODO:
+        self.attributes = attributes
     }
     
 }

@@ -46,7 +46,7 @@ public class TrackSegment : HasXMLElementValue {
     public var attributes:[String:String] = [:]
     public var value:TrkSegType = TrkSegType()
     public init(attributes:[String:String]){
-        // TODO:
+        self.attributes = attributes
     }
     
 }
@@ -108,7 +108,7 @@ public class TrackPoint : HasXMLElementValue {
     public var attributes:[String:String] = [:]
     public var value:WptType = WptType()
     public init(attributes:[String:String]){
-        // TODO:
+        self.attributes = attributes
     }
     
 }

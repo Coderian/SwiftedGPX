@@ -47,7 +47,7 @@ public class Fix : HasXMLElementValue {
     public var attributes:[String:String] = [:]
     public var value:FixType?
     public init(attributes:[String:String]){
-        // TODO:
+        self.attributes = attributes
     }
     
 }
@@ -69,7 +69,7 @@ public class Fix : HasXMLElementValue {
 //  </xsd:simpleType>
 
 public enum FixEnumType: String {
-    case none, fix2d, fix3d, dgps, pps
+    case none, fix2d="2d", fix3d="3d", dgps, pps
 }
 
 public class FixType {

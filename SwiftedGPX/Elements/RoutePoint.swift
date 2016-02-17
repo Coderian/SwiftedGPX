@@ -47,7 +47,7 @@ public class RoutePoint : HasXMLElementValue {
     public var attributes:[String:String] = [:]
     public var value: WptType = WptType()
     public init(attributes:[String:String]){
-        // TODO:
+        self.attributes = attributes
     }
     
 }

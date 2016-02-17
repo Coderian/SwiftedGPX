@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" creator="Garmin Colorado" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensions/v3/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtension/v1/TrackPointExtensionv1.xsd">
+ <trk>
+  <name>ACTIVE LOG084134</name>
+  <trkseg>
+   <trkpt lat="39.595228" lon="141.199239">
+    <ele>108.172</ele>
+    <time>2012-07-15T23:41:34Z</time>
+   </trkpt>
+   <trkpt lat="39.595219" lon="141.199240">
+    <ele>108.172</ele>
+    <time>2012-07-15T23:41:35Z</time>
+   </trkpt>
+   <trkpt lat="39.595145" lon="141.199286">
+    <ele>111.653</ele>
+    <time>2012-07-15T23:41:57Z</time>
+   </trkpt>
+   <trkpt lat="39.595152" lon="141.199293">
+    <ele>112.875</ele>
+    <time>2012-07-15T23:41:59Z</time>
+   </trkpt>
+   <trkpt lat="39.595155" lon="141.199296">
+    <ele>116.318</ele>
+    <time>2012-07-15T23:42:04Z</time>
+   </trkpt>
+   <trkpt lat="39.595160" lon="141.199295">
+    <ele>119.427</ele>
+    <time>2012-07-15T23:42:12Z</time>
+   </trkpt>
+   <trkpt lat="39.595164" lon="141.199286">
+    <ele>122.627</ele>
+    <time>2012-07-15T23:42:21Z</time>
+   </trkpt>
+   <trkpt lat="39.595175" lon="141.199293">
+    <ele>125.729</ele>
+    <time>2012-07-15T23:42:36Z</time>
+   </trkpt>
+   <trkpt lat="39.595171" lon="141.199307">
+    <ele>128.327</ele>
+    <time>2012-07-15T23:43:02Z</time>
+   </trkpt>
+   <trkpt lat="39.595173" lon="141.199313">
+    <ele>128.044</ele>
+    <time>2012-07-15T23:43:30Z</time>
+   </trkpt>
+   <trkpt lat="39.595174" lon="141.199314">
+    <ele>128.044</ele>
+    <time>2012-07-15T23:43:58Z</time>
+   </trkpt>
+  </trkseg>
+ </trk>
+</gpx>

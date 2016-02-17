@@ -53,5 +53,8 @@ public class Symbol : HasXMLElementSimpleValue {
         self.parent = parent
         return parent
     }
+    public init(attributes:[String:String]){
+        self.attributes = attributes
+    }
     
 }

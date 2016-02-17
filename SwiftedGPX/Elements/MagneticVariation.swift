@@ -47,7 +47,7 @@ public class MagneticVariation : HasXMLElementValue {
     public var attributes:[String:String] = [:]
     public var value:DegreesType?
     public init(attributes:[String:String]){
-        // TODO:
+        self.attributes = attributes
     }
     
 }

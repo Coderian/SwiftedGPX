@@ -46,7 +46,8 @@ public class Copyright : HasXMLElementValue {
     public var attributes:[String:String] = [:]
     public var value:CopyrightType = CopyrightType()
     public init(attributes:[String:String]){
-        // TODO:
+        self.attributes = attributes
+        self.value.author.value = attributes[CopyrightType.Author.attributeName]!
     }
     
 }
@@ -86,6 +87,10 @@ public class Copyright : HasXMLElementValue {
 public class CopyrightType {
     public var year:NSDate?
     public var license:String = String()
-    // TODO: attribute
-    public var author:String = String()
+    
+    public struct Author : XMLAttributed {
+        public static var attributeName: String = "author"
+        public var value: String = String()
+    }
+    public var author:Author = Author()
 }

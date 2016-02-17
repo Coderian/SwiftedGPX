@@ -20,6 +20,6 @@ import Foundation
 //    </xsd:restriction>
 //  </xsd:simpleType>
 
-class DGPSStationType {
+public class DGPSStationType {
     var value:Int = 0
 }

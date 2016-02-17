@@ -46,7 +46,7 @@ public class Author : HasXMLElementValue {
     public var attributes:[String:String] = [:]
     public var value:PersonType = PersonType()
     public init(attributes:[String:String]){
-        // TODO:
+        self.attributes = attributes
     }
     
 }

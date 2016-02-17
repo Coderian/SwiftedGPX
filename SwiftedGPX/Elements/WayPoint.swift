@@ -30,8 +30,7 @@ public class WayPoint : HasXMLElementValue {
             }
             self.parent?.childs.append(self)
             switch parent {
-            case let v as Gpx: v.value.wpt = self
-//            case let v as TrackPoint: v.value. = self
+            case let v as Gpx: v.value.wpt.append(self)
             default: break
             }
         }
@@ -40,7 +39,9 @@ public class WayPoint : HasXMLElementValue {
     public var attributes:[String:String] = [:]
     public var value: WptType = WptType()
     public init(attributes:[String:String]){
-        // TODO:
+        self.attributes = attributes
+        self.value.lat.value.value = Double(attributes[WptType.Latitude.attributeName]!)!
+        self.value.lon.value.value = Double(attributes[WptType.Longitude.attributeName]!)!
     }
     
 }
@@ -230,5 +231,17 @@ public class WptType {
     public var ageofdgpsdata:AGeoFdGPSData?
     public var dgpsid:DGPSId?
     public var extensions:Extensions?
-    // TODO:attributes
+    
+    public struct Latitude : XMLAttributed {
+        public static var attributeName: String = "lat"
+        public var value: LatitudeType = LatitudeType()
+    }
+    public var lat:Latitude = Latitude()
+    
+    public struct Longitude : XMLAttributed {
+        public static var attributeName: String = "lon"
+        public var value: LongitudeType = LongitudeType()
+    }
+    public var lon:Longitude = Longitude()
+    
 }

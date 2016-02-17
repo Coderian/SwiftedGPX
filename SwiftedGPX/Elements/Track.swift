@@ -30,7 +30,7 @@ public class Track : HasXMLElementName {
             }
             self.parent?.childs.append(self)
             switch parent {
-            case let v as Gpx: v.value.trk = self
+            case let v as Gpx: v.value.trk.append(self)
             default: break
             }
         }
@@ -39,7 +39,7 @@ public class Track : HasXMLElementName {
     public var attributes:[String:String] = [:]
     public var value:TrkType = TrkType()
     public init(attributes:[String:String]){
-        // TODO:
+        self.attributes = attributes
     }
     
 }

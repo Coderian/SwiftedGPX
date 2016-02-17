@@ -42,7 +42,7 @@ public class Extensions : HasXMLElementValue {
     public var attributes:[String:String] = [:]
     public var value:extensionsType = extensionsType()
     public init(attributes:[String:String]){
-        // TODO:
+        self.attributes = attributes
     }
     
 }

@@ -20,6 +20,6 @@ import Foundation
 //    </xsd:restriction>
 //  </xsd:simpleType>
 
-class LongitudeType {
-    var Value:Double = 0.0
+public class LongitudeType {
+    var value:Double = 0.0
 }

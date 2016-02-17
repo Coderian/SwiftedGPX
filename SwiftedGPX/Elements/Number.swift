@@ -54,12 +54,15 @@ public class Number : HasXMLElementSimpleValue {
     }
     public var childs:[HasXMLElementName] = []
     public var attributes:[String:String] = [:]
-    public var value: Double?
+    public var value: UInt?
     public func makeRelation(contents:String, parent:HasXMLElementName) -> HasXMLElementName{
         // TODO:
 //        self.value = contents
         self.parent = parent
         return parent
+    }
+    public init(attributes:[String:String]){
+        self.attributes = attributes
     }
     
 }

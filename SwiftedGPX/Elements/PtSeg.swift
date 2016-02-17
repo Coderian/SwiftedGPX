@@ -70,7 +70,15 @@ public class PtSegType {
 public class PtType {
     var ele:Elevation?
     var time:Time?
-    // TODO: attribute
-    var lat:LatitudeType = LatitudeType()
-    var lon:LongitudeType = LongitudeType()
+    public struct Latitude : XMLAttributed {
+        public static var attributeName: String = "lat"
+        public var value: LatitudeType = LatitudeType()
+    }
+    public var lat:Latitude = Latitude()
+    
+    public struct Longitude : XMLAttributed {
+        public static var attributeName: String = "lon"
+        public var value: LongitudeType = LongitudeType()
+    }
+    public var lon:Longitude = Longitude()
 }

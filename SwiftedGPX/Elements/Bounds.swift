@@ -46,7 +46,11 @@ public class Bounds : HasXMLElementValue {
     public var attributes:[String:String] = [:]
     public var value:BoundsType = BoundsType()
     public init(attributes:[String:String]){
-        // TODO:
+        self.attributes = attributes
+        self.value.minlat.value.value = Double(attributes[BoundsType.MinLatitude.attributeName]!)!
+        self.value.minlon.value.value = Double(attributes[BoundsType.MinLongitude.attributeName]!)!
+        self.value.maxlat.value.value = Double(attributes[BoundsType.MaxLatitude.attributeName]!)!
+        self.value.maxlon.value.value = Double(attributes[BoundsType.MaxLongitude.attributeName]!)!
     }
     
 }
@@ -88,9 +92,27 @@ public class Bounds : HasXMLElementValue {
 //  </xsd:complexType>
 
 public class BoundsType {
-    // TODO:attribute
-    var minlat:LatitudeType = LatitudeType()
-    var minlon:LongitudeType = LongitudeType()
-    var maxlat:LatitudeType = LatitudeType()
-    var maxlon:LongitudeType = LongitudeType()
+    public struct MinLatitude : XMLAttributed {
+        public static var attributeName: String = "minlat"
+        public var value: LatitudeType = LatitudeType()
+    }
+    public var minlat:MinLatitude = MinLatitude()
+    
+    public struct MinLongitude : XMLAttributed {
+        public static var attributeName: String = "minlon"
+        public var value: LongitudeType = LongitudeType()
+    }
+    public var minlon:MinLongitude = MinLongitude()
+    
+    public struct MaxLatitude : XMLAttributed {
+        public static var attributeName: String = "maxlat"
+        public var value: LatitudeType = LatitudeType()
+    }
+    public var maxlat:MaxLatitude = MaxLatitude()
+    
+    public struct MaxLongitude : XMLAttributed {
+        public static var attributeName: String = "maxlon"
+        public var value: LongitudeType = LongitudeType()
+    }
+    public var maxlon:MaxLongitude = MaxLongitude()
 }

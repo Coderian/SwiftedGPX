@@ -30,7 +30,7 @@ public class Route : HasXMLElementValue {
             }
             self.parent?.childs.append(self)
             switch parent {
-            case let v as Gpx: v.value.rte = self
+            case let v as Gpx: v.value.rte.append(self)
             default: break
             }
         }
@@ -39,7 +39,7 @@ public class Route : HasXMLElementValue {
     public var attributes:[String:String] = [:]
     public var value: RteType = RteType()
     public init(attributes:[String:String]){
-        // TODO:
+        self.attributes = attributes
     }
     
 }

@@ -31,7 +31,14 @@ import Foundation
 //  </xsd:complexType>
 
 public class EmailType {
-    // TODO: attribute
-    var id:String = String()
-    var domain:String = String()
+    public struct ID : XMLAttributed {
+        public static var attributeName: String = "id"
+        public var value: String = String()
+    }
+    public var id:ID = ID()
+    public struct Domain : XMLAttributed {
+        public static var attributeName: String = "domain"
+        public var value: String = String()
+    }
+    public var domain:Domain = Domain()
 }

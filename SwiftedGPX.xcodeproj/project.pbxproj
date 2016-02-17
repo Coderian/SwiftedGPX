@@ -19,8 +19,8 @@
 		725BDD1A1C72BDFA00E18696 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD191C72BDFA00E18696 /* Person.swift */; };
 		725BDD1E1C72BE3C00E18696 /* PtSeg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD1D1C72BE3C00E18696 /* PtSeg.swift */; };
 		725BDD201C72BE4D00E18696 /* Bounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD1F1C72BE4D00E18696 /* Bounds.swift */; };
-		725BDD221C72BE6C00E18696 /* Latitude.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD211C72BE6C00E18696 /* Latitude.swift */; };
-		725BDD241C72BE8100E18696 /* Longitude.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD231C72BE8100E18696 /* Longitude.swift */; };
+		725BDD221C72BE6C00E18696 /* LatitudeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD211C72BE6C00E18696 /* LatitudeType.swift */; };
+		725BDD241C72BE8100E18696 /* LongitudeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD231C72BE8100E18696 /* LongitudeType.swift */; };
 		725BDD261C72BEB000E18696 /* MagneticVariation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD251C72BEB000E18696 /* MagneticVariation.swift */; };
 		725BDD281C72BEDC00E18696 /* Fix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD271C72BEDC00E18696 /* Fix.swift */; };
 		725BDD2A1C72BEFC00E18696 /* DGPSStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD291C72BEFC00E18696 /* DGPSStation.swift */; };
@@ -50,6 +50,7 @@
 		727392731C68A87F00F169BF /* XMLElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727392701C68A87F00F169BF /* XMLElement.swift */; };
 		727392761C68A93A00F169BF /* gpx.xsd in Resources */ = {isa = PBXBuildFile; fileRef = 727392751C68A93A00F169BF /* gpx.xsd */; };
 		727392781C68A9BC00F169BF /* GPX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727392771C68A9BC00F169BF /* GPX.swift */; };
+		72DE4A471C73FFA80007F51B /* testdata in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4A461C73FFA80007F51B /* testdata */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,8 +76,8 @@
 		725BDD191C72BDFA00E18696 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		725BDD1D1C72BE3C00E18696 /* PtSeg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PtSeg.swift; sourceTree = "<group>"; };
 		725BDD1F1C72BE4D00E18696 /* Bounds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bounds.swift; sourceTree = "<group>"; };
-		725BDD211C72BE6C00E18696 /* Latitude.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Latitude.swift; sourceTree = "<group>"; };
-		725BDD231C72BE8100E18696 /* Longitude.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Longitude.swift; sourceTree = "<group>"; };
+		725BDD211C72BE6C00E18696 /* LatitudeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatitudeType.swift; sourceTree = "<group>"; };
+		725BDD231C72BE8100E18696 /* LongitudeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LongitudeType.swift; sourceTree = "<group>"; };
 		725BDD251C72BEB000E18696 /* MagneticVariation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagneticVariation.swift; sourceTree = "<group>"; };
 		725BDD271C72BEDC00E18696 /* Fix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fix.swift; sourceTree = "<group>"; };
 		725BDD291C72BEFC00E18696 /* DGPSStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DGPSStation.swift; sourceTree = "<group>"; };
@@ -109,6 +110,7 @@
 		727392701C68A87F00F169BF /* XMLElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLElement.swift; sourceTree = "<group>"; };
 		727392751C68A93A00F169BF /* gpx.xsd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = gpx.xsd; sourceTree = "<group>"; };
 		727392771C68A9BC00F169BF /* GPX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPX.swift; sourceTree = "<group>"; };
+		72DE4A461C73FFA80007F51B /* testdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = testdata; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 		727392621C68A82400F169BF /* SwiftedGPXTests */ = {
 			isa = PBXGroup;
 			children = (
+				72DE4A461C73FFA80007F51B /* testdata */,
 				727392631C68A82400F169BF /* SwiftedGPXTests.swift */,
 				727392651C68A82400F169BF /* Info.plist */,
 			);
@@ -187,8 +190,8 @@
 				725BDD191C72BDFA00E18696 /* Person.swift */,
 				725BDD1D1C72BE3C00E18696 /* PtSeg.swift */,
 				725BDD1F1C72BE4D00E18696 /* Bounds.swift */,
-				725BDD211C72BE6C00E18696 /* Latitude.swift */,
-				725BDD231C72BE8100E18696 /* Longitude.swift */,
+				725BDD211C72BE6C00E18696 /* LatitudeType.swift */,
+				725BDD231C72BE8100E18696 /* LongitudeType.swift */,
 				725BDD251C72BEB000E18696 /* MagneticVariation.swift */,
 				725BDD271C72BEDC00E18696 /* Fix.swift */,
 				725BDD291C72BEFC00E18696 /* DGPSStation.swift */,
@@ -313,6 +316,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72DE4A471C73FFA80007F51B /* testdata in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,8 +332,8 @@
 				725BDD201C72BE4D00E18696 /* Bounds.swift in Sources */,
 				725BDD121C72BD2200E18696 /* TrackSegment.swift in Sources */,
 				725BDD261C72BEB000E18696 /* MagneticVariation.swift in Sources */,
-				725BDD221C72BE6C00E18696 /* Latitude.swift in Sources */,
-				725BDD241C72BE8100E18696 /* Longitude.swift in Sources */,
+				725BDD221C72BE6C00E18696 /* LatitudeType.swift in Sources */,
+				725BDD241C72BE8100E18696 /* LongitudeType.swift in Sources */,
 				725BDD401C72F6DA00E18696 /* Type.swift in Sources */,
 				725BDD101C72BCD400E18696 /* Extensions.swift in Sources */,
 				725BDD3A1C72F67400E18696 /* Comment.swift in Sources */,

@@ -26,7 +26,9 @@ public class Gpx : HasXMLElementValue {
     public var attributes:[String:String] = [:]
     public var value : GPXType = GPXType()
     public init(attributes:[String:String]){
-        // TODO:
+        self.attributes = attributes
+        self.value.version = GPXType.Version(value: attributes[GPXType.Version.attributeName]!)
+        self.value.creator = GPXType.Creator(value: attributes[GPXType.Creator.attributeName]!)
     }
     
 }
@@ -98,9 +100,19 @@ public class Gpx : HasXMLElementValue {
 ///   </xsd:complexType>
 public class GPXType {
     public var metadata:Metadata?
-    public var wpt:WayPoint?
-    public var rte:Route?
-    public var trk:Track?
+    public var wpt:[WayPoint] = []
+    public var rte:[Route] = []
+    public var trk:[Track] = []
     public var extensions:Extensions?
-    // TODO: attributes
+
+    public struct Version : XMLAttributed {
+        public static var attributeName: String = "version"
+        public var value: String = String()
+    }
+    public var version:Version?
+    public struct Creator : XMLAttributed {
+        public static var attributeName: String = "creator"
+        public var value: String = String()
+    }
+    public var creator:Creator?
 }
