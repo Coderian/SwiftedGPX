@@ -10,6 +10,7 @@ import XCTest
 @testable import SwiftedGPX
 
 class SwiftedGPXTests: XCTestCase {
+    let bundle = NSBundle(forClass: SwiftedGPXTests.self)
     
     override func setUp() {
         super.setUp()
@@ -21,9 +22,64 @@ class SwiftedGPXTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func testGpxfromGarminColorado() {
+        let gpxXmlUrl = bundle.URLForResource("20120326", withExtension: "gpx")
+        let gpxParser = KMLNSXMLParser(Url: gpxXmlUrl!)
+        let gpx = gpxParser.parse()
+        XCTAssertNotNil(gpx, "gpx is nil")
+        let childs = gpx?.allChilds()
+        print(childs)
+        let root = gpx?.root
+        XCTAssert(root is Gpx, "root is nil")
+        let rootfromChild = gpx?.childs[0].root
+        XCTAssert(rootfromChild is Gpx, "first child is nil")
+        
+    }
+    
+    func testGpxfromMyTracks() {
+        let gpxXmlUrl = bundle.URLForResource("2012_03_21 15_41", withExtension: "gpx")
+        let gpxParser = KMLNSXMLParser(Url: gpxXmlUrl!)
+        let gpx = gpxParser.parse()
+        XCTAssertNotNil(gpx, "gpx is nil")
+        let childs = gpx?.allChilds()
+        print(childs)
+        let root = gpx?.root
+        XCTAssert(root is Gpx, "root is nil")
+        let rootfromChild = gpx?.childs[0].root
+        XCTAssert(rootfromChild is Gpx, "first child is nil")
+        
+    }
+    
+    func testGpxfromeTrex30JWayPoint() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let gpxXmlUrl = bundle.URLForResource("Point_12-05-13", withExtension: "gpx")
+        let gpxParser = KMLNSXMLParser(Url: gpxXmlUrl!)
+        let gpx = gpxParser.parse()
+        XCTAssertNotNil(gpx, "gpx is nil")
+        let childs = gpx?.allChilds()
+        print(childs)
+        let root = gpx?.root
+        XCTAssert(root is Gpx, "root is nil")
+        let rootfromChild = gpx?.childs[0].root
+        XCTAssert(rootfromChild is Gpx, "first child is nil")
+        
+    }
+    
+    func testGpxfromeTrex30JTrack() {
+        // This is an example of a functional test case.
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let gpxXmlUrl = bundle.URLForResource("軌跡_12-04-15 095638 PM", withExtension: "gpx")
+        let gpxParser = KMLNSXMLParser(Url: gpxXmlUrl!)
+        let gpx = gpxParser.parse()
+        XCTAssertNotNil(gpx, "gpx is nil")
+        let childs = gpx?.allChilds()
+        print(childs)
+        let root = gpx?.root
+        XCTAssert(root is Gpx, "root is nil")
+        let rootfromChild = gpx?.childs[0].root
+        XCTAssert(rootfromChild is Gpx, "first child is nil")
+        
     }
     
     func testPerformanceExample() {

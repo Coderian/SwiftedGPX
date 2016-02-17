@@ -40,6 +40,7 @@ public class DGPSId : HasXMLElementSimpleValue {
             switch parent {
             case let v as WayPoint: v.value.dgpsid = self
             case let v as TrackPoint: v.value.dgpsid = self
+            case let v as RoutePoint: v.value.dgpsid = self
             default: break
             }
         }
@@ -48,8 +49,7 @@ public class DGPSId : HasXMLElementSimpleValue {
     public var attributes:[String:String] = [:]
     public var value: DGPSStationType?
     public func makeRelation(contents:String, parent:HasXMLElementName) -> HasXMLElementName{
-        // TODO:
-//        self.value = contents
+        self.value = DGPSStationType(value: Int(contents)!)
         self.parent = parent
         return parent
     }

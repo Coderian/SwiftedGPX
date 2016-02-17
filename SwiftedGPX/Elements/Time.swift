@@ -22,7 +22,7 @@ public class Time : HasXMLElementSimpleValue {
         willSet {
             if newValue == nil {
                 let index = self.parent?.childs.indexOf({
-                    if let v = $0 as? Name {
+                    if let v = $0 as? Time {
                         return v === self
                     }
                     return false
@@ -41,6 +41,7 @@ public class Time : HasXMLElementSimpleValue {
             case let v as Metadata: v.value.time = self
             case let v as WayPoint: v.value.time = self
             case let v as TrackPoint: v.value.time = self
+            case let v as RoutePoint: v.value.time = self
             default: break
             }
         }

@@ -1,31 +1,15 @@
 //
-//  Number.swift
+//  License.swift
 //  SwiftedGPX
 //
-//  Created by 佐々木 均 on 2016/02/16.
+//  Created by 佐々木 均 on 2016/02/17.
 //  Copyright © 2016年 S-Parts. All rights reserved.
 //
 
 import Foundation
 
-//      <xsd:element name="number"		type="xsd:nonNegativeInteger"	minOccurs="0">
-//        <xsd:annotation>
-//          <xsd:documentation>
-//            GPS route number.
-//          </xsd:documentation>
-//        </xsd:annotation>
-//      </xsd:element>
-
-//      <xsd:element name="number"		type="xsd:nonNegativeInteger"	minOccurs="0">
-//        <xsd:annotation>
-//          <xsd:documentation>
-//            GPS track number.
-//          </xsd:documentation>
-//        </xsd:annotation>
-//      </xsd:element>
-
-public class Number : HasXMLElementSimpleValue {
-    public static var elementName: String = "number"
+public class License : HasXMLElementSimpleValue {
+    public static var elementName: String = "license"
     public var parent:HasXMLElementName? {
         willSet {
             if newValue == nil {
@@ -46,17 +30,16 @@ public class Number : HasXMLElementSimpleValue {
             }
             self.parent?.childs.append(self)
             switch parent {
-            case let v as Route: v.value.number = self
-            case let v as Track: v.value.number = self
+            case let v as Copyright: v.value.license = self
             default: break
             }
         }
     }
     public var childs:[HasXMLElementName] = []
     public var attributes:[String:String] = [:]
-    public var value: UInt?
+    public var value: String?
     public func makeRelation(contents:String, parent:HasXMLElementName) -> HasXMLElementName{
-        self.value = UInt(contents)
+        self.value = contents
         self.parent = parent
         return parent
     }

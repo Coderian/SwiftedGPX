@@ -85,8 +85,8 @@ public class Copyright : HasXMLElementValue {
 //  </xsd:complexType>
 
 public class CopyrightType {
-    public var year:NSDate?
-    public var license:String = String()
+    public var year:Year?
+    public var license:License?
     
     public struct Author : XMLAttributed {
         public static var attributeName: String = "author"

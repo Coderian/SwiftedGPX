@@ -40,6 +40,7 @@ public class Comment : HasXMLElementSimpleValue {
             switch parent {
             case let v as WayPoint: v.value.cmt = self
             case let v as Route: v.value.cmt = self
+            case let v as RoutePoint: v.value.cmt = self
             case let v as Track: v.value.cmt = self
             case let v as TrackPoint: v.value.cmt = self
             default: break
@@ -48,10 +49,9 @@ public class Comment : HasXMLElementSimpleValue {
     }
     public var childs:[HasXMLElementName] = []
     public var attributes:[String:String] = [:]
-    public var value: Double?
+    public var value: String?
     public func makeRelation(contents:String, parent:HasXMLElementName) -> HasXMLElementName{
-        // TODO:
-//        self.value = contents
+        self.value = contents
         self.parent = parent
         return parent
     }

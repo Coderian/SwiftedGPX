@@ -109,6 +109,8 @@ public class TrackPoint : HasXMLElementValue {
     public var value:WptType = WptType()
     public init(attributes:[String:String]){
         self.attributes = attributes
+        self.value.lat.value.value = Double(attributes[WptType.Latitude.attributeName]!)!
+        self.value.lon.value.value = Double(attributes[WptType.Longitude.attributeName]!)!        
     }
     
 }

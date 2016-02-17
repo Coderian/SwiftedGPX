@@ -47,6 +47,7 @@ public class Link : HasXMLElementValue {
     public var value:LinkType = LinkType()
     public init(attributes:[String:String]){
         self.attributes = attributes
+        self.value.href = LinkType.Href(value: attributes[LinkType.Href.attributeName]!)
     }
     
 }

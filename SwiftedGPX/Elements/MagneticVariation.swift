@@ -15,7 +15,7 @@ import Foundation
 //          </xsd:documentation>
 //        </xsd:annotation>
 //      </xsd:element>
-public class MagneticVariation : HasXMLElementValue {
+public class MagneticVariation : HasXMLElementSimpleValue {
     public static var elementName: String = "magvar"
     public var parent:HasXMLElementName? {
         willSet {
@@ -39,6 +39,7 @@ public class MagneticVariation : HasXMLElementValue {
             switch parent {
             case let v as WayPoint: v.value.magvar = self
             case let v as TrackPoint: v.value.magvar = self
+            case let v as RoutePoint: v.value.magvar = self
             default: break
             }
         }
@@ -49,7 +50,11 @@ public class MagneticVariation : HasXMLElementValue {
     public init(attributes:[String:String]){
         self.attributes = attributes
     }
-    
+    public func makeRelation(contents:String, parent:HasXMLElementName) -> HasXMLElementName{
+        self.value = DegreesType(value: Double(contents)!)
+        self.parent = parent
+        return parent
+    }
 }
 
 
@@ -65,6 +70,6 @@ public class MagneticVariation : HasXMLElementValue {
 //    </xsd:restriction>
 //  </xsd:simpleType>
 
-public class DegreesType {
+public struct DegreesType {
     public var value:Double = 0.0
 }

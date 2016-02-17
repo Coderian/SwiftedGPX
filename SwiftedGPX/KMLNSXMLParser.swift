@@ -31,9 +31,43 @@ class KMLNSXMLParser : NSObject,NSXMLParserDelegate{
     }
     
     internal func createXMLElement(stack:Stack<HasXMLElementName>, elementName:String,attributes:[String:String]) -> HasXMLElementName? {
-        switch elementName.lowercaseString {
-            // SimpleType
-        default:                                                return nil
+        switch elementName {
+        case Gpx.elementName:               return Gpx(attributes: attributes)
+        case Metadata.elementName:          return Metadata(attributes: attributes)
+        case WayPoint.elementName:          return WayPoint(attributes: attributes)
+        case Route.elementName:             return Route(attributes: attributes)
+        case Track.elementName:             return Track(attributes: attributes)
+        case Extensions.elementName:        return Extensions(attributes: attributes)
+        case TrackSegment.elementName:      return TrackSegment(attributes: attributes)
+        case TrackPoint.elementName:        return TrackPoint(attributes: attributes)
+        case Copyright.elementName:         return Copyright(attributes: attributes)
+        case Link.elementName:              return Link(attributes: attributes)
+        case Author.elementName:            return Author(attributes: attributes)
+        case Bounds.elementName:            return Bounds(attributes: attributes)
+        case MagneticVariation.elementName: return MagneticVariation(attributes: attributes)
+        case Fix.elementName:               return Fix(attributes: attributes)
+        case Name.elementName:              return Name(attributes: attributes)
+        case Description.elementName:       return Description(attributes: attributes)
+        case Time.elementName:              return Time(attributes: attributes)
+        case Keywords.elementName:          return Keywords(attributes: attributes)
+        case Elevation.elementName:         return Elevation(attributes: attributes)
+        case GeoIdHeight.elementName:       return GeoIdHeight(attributes: attributes)
+        case Comment.elementName:           return Comment(attributes: attributes)
+        case Source.elementName:            return Source(attributes: attributes)
+        case Symbol.elementName:            return Symbol(attributes: attributes)
+        case Type.elementName:              return Type(attributes: attributes)
+        case Satellites.elementName:        return Satellites(attributes: attributes)
+        case HorizontalDOP.elementName:     return HorizontalDOP(attributes: attributes)
+        case VerticalDOP.elementName:       return VerticalDOP(attributes: attributes)
+        case PositionDOP.elementName:       return PositionDOP(attributes: attributes)
+        case AGeoFdGPSData.elementName:     return AGeoFdGPSData(attributes: attributes)
+        case DGPSId.elementName:            return DGPSId(attributes: attributes)
+        case Number.elementName:            return Number(attributes: attributes)
+        case RoutePoint.elementName:        return RoutePoint(attributes: attributes)
+        case Year.elementName:              return Year(attributes: attributes)
+        case License.elementName:           return License(attributes: attributes)
+        case Text.elementName:              return Text(attributes: attributes)
+        default:                            return nil
         }
     }
     
@@ -41,6 +75,9 @@ class KMLNSXMLParser : NSObject,NSXMLParserDelegate{
     
     func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         let element = createXMLElement(stack,elementName: elementName,attributes: attributeDict)
+        if element == nil {
+            return
+        }
         stack.push(element!)
         debugPrint("OnStart pushd=\(element)")
         isCallEnded = false
@@ -48,11 +85,20 @@ class KMLNSXMLParser : NSObject,NSXMLParserDelegate{
     }
     
     func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-        if elementName.uppercaseString == "gpx" {
+        if elementName == Gpx.elementName {
             gpx = stack.pop() as? Gpx
         }
         else{
-            debugPrint("OnEnd poped=\(stack.pop())")
+            var current = stack.pop()
+            debugPrint("OnEnd poped=\(current) == \(elementName)")
+            if current.dynamicType.elementName == elementName {
+                let parent = stack.pop()
+                current.parent = parent
+                stack.push(parent)
+            }
+            else{
+                stack.push(current)
+            }
         }
         isCallEnded = true
 
@@ -72,23 +118,36 @@ class KMLNSXMLParser : NSObject,NSXMLParserDelegate{
         }
         
         self.previewStackCount = stack.count
-        var current = stack.pop()
+        let current = stack.pop()
         debugPrint("poped=\(current) contents=\(contents)")
         debugPrint("self.contents=\(self.contents)")
         
         switch current {
-
-        default:
-            if stack.count > 0 {
-                let parent = stack.pop()
-                current.parent = parent
-                stack.push(parent)
-            }
+        case let v as Year:          stack.push(v.makeRelation( self.contents, parent: stack.pop()))
+        case let v as License:       stack.push(v.makeRelation( self.contents, parent: stack.pop()))
+        case let v as Text:          stack.push(v.makeRelation( self.contents, parent: stack.pop()))
+        case let v as Name:          stack.push(v.makeRelation( self.contents, parent: stack.pop()))
+        case let v as Description:   stack.push(v.makeRelation( self.contents, parent: stack.pop()))
+        case let v as Time:          stack.push(v.makeRelation( self.contents, parent: stack.pop()))
+        case let v as GeoIdHeight:   stack.push(v.makeRelation( self.contents, parent: stack.pop()))
+        case let v as Comment:       stack.push(v.makeRelation( self.contents, parent: stack.pop()))
+        case let v as Source:        stack.push(v.makeRelation( self.contents, parent: stack.pop()))
+        case let v as Symbol:        stack.push(v.makeRelation( self.contents, parent: stack.pop()))
+        case let v as Type:          stack.push(v.makeRelation( self.contents, parent: stack.pop()))
+        case let v as Satellites:    stack.push(v.makeRelation( self.contents, parent: stack.pop()))
+        case let v as HorizontalDOP: stack.push(v.makeRelation( self.contents, parent: stack.pop()))
+        case let v as VerticalDOP:   stack.push(v.makeRelation( self.contents, parent: stack.pop()))
+        case let v as PositionDOP:   stack.push(v.makeRelation( self.contents, parent: stack.pop()))
+        case let v as AGeoFdGPSData: stack.push(v.makeRelation( self.contents, parent: stack.pop()))
+        case let v as DGPSId:        stack.push(v.makeRelation( self.contents, parent: stack.pop()))
+        case let v as Number:        stack.push(v.makeRelation( self.contents, parent: stack.pop()))
+        case let v as Elevation:     stack.push(v.makeRelation( self.contents, parent: stack.pop()))
+        default:    break
         }
         
         stack.push(current)
         
-        print(stack)
+        debugPrint(stack)
     }
     
 }

@@ -40,6 +40,7 @@ public class Satellites : HasXMLElementSimpleValue {
             switch parent {
             case let v as WayPoint: v.value.sat = self
             case let v as TrackPoint: v.value.sat = self
+            case let v as RoutePoint: v.value.sat = self
             default: break
             }
         }
@@ -48,8 +49,7 @@ public class Satellites : HasXMLElementSimpleValue {
     public var attributes:[String:String] = [:]
     public var value: UInt?
     public func makeRelation(contents:String, parent:HasXMLElementName) -> HasXMLElementName{
-        // TODO:
-//        self.value = contents
+        self.value = UInt(contents)
         self.parent = parent
         return parent
     }

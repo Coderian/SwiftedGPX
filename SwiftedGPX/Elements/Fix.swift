@@ -39,6 +39,7 @@ public class Fix : HasXMLElementValue {
             switch parent {
             case let v as WayPoint: v.value.fix = self
             case let v as TrackPoint: v.value.fix = self
+            case let v as RoutePoint: v.value.fix = self
             default: break
             }
         }

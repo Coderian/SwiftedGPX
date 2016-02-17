@@ -40,6 +40,7 @@ public class HorizontalDOP : HasXMLElementSimpleValue {
             switch parent {
             case let v as WayPoint: v.value.hdop = self
             case let v as TrackPoint: v.value.hdop = self
+            case let v as RoutePoint: v.value.hdop = self
             default: break
             }
         }
@@ -48,8 +49,7 @@ public class HorizontalDOP : HasXMLElementSimpleValue {
     public var attributes:[String:String] = [:]
     public var value: Double?
     public func makeRelation(contents:String, parent:HasXMLElementName) -> HasXMLElementName{
-        // TODO:
-//        self.value = contents
+        self.value = Double(contents)
         self.parent = parent
         return parent
     }

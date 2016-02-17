@@ -15,15 +15,15 @@
 		725BDD121C72BD2200E18696 /* TrackSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD111C72BD2200E18696 /* TrackSegment.swift */; };
 		725BDD141C72BD8C00E18696 /* Copyright.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD131C72BD8C00E18696 /* Copyright.swift */; };
 		725BDD161C72BDAA00E18696 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD151C72BDAA00E18696 /* Link.swift */; };
-		725BDD181C72BDC000E18696 /* Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD171C72BDC000E18696 /* Email.swift */; };
-		725BDD1A1C72BDFA00E18696 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD191C72BDFA00E18696 /* Person.swift */; };
-		725BDD1E1C72BE3C00E18696 /* PtSeg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD1D1C72BE3C00E18696 /* PtSeg.swift */; };
+		725BDD181C72BDC000E18696 /* EmailType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD171C72BDC000E18696 /* EmailType.swift */; };
+		725BDD1A1C72BDFA00E18696 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD191C72BDFA00E18696 /* Author.swift */; };
+		725BDD1E1C72BE3C00E18696 /* PtSegType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD1D1C72BE3C00E18696 /* PtSegType.swift */; };
 		725BDD201C72BE4D00E18696 /* Bounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD1F1C72BE4D00E18696 /* Bounds.swift */; };
 		725BDD221C72BE6C00E18696 /* LatitudeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD211C72BE6C00E18696 /* LatitudeType.swift */; };
 		725BDD241C72BE8100E18696 /* LongitudeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD231C72BE8100E18696 /* LongitudeType.swift */; };
 		725BDD261C72BEB000E18696 /* MagneticVariation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD251C72BEB000E18696 /* MagneticVariation.swift */; };
 		725BDD281C72BEDC00E18696 /* Fix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD271C72BEDC00E18696 /* Fix.swift */; };
-		725BDD2A1C72BEFC00E18696 /* DGPSStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD291C72BEFC00E18696 /* DGPSStation.swift */; };
+		725BDD2A1C72BEFC00E18696 /* DGPSStationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD291C72BEFC00E18696 /* DGPSStationType.swift */; };
 		725BDD2C1C72EFED00E18696 /* Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD2B1C72EFED00E18696 /* Name.swift */; };
 		725BDD2E1C72F12100E18696 /* Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD2D1C72F12100E18696 /* Description.swift */; };
 		725BDD301C72F2FA00E18696 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD2F1C72F2FA00E18696 /* Time.swift */; };
@@ -42,7 +42,6 @@
 		725BDD4C1C72F7CC00E18696 /* DGPSId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD4B1C72F7CC00E18696 /* DGPSId.swift */; };
 		725BDD4E1C72F80100E18696 /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD4D1C72F80100E18696 /* Number.swift */; };
 		725BDD501C72FCBF00E18696 /* RoutePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD4F1C72FCBF00E18696 /* RoutePoint.swift */; };
-		727392581C68A82400F169BF /* SwiftedGPX.h in Headers */ = {isa = PBXBuildFile; fileRef = 727392571C68A82400F169BF /* SwiftedGPX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7273925F1C68A82400F169BF /* SwiftedGPX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 727392541C68A82400F169BF /* SwiftedGPX.framework */; };
 		727392641C68A82400F169BF /* SwiftedGPXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727392631C68A82400F169BF /* SwiftedGPXTests.swift */; };
 		727392711C68A87F00F169BF /* KMLNSXMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7273926E1C68A87F00F169BF /* KMLNSXMLParser.swift */; };
@@ -50,7 +49,44 @@
 		727392731C68A87F00F169BF /* XMLElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727392701C68A87F00F169BF /* XMLElement.swift */; };
 		727392761C68A93A00F169BF /* gpx.xsd in Resources */ = {isa = PBXBuildFile; fileRef = 727392751C68A93A00F169BF /* gpx.xsd */; };
 		727392781C68A9BC00F169BF /* GPX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727392771C68A9BC00F169BF /* GPX.swift */; };
-		72DE4A471C73FFA80007F51B /* testdata in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4A461C73FFA80007F51B /* testdata */; };
+		72DE4A491C7415370007F51B /* Year.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE4A481C7415370007F51B /* Year.swift */; };
+		72DE4A4B1C74154B0007F51B /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE4A4A1C74154B0007F51B /* License.swift */; };
+		72DE4ABA1C741A610007F51B /* 2012_03_21 15_41.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4A961C741A610007F51B /* 2012_03_21 15_41.gpx */; };
+		72DE4ABB1C741A610007F51B /* 2012_03_21 18_45(1).gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4A971C741A610007F51B /* 2012_03_21 18_45(1).gpx */; };
+		72DE4ABC1C741A610007F51B /* 2012_03_23 8_29.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4A981C741A610007F51B /* 2012_03_23 8_29.gpx */; };
+		72DE4ABD1C741A610007F51B /* 2012_03_23 21_36.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4A991C741A610007F51B /* 2012_03_23 21_36.gpx */; };
+		72DE4ABE1C741A610007F51B /* 20120326.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4A9A1C741A610007F51B /* 20120326.gpx */; };
+		72DE4ABF1C741A610007F51B /* 20120327.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4A9B1C741A610007F51B /* 20120327.gpx */; };
+		72DE4AC01C741A610007F51B /* 20120328.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4A9C1C741A610007F51B /* 20120328.gpx */; };
+		72DE4AC11C741A610007F51B /* 20120329.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4A9D1C741A610007F51B /* 20120329.gpx */; };
+		72DE4AC21C741A610007F51B /* 20120330.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4A9E1C741A610007F51B /* 20120330.gpx */; };
+		72DE4AC31C741A610007F51B /* 20120331.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4A9F1C741A610007F51B /* 20120331.gpx */; };
+		72DE4AC41C741A610007F51B /* 20120402.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4AA01C741A610007F51B /* 20120402.gpx */; };
+		72DE4AC51C741A610007F51B /* 20120409.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4AA11C741A610007F51B /* 20120409.gpx */; };
+		72DE4AC61C741A610007F51B /* 20120415.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4AA21C741A610007F51B /* 20120415.gpx */; };
+		72DE4AC71C741A610007F51B /* 20120513.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4AA31C741A610007F51B /* 20120513.gpx */; };
+		72DE4AC81C741A610007F51B /* 20120516.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4AA41C741A610007F51B /* 20120516.gpx */; };
+		72DE4AC91C741A610007F51B /* 20120517.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4AA51C741A610007F51B /* 20120517.gpx */; };
+		72DE4ACA1C741A610007F51B /* 20120518.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4AA61C741A610007F51B /* 20120518.gpx */; };
+		72DE4ACB1C741A610007F51B /* 20120519.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4AA71C741A610007F51B /* 20120519.gpx */; };
+		72DE4ACC1C741A610007F51B /* 20120520.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4AA81C741A610007F51B /* 20120520.gpx */; };
+		72DE4ACD1C741A610007F51B /* 20120522.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4AA91C741A610007F51B /* 20120522.gpx */; };
+		72DE4ACE1C741A610007F51B /* 20120523.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4AAA1C741A610007F51B /* 20120523.gpx */; };
+		72DE4ACF1C741A610007F51B /* 20120524.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4AAB1C741A610007F51B /* 20120524.gpx */; };
+		72DE4AD01C741A610007F51B /* 20120525.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4AAC1C741A610007F51B /* 20120525.gpx */; };
+		72DE4AD11C741A610007F51B /* 20120526.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4AAD1C741A610007F51B /* 20120526.gpx */; };
+		72DE4AD21C741A610007F51B /* 20120528.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4AAE1C741A610007F51B /* 20120528.gpx */; };
+		72DE4AD31C741A610007F51B /* 20120617.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4AAF1C741A610007F51B /* 20120617.gpx */; };
+		72DE4AD41C741A610007F51B /* 20120618.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4AB01C741A610007F51B /* 20120618.gpx */; };
+		72DE4AD51C741A610007F51B /* 20120702.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4AB11C741A610007F51B /* 20120702.gpx */; };
+		72DE4AD61C741A610007F51B /* 20120708.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4AB21C741A610007F51B /* 20120708.gpx */; };
+		72DE4AD71C741A610007F51B /* 20120715.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4AB31C741A610007F51B /* 20120715.gpx */; };
+		72DE4AD81C741A610007F51B /* 20120716.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4AB41C741A610007F51B /* 20120716.gpx */; };
+		72DE4AD91C741A610007F51B /* 20120826.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4AB51C741A610007F51B /* 20120826.gpx */; };
+		72DE4ADA1C741A610007F51B /* 20120901.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4AB61C741A610007F51B /* 20120901.gpx */; };
+		72DE4ADB1C741A610007F51B /* Point_12-05-13.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4AB71C741A610007F51B /* Point_12-05-13.gpx */; };
+		72DE4ADC1C741A610007F51B /* 軌跡_12-04-15 095638 PM.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4AB81C741A610007F51B /* 軌跡_12-04-15 095638 PM.gpx */; };
+		72DE4ADD1C741A610007F51B /* 軌跡_12-05-13 051432 PM.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4AB91C741A610007F51B /* 軌跡_12-05-13 051432 PM.gpx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,15 +108,15 @@
 		725BDD111C72BD2200E18696 /* TrackSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackSegment.swift; sourceTree = "<group>"; };
 		725BDD131C72BD8C00E18696 /* Copyright.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Copyright.swift; sourceTree = "<group>"; };
 		725BDD151C72BDAA00E18696 /* Link.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
-		725BDD171C72BDC000E18696 /* Email.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Email.swift; sourceTree = "<group>"; };
-		725BDD191C72BDFA00E18696 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
-		725BDD1D1C72BE3C00E18696 /* PtSeg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PtSeg.swift; sourceTree = "<group>"; };
+		725BDD171C72BDC000E18696 /* EmailType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailType.swift; sourceTree = "<group>"; };
+		725BDD191C72BDFA00E18696 /* Author.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
+		725BDD1D1C72BE3C00E18696 /* PtSegType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PtSegType.swift; sourceTree = "<group>"; };
 		725BDD1F1C72BE4D00E18696 /* Bounds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bounds.swift; sourceTree = "<group>"; };
 		725BDD211C72BE6C00E18696 /* LatitudeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatitudeType.swift; sourceTree = "<group>"; };
 		725BDD231C72BE8100E18696 /* LongitudeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LongitudeType.swift; sourceTree = "<group>"; };
 		725BDD251C72BEB000E18696 /* MagneticVariation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagneticVariation.swift; sourceTree = "<group>"; };
 		725BDD271C72BEDC00E18696 /* Fix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fix.swift; sourceTree = "<group>"; };
-		725BDD291C72BEFC00E18696 /* DGPSStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DGPSStation.swift; sourceTree = "<group>"; };
+		725BDD291C72BEFC00E18696 /* DGPSStationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DGPSStationType.swift; sourceTree = "<group>"; };
 		725BDD2B1C72EFED00E18696 /* Name.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Name.swift; sourceTree = "<group>"; };
 		725BDD2D1C72F12100E18696 /* Description.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Description.swift; sourceTree = "<group>"; };
 		725BDD2F1C72F2FA00E18696 /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
@@ -100,7 +136,6 @@
 		725BDD4D1C72F80100E18696 /* Number.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Number.swift; sourceTree = "<group>"; };
 		725BDD4F1C72FCBF00E18696 /* RoutePoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutePoint.swift; sourceTree = "<group>"; };
 		727392541C68A82400F169BF /* SwiftedGPX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftedGPX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		727392571C68A82400F169BF /* SwiftedGPX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftedGPX.h; sourceTree = "<group>"; };
 		727392591C68A82400F169BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7273925E1C68A82400F169BF /* SwiftedGPXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftedGPXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		727392631C68A82400F169BF /* SwiftedGPXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftedGPXTests.swift; sourceTree = "<group>"; };
@@ -110,7 +145,44 @@
 		727392701C68A87F00F169BF /* XMLElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLElement.swift; sourceTree = "<group>"; };
 		727392751C68A93A00F169BF /* gpx.xsd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = gpx.xsd; sourceTree = "<group>"; };
 		727392771C68A9BC00F169BF /* GPX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPX.swift; sourceTree = "<group>"; };
-		72DE4A461C73FFA80007F51B /* testdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = testdata; sourceTree = "<group>"; };
+		72DE4A481C7415370007F51B /* Year.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Year.swift; sourceTree = "<group>"; };
+		72DE4A4A1C74154B0007F51B /* License.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
+		72DE4A961C741A610007F51B /* 2012_03_21 15_41.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "2012_03_21 15_41.gpx"; sourceTree = "<group>"; };
+		72DE4A971C741A610007F51B /* 2012_03_21 18_45(1).gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "2012_03_21 18_45(1).gpx"; sourceTree = "<group>"; };
+		72DE4A981C741A610007F51B /* 2012_03_23 8_29.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "2012_03_23 8_29.gpx"; sourceTree = "<group>"; };
+		72DE4A991C741A610007F51B /* 2012_03_23 21_36.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "2012_03_23 21_36.gpx"; sourceTree = "<group>"; };
+		72DE4A9A1C741A610007F51B /* 20120326.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 20120326.gpx; sourceTree = "<group>"; };
+		72DE4A9B1C741A610007F51B /* 20120327.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 20120327.gpx; sourceTree = "<group>"; };
+		72DE4A9C1C741A610007F51B /* 20120328.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 20120328.gpx; sourceTree = "<group>"; };
+		72DE4A9D1C741A610007F51B /* 20120329.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 20120329.gpx; sourceTree = "<group>"; };
+		72DE4A9E1C741A610007F51B /* 20120330.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 20120330.gpx; sourceTree = "<group>"; };
+		72DE4A9F1C741A610007F51B /* 20120331.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 20120331.gpx; sourceTree = "<group>"; };
+		72DE4AA01C741A610007F51B /* 20120402.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 20120402.gpx; sourceTree = "<group>"; };
+		72DE4AA11C741A610007F51B /* 20120409.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 20120409.gpx; sourceTree = "<group>"; };
+		72DE4AA21C741A610007F51B /* 20120415.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 20120415.gpx; sourceTree = "<group>"; };
+		72DE4AA31C741A610007F51B /* 20120513.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 20120513.gpx; sourceTree = "<group>"; };
+		72DE4AA41C741A610007F51B /* 20120516.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 20120516.gpx; sourceTree = "<group>"; };
+		72DE4AA51C741A610007F51B /* 20120517.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 20120517.gpx; sourceTree = "<group>"; };
+		72DE4AA61C741A610007F51B /* 20120518.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 20120518.gpx; sourceTree = "<group>"; };
+		72DE4AA71C741A610007F51B /* 20120519.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 20120519.gpx; sourceTree = "<group>"; };
+		72DE4AA81C741A610007F51B /* 20120520.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 20120520.gpx; sourceTree = "<group>"; };
+		72DE4AA91C741A610007F51B /* 20120522.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 20120522.gpx; sourceTree = "<group>"; };
+		72DE4AAA1C741A610007F51B /* 20120523.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 20120523.gpx; sourceTree = "<group>"; };
+		72DE4AAB1C741A610007F51B /* 20120524.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 20120524.gpx; sourceTree = "<group>"; };
+		72DE4AAC1C741A610007F51B /* 20120525.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 20120525.gpx; sourceTree = "<group>"; };
+		72DE4AAD1C741A610007F51B /* 20120526.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 20120526.gpx; sourceTree = "<group>"; };
+		72DE4AAE1C741A610007F51B /* 20120528.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 20120528.gpx; sourceTree = "<group>"; };
+		72DE4AAF1C741A610007F51B /* 20120617.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 20120617.gpx; sourceTree = "<group>"; };
+		72DE4AB01C741A610007F51B /* 20120618.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 20120618.gpx; sourceTree = "<group>"; };
+		72DE4AB11C741A610007F51B /* 20120702.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 20120702.gpx; sourceTree = "<group>"; };
+		72DE4AB21C741A610007F51B /* 20120708.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 20120708.gpx; sourceTree = "<group>"; };
+		72DE4AB31C741A610007F51B /* 20120715.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 20120715.gpx; sourceTree = "<group>"; };
+		72DE4AB41C741A610007F51B /* 20120716.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 20120716.gpx; sourceTree = "<group>"; };
+		72DE4AB51C741A610007F51B /* 20120826.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 20120826.gpx; sourceTree = "<group>"; };
+		72DE4AB61C741A610007F51B /* 20120901.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 20120901.gpx; sourceTree = "<group>"; };
+		72DE4AB71C741A610007F51B /* Point_12-05-13.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Point_12-05-13.gpx"; sourceTree = "<group>"; };
+		72DE4AB81C741A610007F51B /* 軌跡_12-04-15 095638 PM.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "軌跡_12-04-15 095638 PM.gpx"; sourceTree = "<group>"; };
+		72DE4AB91C741A610007F51B /* 軌跡_12-05-13 051432 PM.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "軌跡_12-05-13 051432 PM.gpx"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,7 +230,6 @@
 				7273926E1C68A87F00F169BF /* KMLNSXMLParser.swift */,
 				7273926F1C68A87F00F169BF /* Stack.swift */,
 				727392701C68A87F00F169BF /* XMLElement.swift */,
-				727392571C68A82400F169BF /* SwiftedGPX.h */,
 				727392591C68A82400F169BF /* Info.plist */,
 			);
 			path = SwiftedGPX;
@@ -167,7 +238,7 @@
 		727392621C68A82400F169BF /* SwiftedGPXTests */ = {
 			isa = PBXGroup;
 			children = (
-				72DE4A461C73FFA80007F51B /* testdata */,
+				72DE4A951C741A520007F51B /* testdata */,
 				727392631C68A82400F169BF /* SwiftedGPXTests.swift */,
 				727392651C68A82400F169BF /* Info.plist */,
 			);
@@ -186,15 +257,15 @@
 				725BDD111C72BD2200E18696 /* TrackSegment.swift */,
 				725BDD131C72BD8C00E18696 /* Copyright.swift */,
 				725BDD151C72BDAA00E18696 /* Link.swift */,
-				725BDD171C72BDC000E18696 /* Email.swift */,
-				725BDD191C72BDFA00E18696 /* Person.swift */,
-				725BDD1D1C72BE3C00E18696 /* PtSeg.swift */,
+				725BDD171C72BDC000E18696 /* EmailType.swift */,
+				725BDD191C72BDFA00E18696 /* Author.swift */,
+				725BDD1D1C72BE3C00E18696 /* PtSegType.swift */,
 				725BDD1F1C72BE4D00E18696 /* Bounds.swift */,
 				725BDD211C72BE6C00E18696 /* LatitudeType.swift */,
 				725BDD231C72BE8100E18696 /* LongitudeType.swift */,
 				725BDD251C72BEB000E18696 /* MagneticVariation.swift */,
 				725BDD271C72BEDC00E18696 /* Fix.swift */,
-				725BDD291C72BEFC00E18696 /* DGPSStation.swift */,
+				725BDD291C72BEFC00E18696 /* DGPSStationType.swift */,
 				725BDD2B1C72EFED00E18696 /* Name.swift */,
 				725BDD2D1C72F12100E18696 /* Description.swift */,
 				725BDD2F1C72F2FA00E18696 /* Time.swift */,
@@ -213,8 +284,53 @@
 				725BDD4B1C72F7CC00E18696 /* DGPSId.swift */,
 				725BDD4D1C72F80100E18696 /* Number.swift */,
 				725BDD4F1C72FCBF00E18696 /* RoutePoint.swift */,
+				72DE4A481C7415370007F51B /* Year.swift */,
+				72DE4A4A1C74154B0007F51B /* License.swift */,
 			);
 			path = Elements;
+			sourceTree = "<group>";
+		};
+		72DE4A951C741A520007F51B /* testdata */ = {
+			isa = PBXGroup;
+			children = (
+				72DE4A961C741A610007F51B /* 2012_03_21 15_41.gpx */,
+				72DE4A971C741A610007F51B /* 2012_03_21 18_45(1).gpx */,
+				72DE4A981C741A610007F51B /* 2012_03_23 8_29.gpx */,
+				72DE4A991C741A610007F51B /* 2012_03_23 21_36.gpx */,
+				72DE4A9A1C741A610007F51B /* 20120326.gpx */,
+				72DE4A9B1C741A610007F51B /* 20120327.gpx */,
+				72DE4A9C1C741A610007F51B /* 20120328.gpx */,
+				72DE4A9D1C741A610007F51B /* 20120329.gpx */,
+				72DE4A9E1C741A610007F51B /* 20120330.gpx */,
+				72DE4A9F1C741A610007F51B /* 20120331.gpx */,
+				72DE4AA01C741A610007F51B /* 20120402.gpx */,
+				72DE4AA11C741A610007F51B /* 20120409.gpx */,
+				72DE4AA21C741A610007F51B /* 20120415.gpx */,
+				72DE4AA31C741A610007F51B /* 20120513.gpx */,
+				72DE4AA41C741A610007F51B /* 20120516.gpx */,
+				72DE4AA51C741A610007F51B /* 20120517.gpx */,
+				72DE4AA61C741A610007F51B /* 20120518.gpx */,
+				72DE4AA71C741A610007F51B /* 20120519.gpx */,
+				72DE4AA81C741A610007F51B /* 20120520.gpx */,
+				72DE4AA91C741A610007F51B /* 20120522.gpx */,
+				72DE4AAA1C741A610007F51B /* 20120523.gpx */,
+				72DE4AAB1C741A610007F51B /* 20120524.gpx */,
+				72DE4AAC1C741A610007F51B /* 20120525.gpx */,
+				72DE4AAD1C741A610007F51B /* 20120526.gpx */,
+				72DE4AAE1C741A610007F51B /* 20120528.gpx */,
+				72DE4AAF1C741A610007F51B /* 20120617.gpx */,
+				72DE4AB01C741A610007F51B /* 20120618.gpx */,
+				72DE4AB11C741A610007F51B /* 20120702.gpx */,
+				72DE4AB21C741A610007F51B /* 20120708.gpx */,
+				72DE4AB31C741A610007F51B /* 20120715.gpx */,
+				72DE4AB41C741A610007F51B /* 20120716.gpx */,
+				72DE4AB51C741A610007F51B /* 20120826.gpx */,
+				72DE4AB61C741A610007F51B /* 20120901.gpx */,
+				72DE4AB71C741A610007F51B /* Point_12-05-13.gpx */,
+				72DE4AB81C741A610007F51B /* 軌跡_12-04-15 095638 PM.gpx */,
+				72DE4AB91C741A610007F51B /* 軌跡_12-05-13 051432 PM.gpx */,
+			);
+			name = testdata;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,7 +340,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				727392581C68A82400F169BF /* SwiftedGPX.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,7 +431,42 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72DE4A471C73FFA80007F51B /* testdata in Resources */,
+				72DE4ABE1C741A610007F51B /* 20120326.gpx in Resources */,
+				72DE4ABB1C741A610007F51B /* 2012_03_21 18_45(1).gpx in Resources */,
+				72DE4AC21C741A610007F51B /* 20120330.gpx in Resources */,
+				72DE4AD01C741A610007F51B /* 20120525.gpx in Resources */,
+				72DE4ABF1C741A610007F51B /* 20120327.gpx in Resources */,
+				72DE4AD71C741A610007F51B /* 20120715.gpx in Resources */,
+				72DE4ABC1C741A610007F51B /* 2012_03_23 8_29.gpx in Resources */,
+				72DE4AC81C741A610007F51B /* 20120516.gpx in Resources */,
+				72DE4AC31C741A610007F51B /* 20120331.gpx in Resources */,
+				72DE4ACA1C741A610007F51B /* 20120518.gpx in Resources */,
+				72DE4AC11C741A610007F51B /* 20120329.gpx in Resources */,
+				72DE4AC61C741A610007F51B /* 20120415.gpx in Resources */,
+				72DE4ADD1C741A610007F51B /* 軌跡_12-05-13 051432 PM.gpx in Resources */,
+				72DE4AD11C741A610007F51B /* 20120526.gpx in Resources */,
+				72DE4ABA1C741A610007F51B /* 2012_03_21 15_41.gpx in Resources */,
+				72DE4ACF1C741A610007F51B /* 20120524.gpx in Resources */,
+				72DE4AD31C741A610007F51B /* 20120617.gpx in Resources */,
+				72DE4AD61C741A610007F51B /* 20120708.gpx in Resources */,
+				72DE4ACC1C741A610007F51B /* 20120520.gpx in Resources */,
+				72DE4AD21C741A610007F51B /* 20120528.gpx in Resources */,
+				72DE4ACB1C741A610007F51B /* 20120519.gpx in Resources */,
+				72DE4AC01C741A610007F51B /* 20120328.gpx in Resources */,
+				72DE4AD51C741A610007F51B /* 20120702.gpx in Resources */,
+				72DE4ACE1C741A610007F51B /* 20120523.gpx in Resources */,
+				72DE4AD41C741A610007F51B /* 20120618.gpx in Resources */,
+				72DE4AC91C741A610007F51B /* 20120517.gpx in Resources */,
+				72DE4ACD1C741A610007F51B /* 20120522.gpx in Resources */,
+				72DE4AC41C741A610007F51B /* 20120402.gpx in Resources */,
+				72DE4AD81C741A610007F51B /* 20120716.gpx in Resources */,
+				72DE4ABD1C741A610007F51B /* 2012_03_23 21_36.gpx in Resources */,
+				72DE4AC51C741A610007F51B /* 20120409.gpx in Resources */,
+				72DE4AD91C741A610007F51B /* 20120826.gpx in Resources */,
+				72DE4AC71C741A610007F51B /* 20120513.gpx in Resources */,
+				72DE4ADB1C741A610007F51B /* Point_12-05-13.gpx in Resources */,
+				72DE4ADC1C741A610007F51B /* 軌跡_12-04-15 095638 PM.gpx in Resources */,
+				72DE4ADA1C741A610007F51B /* 20120901.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,6 +477,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72DE4A4B1C74154B0007F51B /* License.swift in Sources */,
 				727392721C68A87F00F169BF /* Stack.swift in Sources */,
 				725BDD381C72F64900E18696 /* GeoIdHeight.swift in Sources */,
 				725BDD201C72BE4D00E18696 /* Bounds.swift in Sources */,
@@ -342,19 +493,20 @@
 				725BDD501C72FCBF00E18696 /* RoutePoint.swift in Sources */,
 				725BDD161C72BDAA00E18696 /* Link.swift in Sources */,
 				725BDD4A1C72F7AA00E18696 /* AGeoFdGPSData.swift in Sources */,
-				725BDD1A1C72BDFA00E18696 /* Person.swift in Sources */,
+				725BDD1A1C72BDFA00E18696 /* Author.swift in Sources */,
 				725BDD2C1C72EFED00E18696 /* Name.swift in Sources */,
 				727392731C68A87F00F169BF /* XMLElement.swift in Sources */,
 				725BDD081C72BC2E00E18696 /* Metadata.swift in Sources */,
 				725BDD141C72BD8C00E18696 /* Copyright.swift in Sources */,
 				725BDD321C72F35F00E18696 /* Keywords.swift in Sources */,
 				725BDD4C1C72F7CC00E18696 /* DGPSId.swift in Sources */,
+				72DE4A491C7415370007F51B /* Year.swift in Sources */,
 				725BDD481C72F78100E18696 /* PositionDOP.swift in Sources */,
 				725BDD441C72F75000E18696 /* HorizontalDOP.swift in Sources */,
-				725BDD1E1C72BE3C00E18696 /* PtSeg.swift in Sources */,
+				725BDD1E1C72BE3C00E18696 /* PtSegType.swift in Sources */,
 				725BDD3C1C72F69400E18696 /* Source.swift in Sources */,
 				727392711C68A87F00F169BF /* KMLNSXMLParser.swift in Sources */,
-				725BDD2A1C72BEFC00E18696 /* DGPSStation.swift in Sources */,
+				725BDD2A1C72BEFC00E18696 /* DGPSStationType.swift in Sources */,
 				725BDD421C72F72A00E18696 /* Satellites.swift in Sources */,
 				727392781C68A9BC00F169BF /* GPX.swift in Sources */,
 				725BDD341C72F4FB00E18696 /* Elevation.swift in Sources */,
@@ -362,7 +514,7 @@
 				725BDD4E1C72F80100E18696 /* Number.swift in Sources */,
 				725BDD0E1C72BCB500E18696 /* Track.swift in Sources */,
 				725BDD2E1C72F12100E18696 /* Description.swift in Sources */,
-				725BDD181C72BDC000E18696 /* Email.swift in Sources */,
+				725BDD181C72BDC000E18696 /* EmailType.swift in Sources */,
 				725BDD0C1C72BC8B00E18696 /* Route.swift in Sources */,
 				725BDD0A1C72BC4400E18696 /* WayPoint.swift in Sources */,
 				725BDD3E1C72F6B900E18696 /* Symbol.swift in Sources */,

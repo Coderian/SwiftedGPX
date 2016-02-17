@@ -41,8 +41,10 @@ public class Name : HasXMLElementSimpleValue {
             case let v as Metadata: v.value.name = self
             case let v as WayPoint: v.value.name = self
             case let v as Route: v.value.name = self
+            case let v as RoutePoint: v.value.name = self
             case let v as Track: v.value.name = self
             case let v as TrackPoint: v.value.name = self
+            case let v as Author: v.value.name = self
             default: break
             }
         }
