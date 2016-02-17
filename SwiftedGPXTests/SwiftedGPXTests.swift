@@ -52,8 +52,6 @@ class SwiftedGPXTests: XCTestCase {
     }
     
     func testGpxfromeTrex30JWayPoint() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
         let gpxXmlUrl = bundle.URLForResource("Point_12-05-13", withExtension: "gpx")
         let gpxParser = KMLNSXMLParser(Url: gpxXmlUrl!)
         let gpx = gpxParser.parse()
@@ -68,8 +66,6 @@ class SwiftedGPXTests: XCTestCase {
     }
     
     func testGpxfromeTrex30JTrack() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
         let gpxXmlUrl = bundle.URLForResource("軌跡_12-04-15 095638 PM", withExtension: "gpx")
         let gpxParser = KMLNSXMLParser(Url: gpxXmlUrl!)
         let gpx = gpxParser.parse()
@@ -87,6 +83,10 @@ class SwiftedGPXTests: XCTestCase {
         // This is an example of a performance test case.
         self.measureBlock {
             // Put the code you want to measure the time of here.
+            let gpxXmlUrl = self.bundle.URLForResource("軌跡_12-04-15 095638 PM", withExtension: "gpx")
+            let gpxParser = KMLNSXMLParser(Url: gpxXmlUrl!)
+            let gpx = gpxParser.parse()
+            XCTAssertNotNil(gpx, "gpx is nil")
         }
     }
     
