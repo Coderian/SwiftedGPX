@@ -22,7 +22,7 @@ import Foundation
 public class Gpx : XMLElement, HasXMLElementValue {
     public static var elementName: String = "gpx"
     public var value : GPXType = GPXType()
-    public override init(attributes:[String:String]){
+    public required init(attributes:[String:String]){
         super.init(attributes: attributes)
         self.value.version = GPXType.Version(value: attributes[GPXType.Version.attributeName]!)
         self.value.creator = GPXType.Creator(value: attributes[GPXType.Creator.attributeName]!)

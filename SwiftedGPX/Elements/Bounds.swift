@@ -31,7 +31,7 @@ public class Bounds : XMLElement, HasXMLElementValue {
         }
     }
     public var value:BoundsType = BoundsType()
-    public override init(attributes:[String:String]){
+    public required init(attributes:[String:String]){
         super.init(attributes: attributes)
         self.value.minlat.value.value = Double(attributes[BoundsType.MinLatitude.attributeName]!)!
         self.value.minlon.value.value = Double(attributes[BoundsType.MinLongitude.attributeName]!)!

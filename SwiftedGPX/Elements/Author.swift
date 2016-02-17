@@ -31,7 +31,7 @@ public class Author : XMLElement, HasXMLElementValue {
         }
     }
     public var value:PersonType = PersonType()
-    public override init(attributes:[String:String]){
+    public required init(attributes:[String:String]){
         super.init(attributes: attributes)
     }
     

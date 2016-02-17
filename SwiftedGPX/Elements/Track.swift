@@ -25,7 +25,7 @@ public class Track : XMLElement, HasXMLElementName {
         }
     }
     public var value:TrkType = TrkType()
-    public override init(attributes:[String:String]){
+    public required init(attributes:[String:String]){
         super.init(attributes: attributes)
     }
     

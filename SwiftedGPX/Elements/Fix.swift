@@ -33,7 +33,7 @@ public class Fix : XMLElement, HasXMLElementValue {
         }
     }
     public var value:FixType?
-    public override init(attributes:[String:String]){
+    public required init(attributes:[String:String]){
         super.init(attributes: attributes)
     }
     

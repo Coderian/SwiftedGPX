@@ -35,6 +35,8 @@ class SwiftedGPXTests: XCTestCase {
         XCTAssert(rootfromChild is Gpx, "first child is nil")
         let names = gpx?.select(Name)
         XCTAssert(names!.count == 9)
+        let trks = gpx?.select(Track)
+        XCTAssert(trks?.count == 9)
     }
     
     func testGpxfromMyTracks() {

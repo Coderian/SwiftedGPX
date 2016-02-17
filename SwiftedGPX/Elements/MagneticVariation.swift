@@ -33,7 +33,7 @@ public class MagneticVariation : XMLElement, HasXMLElementSimpleValue {
         }
     }
     public var value:DegreesType?
-    public override init(attributes:[String:String]){
+    public required init(attributes:[String:String]){
         super.init(attributes: attributes)
     }
     public func makeRelation(contents:String, parent:XMLElement) -> XMLElement{

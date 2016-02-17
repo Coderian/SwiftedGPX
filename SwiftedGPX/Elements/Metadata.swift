@@ -24,7 +24,7 @@ public class Metadata : XMLElement, HasXMLElementValue {
         }
     }
     public var value:MetadataType = MetadataType()
-    public override init(attributes:[String:String]){
+    public required init(attributes:[String:String]){
         super.init(attributes: attributes)
     }
     

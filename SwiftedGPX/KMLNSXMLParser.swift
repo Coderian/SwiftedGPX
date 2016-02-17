@@ -16,6 +16,8 @@ class KMLNSXMLParser : NSObject,NSXMLParserDelegate{
     private var isCallEnded:Bool = false
     private var contents:String = ""
     private var previewStackCount:Int = 0
+//    var creaters:[String:(creater:XMLElement.Type, makeRelation: ( contents:String, parent:XMLElement ) -> XMLElement ) ] = [:]
+    var creaters:[String:XMLElement.Type] = [:]
     /// parse結果取得用
     var gpx:Gpx?
     
@@ -23,6 +25,41 @@ class KMLNSXMLParser : NSObject,NSXMLParserDelegate{
         parser = NSXMLParser(contentsOfURL: Url)
         super.init()
         parser.delegate = self
+        
+        creaters[Gpx.elementName]           = Gpx.self
+        creaters[Metadata.elementName]      = Metadata.self
+        creaters[WayPoint.elementName]      = WayPoint.self
+        creaters[Route.elementName]         = Route.self
+        creaters[Track.elementName]         = Track.self
+        creaters[Extensions.elementName]    = Extensions.self
+        creaters[TrackSegment.elementName]  = TrackSegment.self
+        creaters[TrackPoint.elementName]    = TrackPoint.self
+        creaters[Copyright.elementName]     = Copyright.self
+        creaters[Link.elementName]          = Link.self
+        creaters[Author.elementName]        = Author.self
+        creaters[Bounds.elementName]        = Bounds.self
+        creaters[MagneticVariation.elementName]  = MagneticVariation.self
+        creaters[Fix.elementName]           = Fix.self
+        creaters[Name.elementName]          = Name.self
+        creaters[Description.elementName]   = Description.self
+        creaters[Time.elementName]          = Time.self
+        creaters[Keywords.elementName]      = Keywords.self
+        creaters[Elevation.elementName]     = Elevation.self
+        creaters[GeoIdHeight.elementName]   = GeoIdHeight.self
+        creaters[Comment.elementName]       = Comment.self
+        creaters[Source.elementName]        = Source.self
+        creaters[Symbol.elementName]        = Symbol.self
+        creaters[Type.elementName]          = Type.self
+        creaters[Satellites.elementName]    = Satellites.self
+        creaters[HorizontalDOP.elementName] = HorizontalDOP.self
+        creaters[VerticalDOP.elementName]   = VerticalDOP.self
+        creaters[PositionDOP.elementName]   = PositionDOP.self
+        creaters[DGPSId.elementName]        = DGPSId.self
+        creaters[Number.elementName]        = Number.self
+        creaters[RoutePoint.elementName]    = RoutePoint.self
+        creaters[Year.elementName]          = Year.self
+        creaters[License.elementName]       = License.self
+        creaters[Text.elementName]          = Text.self
     }
     
     func parse() -> Gpx?{
@@ -31,44 +68,10 @@ class KMLNSXMLParser : NSObject,NSXMLParserDelegate{
     }
     
     internal func createXMLElement(stack:Stack<XMLElement>, elementName:String,attributes:[String:String]) -> XMLElement? {
-        switch elementName {
-        case Gpx.elementName:               return Gpx(attributes: attributes)
-        case Metadata.elementName:          return Metadata(attributes: attributes)
-        case WayPoint.elementName:          return WayPoint(attributes: attributes)
-        case Route.elementName:             return Route(attributes: attributes)
-        case Track.elementName:             return Track(attributes: attributes)
-        case Extensions.elementName:        return Extensions(attributes: attributes)
-        case TrackSegment.elementName:      return TrackSegment(attributes: attributes)
-        case TrackPoint.elementName:        return TrackPoint(attributes: attributes)
-        case Copyright.elementName:         return Copyright(attributes: attributes)
-        case Link.elementName:              return Link(attributes: attributes)
-        case Author.elementName:            return Author(attributes: attributes)
-        case Bounds.elementName:            return Bounds(attributes: attributes)
-        case MagneticVariation.elementName: return MagneticVariation(attributes: attributes)
-        case Fix.elementName:               return Fix(attributes: attributes)
-        case Name.elementName:              return Name(attributes: attributes)
-        case Description.elementName:       return Description(attributes: attributes)
-        case Time.elementName:              return Time(attributes: attributes)
-        case Keywords.elementName:          return Keywords(attributes: attributes)
-        case Elevation.elementName:         return Elevation(attributes: attributes)
-        case GeoIdHeight.elementName:       return GeoIdHeight(attributes: attributes)
-        case Comment.elementName:           return Comment(attributes: attributes)
-        case Source.elementName:            return Source(attributes: attributes)
-        case Symbol.elementName:            return Symbol(attributes: attributes)
-        case Type.elementName:              return Type(attributes: attributes)
-        case Satellites.elementName:        return Satellites(attributes: attributes)
-        case HorizontalDOP.elementName:     return HorizontalDOP(attributes: attributes)
-        case VerticalDOP.elementName:       return VerticalDOP(attributes: attributes)
-        case PositionDOP.elementName:       return PositionDOP(attributes: attributes)
-        case AGeoFdGPSData.elementName:     return AGeoFdGPSData(attributes: attributes)
-        case DGPSId.elementName:            return DGPSId(attributes: attributes)
-        case Number.elementName:            return Number(attributes: attributes)
-        case RoutePoint.elementName:        return RoutePoint(attributes: attributes)
-        case Year.elementName:              return Year(attributes: attributes)
-        case License.elementName:           return License(attributes: attributes)
-        case Text.elementName:              return Text(attributes: attributes)
-        default:                            return nil
+        if let retValue = creaters[elementName]?.init(attributes:attributes) {
+            return retValue
         }
+        return nil
     }
     
     // MARK: NSXMLParserDelegate

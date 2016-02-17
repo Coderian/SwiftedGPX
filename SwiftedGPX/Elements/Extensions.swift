@@ -27,7 +27,7 @@ public class Extensions : XMLElement,HasXMLElementValue {
         }
     }
     public var value:extensionsType = extensionsType()
-    public override init(attributes:[String:String]){
+    public required init(attributes:[String:String]){
         super.init(attributes: attributes)
     }
     

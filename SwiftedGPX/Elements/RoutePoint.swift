@@ -32,7 +32,7 @@ public class RoutePoint : XMLElement, HasXMLElementValue {
         }
     }
     public var value: WptType = WptType()
-    public override init(attributes:[String:String]){
+    public required init(attributes:[String:String]){
         super.init(attributes: attributes)
     }
 }

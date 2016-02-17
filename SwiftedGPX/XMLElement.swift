@@ -102,7 +102,7 @@ public class XMLElement : Hashable {
     }
     public var childs:Set<XMLElement> = Set<XMLElement>()
     public var attributes:[String:String] = [:]
-    public init(attributes:[String:String]){
+    public required init(attributes:[String:String]){
         self.attributes = attributes
     }
     

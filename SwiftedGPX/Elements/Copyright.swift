@@ -31,7 +31,7 @@ public class Copyright : XMLElement, HasXMLElementValue {
         }
     }
     public var value:CopyrightType = CopyrightType()
-    public override init(attributes:[String:String]){
+    public required init(attributes:[String:String]){
         super.init(attributes: attributes)
         self.value.author.value = attributes[CopyrightType.Author.attributeName]!
     }

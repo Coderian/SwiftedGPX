@@ -24,7 +24,7 @@ public class Route : XMLElement, HasXMLElementValue {
         }
     }
     public var value: RteType = RteType()
-    public override init(attributes:[String:String]){
+    public required init(attributes:[String:String]){
         super.init(attributes: attributes)
     }
     

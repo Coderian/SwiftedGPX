@@ -31,7 +31,7 @@ public class Link : XMLElement, HasXMLElementValue {
         }
     }
     public var value:LinkType = LinkType()
-    public override init(attributes:[String:String]){
+    public required init(attributes:[String:String]){
         super.init(attributes: attributes)
         self.value.href = LinkType.Href(value: attributes[LinkType.Href.attributeName]!)
     }
@@ -90,7 +90,7 @@ public class Text: XMLElement, HasXMLElementSimpleValue {
         self.parent = parent
         return parent
     }
-    public override init(attributes:[String:String]){
+    public required init(attributes:[String:String]){
         super.init(attributes: attributes)
     }
     

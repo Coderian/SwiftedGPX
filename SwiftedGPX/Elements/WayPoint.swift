@@ -24,7 +24,7 @@ public class WayPoint : XMLElement, HasXMLElementValue {
         }
     }
     public var value: WptType = WptType()
-    public override init(attributes:[String:String]){
+    public required init(attributes:[String:String]){
         super.init(attributes: attributes)
         self.value.lat.value.value = Double(attributes[WptType.Latitude.attributeName]!)!
         self.value.lon.value.value = Double(attributes[WptType.Longitude.attributeName]!)!

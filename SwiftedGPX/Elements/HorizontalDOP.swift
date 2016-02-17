@@ -39,7 +39,7 @@ public class HorizontalDOP : XMLElement, HasXMLElementSimpleValue {
         self.parent = parent
         return parent
     }
-    public override init(attributes:[String:String]){
+    public required init(attributes:[String:String]){
         super.init(attributes: attributes)
     }
     
