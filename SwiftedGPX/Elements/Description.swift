@@ -17,7 +17,7 @@ import Foundation
 //        </xsd:annotation>
 //      </xsd:element>
 
-public class Description : XMLElement, HasXMLElementSimpleValue {
+public class Description : XMLElement, HasXMLElementValue, HasXMLElementSimpleValue {
     public static var elementName: String = "desc"
     public override var parent:XMLElement? {
         didSet {

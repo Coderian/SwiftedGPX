@@ -16,7 +16,7 @@ import Foundation
 //        </xsd:annotation>
 //      </xsd:element>
 
-public class Comment : XMLElement, HasXMLElementSimpleValue {
+public class Comment : XMLElement, HasXMLElementValue, HasXMLElementSimpleValue {
     public static var elementName: String = "cmt"
     public override var parent:XMLElement? {
         didSet {

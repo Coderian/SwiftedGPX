@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class License : XMLElement, HasXMLElementSimpleValue {
+public class License : XMLElement, HasXMLElementValue, HasXMLElementSimpleValue {
     public static var elementName: String = "license"
     public override var parent:XMLElement? {
         didSet {

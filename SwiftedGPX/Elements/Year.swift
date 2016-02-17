@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Year : XMLElement, HasXMLElementSimpleValue {
+public class Year : XMLElement,  HasXMLElementValue, HasXMLElementSimpleValue {
     public static var elementName: String = "year"
     public override var parent:XMLElement? {
         didSet {

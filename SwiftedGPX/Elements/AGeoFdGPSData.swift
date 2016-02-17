@@ -16,7 +16,7 @@ import Foundation
 //        </xsd:annotation>
 //      </xsd:element>
 
-public class AGeoFdGPSData : XMLElement, HasXMLElementSimpleValue {
+public class AGeoFdGPSData : XMLElement,  HasXMLElementValue, HasXMLElementSimpleValue {
     public static var elementName: String = "ageofdgpsdata"
     public override var parent:XMLElement? {
         didSet {

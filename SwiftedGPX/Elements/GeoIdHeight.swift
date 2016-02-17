@@ -16,7 +16,7 @@ import Foundation
 //        </xsd:annotation>
 //      </xsd:element>
 
-public class GeoIdHeight : XMLElement, HasXMLElementSimpleValue {
+public class GeoIdHeight : XMLElement, HasXMLElementValue, HasXMLElementSimpleValue {
     public static var elementName: String = "geoidheight"
     public override var parent:XMLElement? {
         didSet {

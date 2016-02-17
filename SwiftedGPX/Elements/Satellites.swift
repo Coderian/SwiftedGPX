@@ -16,7 +16,7 @@ import Foundation
 //        </xsd:annotation>
 //      </xsd:element>
 
-public class Satellites : XMLElement, HasXMLElementSimpleValue {
+public class Satellites : XMLElement, HasXMLElementValue, HasXMLElementSimpleValue {
     public static var elementName: String = "sat"
     public override var parent:XMLElement? {
         didSet {

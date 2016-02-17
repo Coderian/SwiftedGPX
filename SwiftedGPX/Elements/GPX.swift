@@ -19,9 +19,49 @@ import Foundation
 ///         </xsd:documentation>
 ///       </xsd:annotation>
 ///     </xsd:element>
-public class Gpx : XMLElement, HasXMLElementValue {
+public class Gpx : XMLElement, HasXMLElementValue, hasCreaters {
     public static var elementName: String = "gpx"
     public var value : GPXType = GPXType()
+    public static var creaters:[String:XMLElement.Type] {
+        get {
+            var creaters:[String:XMLElement.Type] = [:]
+            creaters[Gpx.elementName]           = Gpx.self
+            creaters[Metadata.elementName]      = Metadata.self
+            creaters[WayPoint.elementName]      = WayPoint.self
+            creaters[Route.elementName]         = Route.self
+            creaters[Track.elementName]         = Track.self
+            creaters[Extensions.elementName]    = Extensions.self
+            creaters[TrackSegment.elementName]  = TrackSegment.self
+            creaters[TrackPoint.elementName]    = TrackPoint.self
+            creaters[Copyright.elementName]     = Copyright.self
+            creaters[Link.elementName]          = Link.self
+            creaters[Author.elementName]        = Author.self
+            creaters[Bounds.elementName]        = Bounds.self
+            creaters[MagneticVariation.elementName]  = MagneticVariation.self
+            creaters[Fix.elementName]           = Fix.self
+            creaters[Name.elementName]          = Name.self
+            creaters[Description.elementName]   = Description.self
+            creaters[Time.elementName]          = Time.self
+            creaters[Keywords.elementName]      = Keywords.self
+            creaters[Elevation.elementName]     = Elevation.self
+            creaters[GeoIdHeight.elementName]   = GeoIdHeight.self
+            creaters[Comment.elementName]       = Comment.self
+            creaters[Source.elementName]        = Source.self
+            creaters[Symbol.elementName]        = Symbol.self
+            creaters[Type.elementName]          = Type.self
+            creaters[Satellites.elementName]    = Satellites.self
+            creaters[HorizontalDOP.elementName] = HorizontalDOP.self
+            creaters[VerticalDOP.elementName]   = VerticalDOP.self
+            creaters[PositionDOP.elementName]   = PositionDOP.self
+            creaters[DGPSId.elementName]        = DGPSId.self
+            creaters[Number.elementName]        = Number.self
+            creaters[RoutePoint.elementName]    = RoutePoint.self
+            creaters[Year.elementName]          = Year.self
+            creaters[License.elementName]       = License.self
+            creaters[Text.elementName]          = Text.self
+            return creaters
+        }
+    }
     public required init(attributes:[String:String]){
         super.init(attributes: attributes)
         self.value.version = GPXType.Version(value: attributes[GPXType.Version.attributeName]!)

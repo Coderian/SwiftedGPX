@@ -30,12 +30,13 @@ public protocol XMLAttributed {
     }
 }
 
-public protocol HasXMLElementName {
-    static var elementName:String {
-        get
-    }
+public protocol hasCreaters {
+    static var creaters:[String:XMLElement.Type] { get }
 }
 
+public protocol HasXMLElementName {
+    static var elementName:String { get }
+}
 
 public protocol HasXMLElementValue :HasXMLElementName, CustomStringConvertible {
     typealias Element
@@ -45,12 +46,7 @@ public protocol HasXMLElementValue :HasXMLElementName, CustomStringConvertible {
     }
 }
 
-public protocol HasXMLElementSimpleValue: HasXMLElementValue {
-    typealias Element
-    var value: Element {
-        get
-        set
-    }
+public protocol HasXMLElementSimpleValue {
     func makeRelation(contents: String, parent: XMLElement) -> XMLElement
 }
 

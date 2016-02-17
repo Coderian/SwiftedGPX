@@ -15,7 +15,7 @@ import Foundation
 //          </xsd:documentation>
 //        </xsd:annotation>
 //      </xsd:element>
-public class MagneticVariation : XMLElement, HasXMLElementSimpleValue {
+public class MagneticVariation : XMLElement, HasXMLElementValue, HasXMLElementSimpleValue {
     public static var elementName: String = "magvar"
     public override var parent:XMLElement? {
         didSet {

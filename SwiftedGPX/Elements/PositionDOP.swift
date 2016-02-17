@@ -16,7 +16,7 @@ import Foundation
 //        </xsd:annotation>
 //      </xsd:element>
 
-public class PositionDOP : XMLElement, HasXMLElementSimpleValue {
+public class PositionDOP : XMLElement,  HasXMLElementValue, HasXMLElementSimpleValue {
     public static var elementName: String = "pdop"
     public override var parent:XMLElement? {
         didSet {

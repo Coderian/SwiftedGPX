@@ -16,7 +16,7 @@ import Foundation
 //        </xsd:annotation>
 //      </xsd:element>
 
-public class Symbol : XMLElement, HasXMLElementSimpleValue {
+public class Symbol : XMLElement, HasXMLElementValue, HasXMLElementSimpleValue {
     public static var elementName: String = "sym"
     public override var parent:XMLElement? {
         didSet {

@@ -24,7 +24,7 @@ import Foundation
 //        </xsd:annotation>
 //      </xsd:element>
 
-public class Number : XMLElement, HasXMLElementSimpleValue {
+public class Number : XMLElement, HasXMLElementValue, HasXMLElementSimpleValue {
     public static var elementName: String = "number"
     public override var parent:XMLElement? {
         didSet {

@@ -69,7 +69,7 @@ public class Link : XMLElement, HasXMLElementValue {
 //    </xsd:attribute>
 //  </xsd:complexType>
 
-public class Text: XMLElement, HasXMLElementSimpleValue {
+public class Text: XMLElement, HasXMLElementValue, HasXMLElementSimpleValue {
     public static var elementName: String = "text"
     public override var parent:XMLElement? {
         didSet {

@@ -16,7 +16,7 @@ import Foundation
 //        </xsd:annotation>
 //      </xsd:element>
 
-public class DGPSId : XMLElement, HasXMLElementSimpleValue {
+public class DGPSId : XMLElement,  HasXMLElementValue, HasXMLElementSimpleValue {
     public static var elementName: String = "dgpsid"
     public override var parent:XMLElement? {
         didSet {
