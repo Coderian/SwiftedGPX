@@ -34,9 +34,12 @@ public class Time : SPXMLElement, HasXMLElementValue, HasXMLElementSimpleValue {
             }
         }
     }
-    public var value: String = String()
+    public var value: NSDate?
+    public var originalValue:String?
     public func makeRelation(contents:String, parent:SPXMLElement) -> SPXMLElement{
-        self.value = contents
+        self.originalValue = contents
+        let dateFormatter = NSDateFormatter.rfc3339Formatter(contents)
+        self.value = dateFormatter.dateFromString(contents)
         self.parent = parent
         return parent
     }

@@ -34,7 +34,9 @@ public class Elevation : SPXMLElement, HasXMLElementValue, HasXMLElementSimpleVa
         }
     }
     public var value: Double?
+    public var originalValue:String?
     public func makeRelation(contents:String, parent:SPXMLElement) -> SPXMLElement{
+        self.originalValue = contents
         self.value = Double(contents)
         self.parent = parent
         return parent

@@ -107,3 +107,27 @@ public class SPXMLElement : Hashable {
 public func == ( lhs: SPXMLElement, rhs: SPXMLElement) -> Bool {
     return lhs === rhs
 }
+
+
+public extension NSDateFormatter {
+    static func rfc3339Formatter(dateString:String) -> NSDateFormatter {
+        var dateFormat:String
+        switch dateString.characters.count {
+        case 4:
+            dateFormat="yyyy"
+        case 7:
+            dateFormat="yyyy'-'MM"
+        case 10:
+            dateFormat="yyyy'-'MM'-'dd"
+        case 20:
+            dateFormat="yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"
+        default:
+            dateFormat="yyyy'-'MM'-'dd'T'HH':'mm':'ss'XXXXXX'"
+        }
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        dateFormatter.dateFormat = dateFormat
+        dateFormatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
+        return dateFormatter
+    }
+}

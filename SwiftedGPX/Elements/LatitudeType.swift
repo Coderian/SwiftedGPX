@@ -22,4 +22,9 @@ import Foundation
 
 public class LatitudeType {
     var value:Double = 0.0
+    var originalValue:String?
+    public init( latitude: String ){
+        self.originalValue = latitude
+        self.value = Double(latitude)!
+    }
 }

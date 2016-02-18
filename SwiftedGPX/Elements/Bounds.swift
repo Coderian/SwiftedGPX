@@ -30,15 +30,14 @@ public class Bounds : SPXMLElement, HasXMLElementValue {
             }
         }
     }
-    public var value:BoundsType = BoundsType()
+    public var value:BoundsType
     public required init(attributes:[String:String]){
+        self.value = BoundsType(minlat: attributes[BoundsType.MinLatitude.attributeName]!,
+                                minlon: attributes[BoundsType.MinLongitude.attributeName]!,
+                                maxlat: attributes[BoundsType.MaxLatitude.attributeName]!,
+                                maxlon: attributes[BoundsType.MaxLongitude.attributeName]!)
         super.init(attributes: attributes)
-        self.value.minlat.value.value = Double(attributes[BoundsType.MinLatitude.attributeName]!)!
-        self.value.minlon.value.value = Double(attributes[BoundsType.MinLongitude.attributeName]!)!
-        self.value.maxlat.value.value = Double(attributes[BoundsType.MaxLatitude.attributeName]!)!
-        self.value.maxlon.value.value = Double(attributes[BoundsType.MaxLongitude.attributeName]!)!
     }
-    
 }
 
 //  <xsd:complexType name="boundsType">
@@ -80,25 +79,43 @@ public class Bounds : SPXMLElement, HasXMLElementValue {
 public class BoundsType {
     public struct MinLatitude : XMLAttributed {
         public static var attributeName: String = "minlat"
-        public var value: LatitudeType = LatitudeType()
+        public var value: LatitudeType
+        public init( value: String ){
+            self.value = LatitudeType(latitude: value)
+        }
     }
-    public var minlat:MinLatitude = MinLatitude()
+    public var minlat:MinLatitude
     
     public struct MinLongitude : XMLAttributed {
         public static var attributeName: String = "minlon"
-        public var value: LongitudeType = LongitudeType()
+        public var value: LongitudeType
+        public init( value : String ){
+            self.value = LongitudeType(longitude: value)
+        }
     }
-    public var minlon:MinLongitude = MinLongitude()
+    public var minlon:MinLongitude
     
     public struct MaxLatitude : XMLAttributed {
         public static var attributeName: String = "maxlat"
-        public var value: LatitudeType = LatitudeType()
+        public var value: LatitudeType
+        public init( value: String) {
+            self.value = LatitudeType(latitude: value)
+        }
     }
-    public var maxlat:MaxLatitude = MaxLatitude()
+    public var maxlat:MaxLatitude
     
     public struct MaxLongitude : XMLAttributed {
         public static var attributeName: String = "maxlon"
-        public var value: LongitudeType = LongitudeType()
+        public var value: LongitudeType
+        public init( value : String ){
+            self.value = LongitudeType(longitude: value)
+        }
     }
-    public var maxlon:MaxLongitude = MaxLongitude()
+    public var maxlon:MaxLongitude
+    public init(minlat: String, minlon:String, maxlat:String, maxlon:String){
+        self.minlat = BoundsType.MinLatitude(value: minlat)
+        self.minlon = BoundsType.MinLongitude(value: minlon)
+        self.maxlat = BoundsType.MaxLatitude(value: maxlat)
+        self.maxlon = BoundsType.MaxLongitude(value: maxlon)
+    }
 }

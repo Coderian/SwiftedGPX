@@ -23,13 +23,11 @@ public class WayPoint : SPXMLElement, HasXMLElementValue {
             }
         }
     }
-    public var value: WptType = WptType()
+    public var value: WptType
     public required init(attributes:[String:String]){
+        self.value = WptType(latitude: attributes[WptType.Longitude.attributeName]!, longitude: attributes[WptType.Latitude.attributeName]!)
         super.init(attributes: attributes)
-        self.value.lat.value.value = Double(attributes[WptType.Latitude.attributeName]!)!
-        self.value.lon.value.value = Double(attributes[WptType.Longitude.attributeName]!)!
     }
-    
 }
 
 
@@ -220,14 +218,25 @@ public class WptType {
     
     public struct Latitude : XMLAttributed {
         public static var attributeName: String = "lat"
-        public var value: LatitudeType = LatitudeType()
+        public var value: LatitudeType
+        public init( value: String) {
+            self.value = LatitudeType(latitude: value)
+        }
     }
-    public var lat:Latitude = Latitude()
+    public var lat:Latitude
     
     public struct Longitude : XMLAttributed {
         public static var attributeName: String = "lon"
-        public var value: LongitudeType = LongitudeType()
+        public var value: LongitudeType
+        public init( value: String ){
+            self.value = LongitudeType(longitude: value)
+        }
     }
-    public var lon:Longitude = Longitude()
+    public var lon:Longitude
+    
+    public init(latitude: String, longitude: String){
+        self.lat = Latitude(value: latitude)
+        self.lon = Longitude(value: longitude)
+    }
     
 }

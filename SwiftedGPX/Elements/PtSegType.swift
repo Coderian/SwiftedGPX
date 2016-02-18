@@ -72,13 +72,23 @@ public class PtType {
     var time:Time?
     public struct Latitude : XMLAttributed {
         public static var attributeName: String = "lat"
-        public var value: LatitudeType = LatitudeType()
+        public var value: LatitudeType
+        public init( value:String ){
+            self.value = LatitudeType(latitude: value)
+        }
     }
-    public var lat:Latitude = Latitude()
+    public var lat:Latitude
     
     public struct Longitude : XMLAttributed {
         public static var attributeName: String = "lon"
-        public var value: LongitudeType = LongitudeType()
+        public var value: LongitudeType
+        public init( value: String ){
+            self.value = LongitudeType(longitude: value)
+        }
     }
-    public var lon:Longitude = Longitude()
+    public var lon:Longitude
+    init(latitude:String, longitude:String){
+        self.lat = PtType.Latitude(value: latitude)
+        self.lon = PtType.Longitude(value: longitude)
+    }
 }

@@ -15,7 +15,7 @@ import Foundation
 //          </xsd:documentation>
 //        </xsd:annotation>
 //      </xsd:element>
-public class Fix : SPXMLElement, HasXMLElementValue {
+public class Fix : SPXMLElement, HasXMLElementValue, HasXMLElementSimpleValue {
     public static var elementName: String = "fix"
     public override var parent:SPXMLElement? {
         didSet {
@@ -33,8 +33,15 @@ public class Fix : SPXMLElement, HasXMLElementValue {
         }
     }
     public var value:FixType?
+    public var origianlValue:String?
     public required init(attributes:[String:String]){
         super.init(attributes: attributes)
+    }
+    public func makeRelation(contents:String, parent:SPXMLElement) -> SPXMLElement{
+        self.origianlValue = contents
+        self.value = FixType(contents: contents)
+        self.parent = parent
+        return parent
     }
     
 }
@@ -61,4 +68,7 @@ public enum FixEnumType: String {
 
 public class FixType {
     var value:FixEnumType = .none
+    init(contents:String){
+        self.value = FixEnumType(rawValue: contents)!
+    }
 }

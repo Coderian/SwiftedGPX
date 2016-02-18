@@ -78,13 +78,11 @@ public class TrackPoint : SPXMLElement, HasXMLElementValue {
             }
         }
     }
-    public var value:WptType = WptType()
+    public var value:WptType
     public required init(attributes:[String:String]){
+        self.value = WptType(latitude: attributes[WptType.Longitude.attributeName]!, longitude: attributes[WptType.Latitude.attributeName]!)
         super.init(attributes: attributes)
-        self.value.lat.value.value = Double(attributes[WptType.Latitude.attributeName]!)!
-        self.value.lon.value.value = Double(attributes[WptType.Longitude.attributeName]!)!        
     }
-    
 }
 
 public class TrkSegType {

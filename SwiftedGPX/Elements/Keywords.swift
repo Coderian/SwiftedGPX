@@ -32,8 +32,10 @@ public class Keywords : SPXMLElement, HasXMLElementValue, HasXMLElementSimpleVal
         }
     }
     public var value: [String] = [String]()
+    public var originalValue:String?
     public func makeRelation(contents:String, parent:SPXMLElement) -> SPXMLElement{
         // TODO:
+        self.originalValue = contents
 //        self.value = contents
         self.parent = parent
         return parent

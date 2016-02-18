@@ -31,8 +31,9 @@ public class RoutePoint : SPXMLElement, HasXMLElementValue {
             }
         }
     }
-    public var value: WptType = WptType()
+    public var value: WptType
     public required init(attributes:[String:String]){
+        self.value = WptType(latitude: attributes[WptType.Longitude.attributeName]!, longitude: attributes[WptType.Latitude.attributeName]!)
         super.init(attributes: attributes)
     }
 }
