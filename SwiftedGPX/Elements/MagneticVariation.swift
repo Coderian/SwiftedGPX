@@ -15,9 +15,9 @@ import Foundation
 //          </xsd:documentation>
 //        </xsd:annotation>
 //      </xsd:element>
-public class MagneticVariation : XMLElement, HasXMLElementValue, HasXMLElementSimpleValue {
+public class MagneticVariation : SPXMLElement, HasXMLElementValue, HasXMLElementSimpleValue {
     public static var elementName: String = "magvar"
-    public override var parent:XMLElement? {
+    public override var parent:SPXMLElement? {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
             if self.parent?.childs.contains(self) == true {
@@ -36,7 +36,7 @@ public class MagneticVariation : XMLElement, HasXMLElementValue, HasXMLElementSi
     public required init(attributes:[String:String]){
         super.init(attributes: attributes)
     }
-    public func makeRelation(contents:String, parent:XMLElement) -> XMLElement{
+    public func makeRelation(contents:String, parent:SPXMLElement) -> SPXMLElement{
         self.value = DegreesType(value: Double(contents)!)
         self.parent = parent
         return parent

@@ -19,12 +19,12 @@ import Foundation
 ///         </xsd:documentation>
 ///       </xsd:annotation>
 ///     </xsd:element>
-public class Gpx : XMLElement, HasXMLElementValue, XMLElementRoot {
+public class Gpx : SPXMLElement, HasXMLElementValue, XMLElementRoot {
     public static var elementName: String = "gpx"
     public var value : GPXType = GPXType()
-    public static var creaters:[String:XMLElement.Type] {
+    public static var creaters:[String:SPXMLElement.Type] {
         get {
-            var creaters:[String:XMLElement.Type] = [:]
+            var creaters:[String:SPXMLElement.Type] = [:]
             creaters[Gpx.elementName]           = Gpx.self
             creaters[Metadata.elementName]      = Metadata.self
             creaters[WayPoint.elementName]      = WayPoint.self

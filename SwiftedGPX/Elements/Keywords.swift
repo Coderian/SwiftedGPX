@@ -16,9 +16,9 @@ import Foundation
 //        </xsd:annotation>
 //      </xsd:element>
 
-public class Keywords : XMLElement, HasXMLElementValue, HasXMLElementSimpleValue {
+public class Keywords : SPXMLElement, HasXMLElementValue, HasXMLElementSimpleValue {
     public static var elementName: String = "keywords"
-    public override var parent:XMLElement? {
+    public override var parent:SPXMLElement? {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
             if self.parent?.childs.contains(self) == true {
@@ -32,7 +32,7 @@ public class Keywords : XMLElement, HasXMLElementValue, HasXMLElementSimpleValue
         }
     }
     public var value: [String] = [String]()
-    public func makeRelation(contents:String, parent:XMLElement) -> XMLElement{
+    public func makeRelation(contents:String, parent:SPXMLElement) -> SPXMLElement{
         // TODO:
 //        self.value = contents
         self.parent = parent

@@ -16,9 +16,9 @@ import Foundation
 //        </xsd:annotation>
 //      </xsd:element>
 
-public class Satellites : XMLElement, HasXMLElementValue, HasXMLElementSimpleValue {
+public class Satellites : SPXMLElement, HasXMLElementValue, HasXMLElementSimpleValue {
     public static var elementName: String = "sat"
-    public override var parent:XMLElement? {
+    public override var parent:SPXMLElement? {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
             if self.parent?.childs.contains(self) == true {
@@ -34,7 +34,7 @@ public class Satellites : XMLElement, HasXMLElementValue, HasXMLElementSimpleVal
         }
     }
     public var value: UInt?
-    public func makeRelation(contents:String, parent:XMLElement) -> XMLElement{
+    public func makeRelation(contents:String, parent:SPXMLElement) -> SPXMLElement{
         self.value = UInt(contents)
         self.parent = parent
         return parent

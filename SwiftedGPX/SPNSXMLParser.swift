@@ -1,6 +1,6 @@
 //
-//  KMLNSXMLParser.swift
-//  SwiftedKML
+//  SPNSXMLParser.swift
+//  SwiftedGPX
 //
 //  Created by 佐々木 均 on 2016/02/04.
 //  Copyright © 2016年 S-Parts. All rights reserved.
@@ -12,11 +12,11 @@ import Foundation
 class SPXMLParser<T:HasXMLElementValue where T:XMLElementRoot>: NSObject,NSXMLParserDelegate{
     var parser:NSXMLParser!
 
-    private var stack:Stack<XMLElement> = Stack()
+    private var stack:Stack<SPXMLElement> = Stack()
     private var isCallEnded:Bool = false
     private var contents:String = ""
     private var previewStackCount:Int = 0
-    var creaters:[String:XMLElement.Type] = [:]
+    var creaters:[String:SPXMLElement.Type] = [:]
     /// parse結果取得用
     var root:T?
     var rootType:T.Type
@@ -34,7 +34,7 @@ class SPXMLParser<T:HasXMLElementValue where T:XMLElementRoot>: NSObject,NSXMLPa
         return root
     }
     
-    internal func createXMLElement(stack:Stack<XMLElement>, elementName:String,attributes:[String:String]) -> XMLElement? {
+    internal func createXMLElement(stack:Stack<SPXMLElement>, elementName:String,attributes:[String:String]) -> SPXMLElement? {
         if let retValue = creaters[elementName]?.init(attributes:attributes) {
             return retValue
         }
@@ -45,6 +45,7 @@ class SPXMLParser<T:HasXMLElementValue where T:XMLElementRoot>: NSObject,NSXMLPa
     
     func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         let element = createXMLElement(stack,elementName: elementName,attributes: attributeDict)
+        // elementが対象外
         if element == nil {
             return
         }
@@ -64,6 +65,7 @@ class SPXMLParser<T:HasXMLElementValue where T:XMLElementRoot>: NSObject,NSXMLPa
             if let v = current as? HasXMLElementName {
                 if v.dynamicType.elementName == elementName {
                     let parent = stack.pop()
+                    // make the Relationship
                     current.parent = parent
                     stack.push(parent)
                 }
@@ -73,7 +75,6 @@ class SPXMLParser<T:HasXMLElementValue where T:XMLElementRoot>: NSObject,NSXMLPa
             }
         }
         isCallEnded = true
-
     }
     
     func parser(parser: NSXMLParser, foundCharacters string: String) {
@@ -88,16 +89,14 @@ class SPXMLParser<T:HasXMLElementValue where T:XMLElementRoot>: NSObject,NSXMLPa
         else{
             self.contents = string
         }
-        
         self.previewStackCount = stack.count
+        
         let current = stack.pop()
         debugPrint("poped=\(current) contents=\(contents)")
         debugPrint("self.contents=\(self.contents)")
-        
         if let v = current as? HasXMLElementSimpleValue {
             stack.push(v.makeRelation( self.contents, parent: stack.pop()))
         }
-        
         stack.push(current)
         
         debugPrint(stack)

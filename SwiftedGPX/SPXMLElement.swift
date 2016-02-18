@@ -1,5 +1,5 @@
 //
-//  XMLElement.swift
+//  SPXMLElement.swift
 //  SwiftedGPX
 //
 //  Created by 佐々木 均 on 2016/02/02.
@@ -28,13 +28,15 @@ public protocol XMLAttributed {
 
 /// XML Root Element
 public protocol XMLElementRoot {
-    static var creaters:[String:XMLElement.Type] { get }
+    static var creaters:[String:SPXMLElement.Type] { get }
 }
 
+/// XML Element Name
 public protocol HasXMLElementName {
     static var elementName:String { get }
 }
 
+/// XML Element Value
 public protocol HasXMLElementValue :HasXMLElementName, CustomStringConvertible {
     typealias Element
     var value: Element {
@@ -43,8 +45,9 @@ public protocol HasXMLElementValue :HasXMLElementName, CustomStringConvertible {
     }
 }
 
+// XML Leaf Element
 public protocol HasXMLElementSimpleValue {
-    func makeRelation(contents: String, parent: XMLElement) -> XMLElement
+    func makeRelation(contents: String, parent: SPXMLElement) -> SPXMLElement
 }
 
 public extension HasXMLElementName {
@@ -55,9 +58,9 @@ public extension HasXMLElementName {
     }
 }
 
-public extension XMLElement {
-    var root:XMLElement {
-        var currentParent:XMLElement = self
+public extension SPXMLElement {
+    var root:SPXMLElement {
+        var currentParent:SPXMLElement = self
         while currentParent.parent != nil {
             currentParent = self.parent!
         }
@@ -71,12 +74,12 @@ public extension XMLElement {
         }
         return ret
     }
-    public func allChilds() -> [XMLElement]{
-        var all:[XMLElement] = []
+    public func allChilds() -> [SPXMLElement]{
+        var all:[SPXMLElement] = []
         allChilds( &all, current:self)
         return all
     }
-    internal func allChilds( inout ret:[XMLElement], current: XMLElement ){
+    internal func allChilds( inout ret:[SPXMLElement], current: SPXMLElement ){
         for child in current.childs {
             allChilds(&ret, current: child)
         }
@@ -84,16 +87,16 @@ public extension XMLElement {
     }
 }
 
-public class XMLElement : Hashable {
+public class SPXMLElement : Hashable {
     public var hashValue: Int { return unsafeAddressOf(self).hashValue }
-    public var parent:XMLElement? {
+    public var parent:SPXMLElement? {
         willSet {
             if newValue == nil {
                 self.parent?.childs.remove(self)
             }
         }
     }
-    public var childs:Set<XMLElement> = Set<XMLElement>()
+    public var childs:Set<SPXMLElement> = Set<SPXMLElement>()
     public var attributes:[String:String] = [:]
     public required init(attributes:[String:String]){
         self.attributes = attributes
@@ -101,6 +104,6 @@ public class XMLElement : Hashable {
     
 }
 
-public func == ( lhs: XMLElement, rhs: XMLElement) -> Bool {
+public func == ( lhs: SPXMLElement, rhs: SPXMLElement) -> Bool {
     return lhs === rhs
 }

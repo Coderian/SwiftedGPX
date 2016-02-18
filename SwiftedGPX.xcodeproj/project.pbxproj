@@ -46,7 +46,7 @@
 		727392641C68A82400F169BF /* SwiftedGPXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727392631C68A82400F169BF /* SwiftedGPXTests.swift */; };
 		727392711C68A87F00F169BF /* SPNSXMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7273926E1C68A87F00F169BF /* SPNSXMLParser.swift */; };
 		727392721C68A87F00F169BF /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7273926F1C68A87F00F169BF /* Stack.swift */; };
-		727392731C68A87F00F169BF /* XMLElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727392701C68A87F00F169BF /* XMLElement.swift */; };
+		727392731C68A87F00F169BF /* SPXMLElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727392701C68A87F00F169BF /* SPXMLElement.swift */; };
 		727392761C68A93A00F169BF /* gpx.xsd in Resources */ = {isa = PBXBuildFile; fileRef = 727392751C68A93A00F169BF /* gpx.xsd */; };
 		727392781C68A9BC00F169BF /* GPX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727392771C68A9BC00F169BF /* GPX.swift */; };
 		72DE4A491C7415370007F51B /* Year.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE4A481C7415370007F51B /* Year.swift */; };
@@ -107,34 +107,34 @@
 		725BDD0F1C72BCD400E18696 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		725BDD111C72BD2200E18696 /* TrackSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackSegment.swift; sourceTree = "<group>"; };
 		725BDD131C72BD8C00E18696 /* Copyright.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Copyright.swift; sourceTree = "<group>"; };
-		725BDD151C72BDAA00E18696 /* Link.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
+		725BDD151C72BDAA00E18696 /* Link.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Link.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		725BDD171C72BDC000E18696 /* EmailType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailType.swift; sourceTree = "<group>"; };
-		725BDD191C72BDFA00E18696 /* Author.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
+		725BDD191C72BDFA00E18696 /* Author.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Author.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		725BDD1D1C72BE3C00E18696 /* PtSegType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PtSegType.swift; sourceTree = "<group>"; };
-		725BDD1F1C72BE4D00E18696 /* Bounds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bounds.swift; sourceTree = "<group>"; };
+		725BDD1F1C72BE4D00E18696 /* Bounds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Bounds.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		725BDD211C72BE6C00E18696 /* LatitudeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatitudeType.swift; sourceTree = "<group>"; };
 		725BDD231C72BE8100E18696 /* LongitudeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LongitudeType.swift; sourceTree = "<group>"; };
-		725BDD251C72BEB000E18696 /* MagneticVariation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagneticVariation.swift; sourceTree = "<group>"; };
-		725BDD271C72BEDC00E18696 /* Fix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fix.swift; sourceTree = "<group>"; };
+		725BDD251C72BEB000E18696 /* MagneticVariation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MagneticVariation.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		725BDD271C72BEDC00E18696 /* Fix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Fix.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		725BDD291C72BEFC00E18696 /* DGPSStationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DGPSStationType.swift; sourceTree = "<group>"; };
-		725BDD2B1C72EFED00E18696 /* Name.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Name.swift; sourceTree = "<group>"; };
-		725BDD2D1C72F12100E18696 /* Description.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Description.swift; sourceTree = "<group>"; };
-		725BDD2F1C72F2FA00E18696 /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
-		725BDD311C72F35F00E18696 /* Keywords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keywords.swift; sourceTree = "<group>"; };
-		725BDD331C72F4FB00E18696 /* Elevation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Elevation.swift; sourceTree = "<group>"; };
-		725BDD371C72F64900E18696 /* GeoIdHeight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoIdHeight.swift; sourceTree = "<group>"; };
-		725BDD391C72F67400E18696 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
-		725BDD3B1C72F69400E18696 /* Source.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
-		725BDD3D1C72F6B900E18696 /* Symbol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Symbol.swift; sourceTree = "<group>"; };
-		725BDD3F1C72F6DA00E18696 /* Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
-		725BDD411C72F72A00E18696 /* Satellites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Satellites.swift; sourceTree = "<group>"; };
-		725BDD431C72F75000E18696 /* HorizontalDOP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalDOP.swift; sourceTree = "<group>"; };
-		725BDD451C72F76800E18696 /* VerticalDOP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalDOP.swift; sourceTree = "<group>"; };
-		725BDD471C72F78100E18696 /* PositionDOP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionDOP.swift; sourceTree = "<group>"; };
-		725BDD491C72F7AA00E18696 /* AGeoFdGPSData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AGeoFdGPSData.swift; sourceTree = "<group>"; };
-		725BDD4B1C72F7CC00E18696 /* DGPSId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DGPSId.swift; sourceTree = "<group>"; };
-		725BDD4D1C72F80100E18696 /* Number.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Number.swift; sourceTree = "<group>"; };
-		725BDD4F1C72FCBF00E18696 /* RoutePoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutePoint.swift; sourceTree = "<group>"; };
+		725BDD2B1C72EFED00E18696 /* Name.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Name.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		725BDD2D1C72F12100E18696 /* Description.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Description.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		725BDD2F1C72F2FA00E18696 /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Time.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		725BDD311C72F35F00E18696 /* Keywords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Keywords.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		725BDD331C72F4FB00E18696 /* Elevation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Elevation.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		725BDD371C72F64900E18696 /* GeoIdHeight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = GeoIdHeight.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		725BDD391C72F67400E18696 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Comment.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		725BDD3B1C72F69400E18696 /* Source.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Source.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		725BDD3D1C72F6B900E18696 /* Symbol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Symbol.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		725BDD3F1C72F6DA00E18696 /* Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Type.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		725BDD411C72F72A00E18696 /* Satellites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Satellites.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		725BDD431C72F75000E18696 /* HorizontalDOP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = HorizontalDOP.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		725BDD451C72F76800E18696 /* VerticalDOP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = VerticalDOP.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		725BDD471C72F78100E18696 /* PositionDOP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PositionDOP.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		725BDD491C72F7AA00E18696 /* AGeoFdGPSData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AGeoFdGPSData.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		725BDD4B1C72F7CC00E18696 /* DGPSId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DGPSId.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		725BDD4D1C72F80100E18696 /* Number.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Number.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		725BDD4F1C72FCBF00E18696 /* RoutePoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = RoutePoint.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		727392541C68A82400F169BF /* SwiftedGPX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftedGPX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		727392591C68A82400F169BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7273925E1C68A82400F169BF /* SwiftedGPXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftedGPXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,11 +142,11 @@
 		727392651C68A82400F169BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7273926E1C68A87F00F169BF /* SPNSXMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPNSXMLParser.swift; sourceTree = "<group>"; };
 		7273926F1C68A87F00F169BF /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
-		727392701C68A87F00F169BF /* XMLElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLElement.swift; sourceTree = "<group>"; };
+		727392701C68A87F00F169BF /* SPXMLElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SPXMLElement.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		727392751C68A93A00F169BF /* gpx.xsd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = gpx.xsd; sourceTree = "<group>"; };
 		727392771C68A9BC00F169BF /* GPX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPX.swift; sourceTree = "<group>"; };
-		72DE4A481C7415370007F51B /* Year.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Year.swift; sourceTree = "<group>"; };
-		72DE4A4A1C74154B0007F51B /* License.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
+		72DE4A481C7415370007F51B /* Year.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Year.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		72DE4A4A1C74154B0007F51B /* License.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = License.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		72DE4A961C741A610007F51B /* 2012_03_21 15_41.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "2012_03_21 15_41.gpx"; sourceTree = "<group>"; };
 		72DE4A971C741A610007F51B /* 2012_03_21 18_45(1).gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "2012_03_21 18_45(1).gpx"; sourceTree = "<group>"; };
 		72DE4A981C741A610007F51B /* 2012_03_23 8_29.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "2012_03_23 8_29.gpx"; sourceTree = "<group>"; };
@@ -229,7 +229,7 @@
 				727392741C68A8AD00F169BF /* Elements */,
 				7273926E1C68A87F00F169BF /* SPNSXMLParser.swift */,
 				7273926F1C68A87F00F169BF /* Stack.swift */,
-				727392701C68A87F00F169BF /* XMLElement.swift */,
+				727392701C68A87F00F169BF /* SPXMLElement.swift */,
 				727392591C68A82400F169BF /* Info.plist */,
 			);
 			path = SwiftedGPX;
@@ -495,7 +495,7 @@
 				725BDD4A1C72F7AA00E18696 /* AGeoFdGPSData.swift in Sources */,
 				725BDD1A1C72BDFA00E18696 /* Author.swift in Sources */,
 				725BDD2C1C72EFED00E18696 /* Name.swift in Sources */,
-				727392731C68A87F00F169BF /* XMLElement.swift in Sources */,
+				727392731C68A87F00F169BF /* SPXMLElement.swift in Sources */,
 				725BDD081C72BC2E00E18696 /* Metadata.swift in Sources */,
 				725BDD141C72BD8C00E18696 /* Copyright.swift in Sources */,
 				725BDD321C72F35F00E18696 /* Keywords.swift in Sources */,

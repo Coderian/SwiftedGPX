@@ -8,9 +8,9 @@
 
 import Foundation
 
-public class Track : XMLElement, HasXMLElementName {
+public class Track : SPXMLElement, HasXMLElementName {
     public static var elementName: String = "trk"
-    public override var parent:XMLElement? {
+    public override var parent:SPXMLElement? {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
             switch self.parent {

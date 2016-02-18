@@ -16,9 +16,9 @@ import Foundation
 //        </xsd:annotation>
 //      </xsd:element>
 
-public class DGPSId : XMLElement,  HasXMLElementValue, HasXMLElementSimpleValue {
+public class DGPSId : SPXMLElement,  HasXMLElementValue, HasXMLElementSimpleValue {
     public static var elementName: String = "dgpsid"
-    public override var parent:XMLElement? {
+    public override var parent:SPXMLElement? {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
             if self.parent?.childs.contains(self) == true {
@@ -34,7 +34,7 @@ public class DGPSId : XMLElement,  HasXMLElementValue, HasXMLElementSimpleValue 
         }
     }
     public var value: DGPSStationType?
-    public func makeRelation(contents:String, parent:XMLElement) -> XMLElement{
+    public func makeRelation(contents:String, parent:SPXMLElement) -> SPXMLElement{
         self.value = DGPSStationType(value: Int(contents)!)
         self.parent = parent
         return parent

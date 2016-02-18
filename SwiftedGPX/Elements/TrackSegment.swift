@@ -15,9 +15,9 @@ import Foundation
 //          </xsd:documentation>
 //        </xsd:annotation>
 //      </xsd:element>
-public class TrackSegment : XMLElement, HasXMLElementValue {
+public class TrackSegment : SPXMLElement, HasXMLElementValue {
     public static var elementName: String = "trkseg"
-    public override var parent:XMLElement? {
+    public override var parent:SPXMLElement? {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
             if self.parent?.childs.contains(self) == true {
@@ -63,9 +63,9 @@ public class TrackSegment : XMLElement, HasXMLElementValue {
 //    </xsd:sequence>
 //  </xsd:complexType>
 
-public class TrackPoint : XMLElement, HasXMLElementValue {
+public class TrackPoint : SPXMLElement, HasXMLElementValue {
     public static var elementName: String = "trkpt"
-    public override var parent:XMLElement? {
+    public override var parent:SPXMLElement? {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
             if self.parent?.childs.contains(self) == true {
