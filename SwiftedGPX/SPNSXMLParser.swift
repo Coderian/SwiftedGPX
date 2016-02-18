@@ -8,8 +8,8 @@
 
 import Foundation
 
-/// GPX Parser of NSXMLParser
-class GPXNSXMLParser : NSObject,NSXMLParserDelegate{
+/// Generic Parser of NSXMLParser
+class SPXMLParser<T:HasXMLElementValue where T:XMLElementRoot>: NSObject,NSXMLParserDelegate{
     var parser:NSXMLParser!
 
     private var stack:Stack<XMLElement> = Stack()
@@ -18,19 +18,20 @@ class GPXNSXMLParser : NSObject,NSXMLParserDelegate{
     private var previewStackCount:Int = 0
     var creaters:[String:XMLElement.Type] = [:]
     /// parse結果取得用
-    var gpx:Gpx?
-    
-    init(Url:NSURL, root:hasCreaters.Type) {
+    var root:T?
+    var rootType:T.Type
+
+    init(Url:NSURL, root:T.Type) {
         parser = NSXMLParser(contentsOfURL: Url)
+        self.rootType = root
         super.init()
         parser.delegate = self
-        
         creaters = root.creaters
     }
     
-    func parse() -> Gpx?{
+    func parse() -> T?{
         parser.parse()
-        return gpx
+        return root
     }
     
     internal func createXMLElement(stack:Stack<XMLElement>, elementName:String,attributes:[String:String]) -> XMLElement? {
@@ -54,8 +55,8 @@ class GPXNSXMLParser : NSObject,NSXMLParserDelegate{
     }
     
     func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-        if elementName == Gpx.elementName {
-            gpx = stack.pop() as? Gpx
+        if elementName == self.rootType.elementName {
+            root = stack.pop() as? T
         }
         else{
             let current = stack.pop()

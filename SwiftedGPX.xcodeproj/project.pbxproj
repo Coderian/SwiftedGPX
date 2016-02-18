@@ -44,7 +44,7 @@
 		725BDD501C72FCBF00E18696 /* RoutePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725BDD4F1C72FCBF00E18696 /* RoutePoint.swift */; };
 		7273925F1C68A82400F169BF /* SwiftedGPX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 727392541C68A82400F169BF /* SwiftedGPX.framework */; };
 		727392641C68A82400F169BF /* SwiftedGPXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727392631C68A82400F169BF /* SwiftedGPXTests.swift */; };
-		727392711C68A87F00F169BF /* GPXNSXMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7273926E1C68A87F00F169BF /* GPXNSXMLParser.swift */; };
+		727392711C68A87F00F169BF /* SPNSXMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7273926E1C68A87F00F169BF /* SPNSXMLParser.swift */; };
 		727392721C68A87F00F169BF /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7273926F1C68A87F00F169BF /* Stack.swift */; };
 		727392731C68A87F00F169BF /* XMLElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727392701C68A87F00F169BF /* XMLElement.swift */; };
 		727392761C68A93A00F169BF /* gpx.xsd in Resources */ = {isa = PBXBuildFile; fileRef = 727392751C68A93A00F169BF /* gpx.xsd */; };
@@ -140,7 +140,7 @@
 		7273925E1C68A82400F169BF /* SwiftedGPXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftedGPXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		727392631C68A82400F169BF /* SwiftedGPXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftedGPXTests.swift; sourceTree = "<group>"; };
 		727392651C68A82400F169BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7273926E1C68A87F00F169BF /* GPXNSXMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXNSXMLParser.swift; sourceTree = "<group>"; };
+		7273926E1C68A87F00F169BF /* SPNSXMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SPNSXMLParser.swift; sourceTree = "<group>"; };
 		7273926F1C68A87F00F169BF /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		727392701C68A87F00F169BF /* XMLElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLElement.swift; sourceTree = "<group>"; };
 		727392751C68A93A00F169BF /* gpx.xsd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = gpx.xsd; sourceTree = "<group>"; };
@@ -227,7 +227,7 @@
 			children = (
 				727392751C68A93A00F169BF /* gpx.xsd */,
 				727392741C68A8AD00F169BF /* Elements */,
-				7273926E1C68A87F00F169BF /* GPXNSXMLParser.swift */,
+				7273926E1C68A87F00F169BF /* SPNSXMLParser.swift */,
 				7273926F1C68A87F00F169BF /* Stack.swift */,
 				727392701C68A87F00F169BF /* XMLElement.swift */,
 				727392591C68A82400F169BF /* Info.plist */,
@@ -505,7 +505,7 @@
 				725BDD441C72F75000E18696 /* HorizontalDOP.swift in Sources */,
 				725BDD1E1C72BE3C00E18696 /* PtSegType.swift in Sources */,
 				725BDD3C1C72F69400E18696 /* Source.swift in Sources */,
-				727392711C68A87F00F169BF /* GPXNSXMLParser.swift in Sources */,
+				727392711C68A87F00F169BF /* SPNSXMLParser.swift in Sources */,
 				725BDD2A1C72BEFC00E18696 /* DGPSStationType.swift in Sources */,
 				725BDD421C72F72A00E18696 /* Satellites.swift in Sources */,
 				727392781C68A9BC00F169BF /* GPX.swift in Sources */,

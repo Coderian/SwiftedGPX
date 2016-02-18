@@ -19,7 +19,7 @@ import Foundation
 ///         </xsd:documentation>
 ///       </xsd:annotation>
 ///     </xsd:element>
-public class Gpx : XMLElement, HasXMLElementValue, hasCreaters {
+public class Gpx : XMLElement, HasXMLElementValue, XMLElementRoot {
     public static var elementName: String = "gpx"
     public var value : GPXType = GPXType()
     public static var creaters:[String:XMLElement.Type] {

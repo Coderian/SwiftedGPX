@@ -1,16 +1,12 @@
 //
 //  XMLElement.swift
-//  SwiftedKML
+//  SwiftedGPX
 //
 //  Created by 佐々木 均 on 2016/02/02.
 //  Copyright © 2016年 S-Parts. All rights reserved.
 //
 
 import Foundation
-
-public enum RelationshipError : ErrorType {
-    case UnmatchParentType(msg:String)
-}
 
 /// XML Attribute
 public protocol XMLAttributed {
@@ -30,7 +26,8 @@ public protocol XMLAttributed {
     }
 }
 
-public protocol hasCreaters {
+/// XML Root Element
+public protocol XMLElementRoot {
     static var creaters:[String:XMLElement.Type] { get }
 }
 

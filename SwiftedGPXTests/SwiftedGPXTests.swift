@@ -24,7 +24,7 @@ class SwiftedGPXTests: XCTestCase {
     
     func testGpxfromGarminColorado() {
         let gpxXmlUrl = bundle.URLForResource("20120326", withExtension: "gpx")
-        let gpxParser = GPXNSXMLParser(Url: gpxXmlUrl!,root:Gpx.self)
+        let gpxParser = SPXMLParser(Url: gpxXmlUrl!,root:Gpx.self)
         let gpx = gpxParser.parse()
         XCTAssertNotNil(gpx, "gpx is nil")
         let childs = gpx?.allChilds()
@@ -41,7 +41,7 @@ class SwiftedGPXTests: XCTestCase {
     
     func testGpxfromMyTracks() {
         let gpxXmlUrl = bundle.URLForResource("2012_03_21 15_41", withExtension: "gpx")
-        let gpxParser = GPXNSXMLParser(Url: gpxXmlUrl!, root:Gpx.self)
+        let gpxParser = SPXMLParser(Url: gpxXmlUrl!, root:Gpx.self)
         let gpx = gpxParser.parse()
         XCTAssertNotNil(gpx, "gpx is nil")
         let childs = gpx?.allChilds()
@@ -55,7 +55,7 @@ class SwiftedGPXTests: XCTestCase {
     
     func testGpxfromeTrex30JWayPoint() {
         let gpxXmlUrl = bundle.URLForResource("Point_12-05-13", withExtension: "gpx")
-        let gpxParser = GPXNSXMLParser(Url: gpxXmlUrl!, root:Gpx.self)
+        let gpxParser = SPXMLParser(Url: gpxXmlUrl!, root:Gpx.self)
         let gpx = gpxParser.parse()
         XCTAssertNotNil(gpx, "gpx is nil")
         let childs = gpx?.allChilds()
@@ -69,7 +69,7 @@ class SwiftedGPXTests: XCTestCase {
     
     func testGpxfromeTrex30JTrack() {
         let gpxXmlUrl = bundle.URLForResource("軌跡_12-04-15 095638 PM", withExtension: "gpx")
-        let gpxParser = GPXNSXMLParser(Url: gpxXmlUrl!, root: Gpx.self)
+        let gpxParser = SPXMLParser(Url: gpxXmlUrl!, root: Gpx.self)
         let gpx = gpxParser.parse()
         XCTAssertNotNil(gpx, "gpx is nil")
         let childs = gpx?.allChilds()
@@ -86,7 +86,7 @@ class SwiftedGPXTests: XCTestCase {
         self.measureBlock {
             // Put the code you want to measure the time of here.
             let gpxXmlUrl = self.bundle.URLForResource("軌跡_12-04-15 095638 PM", withExtension: "gpx")
-            let gpxParser = GPXNSXMLParser(Url: gpxXmlUrl!, root: Gpx.self)
+            let gpxParser = SPXMLParser(Url: gpxXmlUrl!, root: Gpx.self)
             let gpx = gpxParser.parse()
             XCTAssertNotNil(gpx, "gpx is nil")
         }
