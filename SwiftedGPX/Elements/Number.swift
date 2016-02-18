@@ -13,21 +13,21 @@ import Foundation
 ///
 ///  [GPX 1.1 schema](http://www.topografix.com/GPX/1/1/gpx.xsd)
 ///
-//      <xsd:element name="number"		type="xsd:nonNegativeInteger"	minOccurs="0">
-//        <xsd:annotation>
-//          <xsd:documentation>
-//            GPS route number.
-//          </xsd:documentation>
-//        </xsd:annotation>
-//      </xsd:element>
-//
-//      <xsd:element name="number"		type="xsd:nonNegativeInteger"	minOccurs="0">
-//        <xsd:annotation>
-//          <xsd:documentation>
-//            GPS track number.
-//          </xsd:documentation>
-//        </xsd:annotation>
-//      </xsd:element>
+///     <xsd:element name="number"		type="xsd:nonNegativeInteger"	minOccurs="0">
+///       <xsd:annotation>
+///         <xsd:documentation>
+///           GPS route number.
+///         </xsd:documentation>
+///       </xsd:annotation>
+///     </xsd:element>
+///
+///     <xsd:element name="number"		type="xsd:nonNegativeInteger"	minOccurs="0">
+///       <xsd:annotation>
+///         <xsd:documentation>
+///           GPS track number.
+///         </xsd:documentation>
+///       </xsd:annotation>
+///     </xsd:element>
 public class Number : SPXMLElement, HasXMLElementValue, HasXMLElementSimpleValue {
     public static var elementName: String = "number"
     public override var parent:SPXMLElement? {

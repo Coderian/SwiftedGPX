@@ -22,47 +22,41 @@ import Foundation
 public class Gpx : SPXMLElement, HasXMLElementValue, XMLElementRoot {
     public static var elementName: String = "gpx"
     public var value : GPXType
-    public static var creaters:[String:SPXMLElement.Type] {
-        get {
-            let creaters:[String:SPXMLElement.Type] = [
-                Gpx.elementName:            Gpx.self,
-                Metadata.elementName:       Metadata.self,
-                WayPoint.elementName:       WayPoint.self,
-                Route.elementName:          Route.self,
-                Track.elementName:          Track.self,
-                Extensions.elementName:     Extensions.self,
-                TrackSegment.elementName:   TrackSegment.self,
-                TrackPoint.elementName:     TrackPoint.self,
-                Copyright.elementName:      Copyright.self,
-                Link.elementName:           Link.self,
-                Author.elementName:         Author.self,
-                Bounds.elementName:         Bounds.self,
-                MagneticVariation.elementName:MagneticVariation.self,
-                Fix.elementName:            Fix.self,
-                Name.elementName:           Name.self,
-                Description.elementName:    Description.self,
-                Time.elementName:           Time.self,
-                Keywords.elementName:       Keywords.self,
-                Elevation.elementName:      Elevation.self,
-                GeoIdHeight.elementName:    GeoIdHeight.self,
-                Comment.elementName:        Comment.self,
-                Source.elementName:         Source.self,
-                Symbol.elementName:         Symbol.self,
-                Type.elementName:           Type.self,
-                Satellites.elementName:     Satellites.self,
-                HorizontalDOP.elementName:  HorizontalDOP.self,
-                VerticalDOP.elementName:    VerticalDOP.self,
-                PositionDOP.elementName:    PositionDOP.self,
-                DGPSId.elementName:         DGPSId.self,
-                Number.elementName:         Number.self,
-                RoutePoint.elementName:     RoutePoint.self,
-                Year.elementName:           Year.self,
-                License.elementName:        License.self,
-                Text.elementName:           Text.self
-                ]
-            return creaters
-        }
-    }
+    public static var creaters:[String:SPXMLElement.Type]
+    = [ Gpx.elementName:            Gpx.self,
+        Metadata.elementName:       Metadata.self,
+        WayPoint.elementName:       WayPoint.self,
+        Route.elementName:          Route.self,
+        Track.elementName:          Track.self,
+        Extensions.elementName:     Extensions.self,
+        TrackSegment.elementName:   TrackSegment.self,
+        TrackPoint.elementName:     TrackPoint.self,
+        Copyright.elementName:      Copyright.self,
+        Link.elementName:           Link.self,
+        Author.elementName:         Author.self,
+        Bounds.elementName:         Bounds.self,
+        MagneticVariation.elementName:MagneticVariation.self,
+        Fix.elementName:            Fix.self,
+        Name.elementName:           Name.self,
+        Description.elementName:    Description.self,
+        Time.elementName:           Time.self,
+        Keywords.elementName:       Keywords.self,
+        Elevation.elementName:      Elevation.self,
+        GeoIdHeight.elementName:    GeoIdHeight.self,
+        Comment.elementName:        Comment.self,
+        Source.elementName:         Source.self,
+        Symbol.elementName:         Symbol.self,
+        Type.elementName:           Type.self,
+        Satellites.elementName:     Satellites.self,
+        HorizontalDOP.elementName:  HorizontalDOP.self,
+        VerticalDOP.elementName:    VerticalDOP.self,
+        PositionDOP.elementName:    PositionDOP.self,
+        DGPSId.elementName:         DGPSId.self,
+        Number.elementName:         Number.self,
+        RoutePoint.elementName:     RoutePoint.self,
+        Year.elementName:           Year.self,
+        License.elementName:        License.self,
+        Text.elementName:           Text.self ]
     public required init(attributes:[String:String]){
         self.value = GPXType(version: attributes[GPXType.Version.attributeName]!, creator: attributes[GPXType.Creator.attributeName]!)
         super.init(attributes: attributes)

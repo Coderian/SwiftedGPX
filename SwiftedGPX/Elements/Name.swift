@@ -12,13 +12,37 @@ import Foundation
 ///
 ///  [GPX 1.1 schema](http://www.topografix.com/GPX/1/1/gpx.xsd)
 ///
-//      <xsd:element name="name"		type="xsd:string"		minOccurs="0">
-//        <xsd:annotation>
-//          <xsd:documentation>
-//            The name of the GPX file.
-//          </xsd:documentation>
-//        </xsd:annotation>
-//      </xsd:element>
+///     <xsd:element name="name"		type="xsd:string"		minOccurs="0">
+///       <xsd:annotation>
+///         <xsd:documentation>
+///           The name of the GPX file.
+///         </xsd:documentation>
+///       </xsd:annotation>
+///     </xsd:element>
+///
+///     <xsd:element name="name"			type="xsd:string"		minOccurs="0">
+///       <xsd:annotation>
+///         <xsd:documentation>
+///           GPS name of track.
+///         </xsd:documentation>
+///       </xsd:annotation>
+///     </xsd:element>
+///
+///     <xsd:element name="name"			type="xsd:string"	minOccurs="0">
+///       <xsd:annotation>
+///         <xsd:documentation>
+///           GPS name of route.
+///         </xsd:documentation>
+///       </xsd:annotation>
+///     </xsd:element>
+///
+///     <xsd:element name="name"			type="xsd:string"		minOccurs="0">
+///       <xsd:annotation>
+///         <xsd:documentation>
+///           The GPS name of the waypoint. This field will be transferred to and from the GPS. GPX does not place restrictions on the length of this field or the characters contained in it. It is up to the receiving application to validate the field before sending it to the GPS.
+///         </xsd:documentation>
+///       </xsd:annotation>
+///     </xsd:element>
 public class Name : SPXMLElement, HasXMLElementValue, HasXMLElementSimpleValue {
     public static var elementName: String = "name"
     public override var parent:SPXMLElement? {

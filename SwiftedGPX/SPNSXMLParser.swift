@@ -11,22 +11,24 @@ import Foundation
 /// Generic Parser of NSXMLParser
 class SPXMLParser<T:HasXMLElementValue where T:XMLElementRoot>: NSObject,NSXMLParserDelegate{
     var parser:NSXMLParser!
-
+    /// 作成中 Elementを保持
     private var stack:Stack<SPXMLElement> = Stack()
     private var isCallEnded:Bool = false
     private var contents:String = ""
     private var previewStackCount:Int = 0
-    var creaters:[String:SPXMLElement.Type] = [:]
+    /// element作成用クラス一覧
+    var creaters:[String:SPXMLElement.Type]
     /// parse結果取得用
     var root:T?
+    /// root Element Type
     var rootType:T.Type
 
     init(Url:NSURL, root:T.Type) {
         parser = NSXMLParser(contentsOfURL: Url)
         self.rootType = root
+        creaters = root.creaters
         super.init()
         parser.delegate = self
-        creaters = root.creaters
     }
     
     func parse() -> T?{

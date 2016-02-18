@@ -12,13 +12,13 @@ import Foundation
 ///
 ///  [GPX 1.1 schema](http://www.topografix.com/GPX/1/1/gpx.xsd)
 ///
-//      <xsd:element name="trkseg"		type="trksegType"		minOccurs="0" maxOccurs="unbounded">
-//        <xsd:annotation>
-//          <xsd:documentation>
-//            A Track Segment holds a list of Track Points which are logically connected in order. To represent a single GPS track where GPS reception was lost, or the GPS receiver was turned off, start a new Track Segment for each continuous span of track data.
-//          </xsd:documentation>
-//        </xsd:annotation>
-//      </xsd:element>
+///     <xsd:element name="trkseg"		type="trksegType"		minOccurs="0" maxOccurs="unbounded">
+///       <xsd:annotation>
+///         <xsd:documentation>
+///           A Track Segment holds a list of Track Points which are logically connected in order. To represent a single GPS track where GPS reception was lost, or the GPS receiver was turned off, start a new Track Segment for each continuous span of track data.
+///         </xsd:documentation>
+///       </xsd:annotation>
+///     </xsd:element>
 public class TrackSegment : SPXMLElement, HasXMLElementValue {
     public static var elementName: String = "trkseg"
     public override var parent:SPXMLElement? {
@@ -44,30 +44,30 @@ public class TrackSegment : SPXMLElement, HasXMLElementValue {
 ///
 ///  [GPX 1.1 schema](http://www.topografix.com/GPX/1/1/gpx.xsd)
 ///
-//  <xsd:complexType name="trksegType">
-//    <xsd:annotation>
-//      <xsd:documentation>
-//        A Track Segment holds a list of Track Points which are logically connected in order. To represent a single GPS track where GPS reception was lost, or the GPS receiver was turned off, start a new Track Segment for each continuous span of track data.
-//      </xsd:documentation>
-//    </xsd:annotation>
-//    <xsd:sequence>	<!-- elements must appear in this order -->
-//      <xsd:element name="trkpt"	type="wptType" minOccurs="0" maxOccurs="unbounded">
-//        <xsd:annotation>
-//          <xsd:documentation>
-//            A Track Point holds the coordinates, elevation, timestamp, and metadata for a single point in a track.
-//          </xsd:documentation>
-//        </xsd:annotation>
-//      </xsd:element>
-//
-//      <xsd:element name="extensions"	type="extensionsType"	minOccurs="0">
-//        <xsd:annotation>
-//          <xsd:documentation>
-//            You can add extend GPX by adding your own elements from another schema here.
-//          </xsd:documentation>
-//        </xsd:annotation>
-//      </xsd:element>
-//    </xsd:sequence>
-//  </xsd:complexType>
+///     <xsd:complexType name="trksegType">
+///       <xsd:annotation>
+///         <xsd:documentation>
+///           A Track Segment holds a list of Track Points which are logically connected in order. To represent a single GPS track where GPS reception was lost, or the GPS receiver was turned off, start a new Track Segment for each continuous span of track data.
+///         </xsd:documentation>
+///       </xsd:annotation>
+///       <xsd:sequence>	<!-- elements must appear in this order -->
+///         <xsd:element name="trkpt"	type="wptType" minOccurs="0" maxOccurs="unbounded">
+///           <xsd:annotation>
+///             <xsd:documentation>
+///               A Track Point holds the coordinates, elevation, timestamp, and metadata for a single point in a track.
+///             </xsd:documentation>
+///           </xsd:annotation>
+///         </xsd:element>
+///
+///         <xsd:element name="extensions"	type="extensionsType"	minOccurs="0">
+///           <xsd:annotation>
+///             <xsd:documentation>
+///               You can add extend GPX by adding your own elements from another schema here.
+///             </xsd:documentation>
+///           </xsd:annotation>
+///         </xsd:element>
+///       </xsd:sequence>
+///     </xsd:complexType>
 public class TrkSegType {
     var trkpt:[TrackPoint] = [TrackPoint]()
     var extensions:Extensions?

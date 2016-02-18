@@ -8,13 +8,17 @@
 
 import Foundation
 
-//      <xsd:element name="ageofdgpsdata"	type="xsd:decimal"		minOccurs="0">
-//        <xsd:annotation>
-//          <xsd:documentation>
-//            Number of seconds since last DGPS update.
-//          </xsd:documentation>
-//        </xsd:annotation>
-//      </xsd:element>
+/// GPX AGeoFdGPSData
+///
+///  [GPX 1.1 schema](http://www.topografix.com/GPX/1/1/gpx.xsd)
+///
+///     <xsd:element name="ageofdgpsdata"	type="xsd:decimal"		minOccurs="0">
+///       <xsd:annotation>
+///         <xsd:documentation>
+///           Number of seconds since last DGPS update.
+///         </xsd:documentation>
+///       </xsd:annotation>
+///     </xsd:element>
 public class AGeoFdGPSData : SPXMLElement,  HasXMLElementValue, HasXMLElementSimpleValue {
     public static var elementName: String = "ageofdgpsdata"
     public override var parent:SPXMLElement? {
