@@ -8,6 +8,10 @@
 
 import Foundation
 
+/// GPX TrackSegment
+///
+///  [GPX 1.1 schema](http://www.topografix.com/GPX/1/1/gpx.xsd)
+///
 //      <xsd:element name="trkseg"		type="trksegType"		minOccurs="0" maxOccurs="unbounded">
 //        <xsd:annotation>
 //          <xsd:documentation>
@@ -20,13 +24,12 @@ public class TrackSegment : SPXMLElement, HasXMLElementValue {
     public override var parent:SPXMLElement? {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            if self.parent?.childs.contains(self) == true {
-                return
-            }
-            self.parent?.childs.insert(self)
-            switch parent {
-            case let v as Track: v.value.trkseg.append(self)
-            default: break
+            if self.parent?.childs.contains(self) == false {
+                self.parent?.childs.insert(self)
+                switch parent {
+                case let v as Track: v.value.trkseg.append(self)
+                default: break
+                }
             }
         }
     }
@@ -34,10 +37,13 @@ public class TrackSegment : SPXMLElement, HasXMLElementValue {
     public required init(attributes:[String:String]){
         super.init(attributes: attributes)
     }
-    
 }
 
 
+/// GPX TrkSegType
+///
+///  [GPX 1.1 schema](http://www.topografix.com/GPX/1/1/gpx.xsd)
+///
 //  <xsd:complexType name="trksegType">
 //    <xsd:annotation>
 //      <xsd:documentation>
@@ -62,19 +68,33 @@ public class TrackSegment : SPXMLElement, HasXMLElementValue {
 //      </xsd:element>
 //    </xsd:sequence>
 //  </xsd:complexType>
+public class TrkSegType {
+    var trkpt:[TrackPoint] = [TrackPoint]()
+    var extensions:Extensions?
+}
 
+/// GPX TrackPoint
+///
+///  [GPX 1.1 schema](http://www.topografix.com/GPX/1/1/gpx.xsd)
+///
+///     <xsd:element name="trkpt"	type="wptType" minOccurs="0" maxOccurs="unbounded">
+///       <xsd:annotation>
+///         <xsd:documentation>
+///           A Track Point holds the coordinates, elevation, timestamp, and metadata for a single point in a track.
+///         </xsd:documentation>
+///       </xsd:annotation>
+///     </xsd:element>
 public class TrackPoint : SPXMLElement, HasXMLElementValue {
     public static var elementName: String = "trkpt"
     public override var parent:SPXMLElement? {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            if self.parent?.childs.contains(self) == true {
-                return
-            }
-            self.parent?.childs.insert(self)
-            switch parent {
-            case let v as TrackSegment: v.value.trkpt.append(self)
-            default: break
+            if self.parent?.childs.contains(self) == false {
+                self.parent?.childs.insert(self)
+                switch parent {
+                case let v as TrackSegment: v.value.trkpt.append(self)
+                default: break
+                }
             }
         }
     }
@@ -85,7 +105,3 @@ public class TrackPoint : SPXMLElement, HasXMLElementValue {
     }
 }
 
-public class TrkSegType {
-    var trkpt:[TrackPoint] = [TrackPoint]()
-    var extensions:Extensions?
-}

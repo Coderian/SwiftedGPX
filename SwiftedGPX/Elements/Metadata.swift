@@ -8,18 +8,28 @@
 
 import Foundation
 
+/// GPX Metadata
+///
+///  [GPX 1.1 schema](http://www.topografix.com/GPX/1/1/gpx.xsd)
+///
+///     <xsd:element name="metadata"	type="metadataType"	minOccurs="0">
+///       <xsd:annotation>
+///         <xsd:documentation>
+///           Metadata about the file.
+///         </xsd:documentation>
+///       </xsd:annotation>
+///     </xsd:element>
 public class Metadata : SPXMLElement, HasXMLElementValue {
     public static var elementName: String = "metadata"
     public override var parent:SPXMLElement? {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            switch self.parent {
-            case let v as Gpx:
-                v.value.metadata = self
-                if v.childs.contains(self) == false {
-                    v.childs.insert(self)
+            if self.parent?.childs.contains(self) == false {
+                self.parent?.childs.insert(self)
+                switch self.parent {
+                case let v as Gpx: v.value.metadata = self
+                default: break
                 }
-            default: break
             }
         }
     }
@@ -27,9 +37,12 @@ public class Metadata : SPXMLElement, HasXMLElementValue {
     public required init(attributes:[String:String]){
         super.init(attributes: attributes)
     }
-    
 }
 
+/// GPX MetadataType
+///
+///  [GPX 1.1 schema](http://www.topografix.com/GPX/1/1/gpx.xsd)
+///
 //  <xsd:complexType name="metadataType">
 //    <xsd:annotation>
 //      <xsd:documentation>
@@ -104,7 +117,6 @@ public class Metadata : SPXMLElement, HasXMLElementValue {
 //      </xsd:element>
 //    </xsd:sequence>
 //  </xsd:complexType>
-
 public class MetadataType {
     var name:Name?
     var desc:Description?

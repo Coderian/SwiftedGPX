@@ -8,6 +8,10 @@
 
 import Foundation
 
+/// GPX PositionDOP
+///
+///  [GPX 1.1 schema](http://www.topografix.com/GPX/1/1/gpx.xsd)
+///
 //      <xsd:element name="pdop"			type="xsd:decimal"		minOccurs="0">
 //        <xsd:annotation>
 //          <xsd:documentation>
@@ -15,21 +19,19 @@ import Foundation
 //          </xsd:documentation>
 //        </xsd:annotation>
 //      </xsd:element>
-
 public class PositionDOP : SPXMLElement,  HasXMLElementValue, HasXMLElementSimpleValue {
     public static var elementName: String = "pdop"
     public override var parent:SPXMLElement? {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            if self.parent?.childs.contains(self) == true {
-                return
-            }
-            self.parent?.childs.insert(self)
-            switch parent {
-            case let v as WayPoint: v.value.pdop = self
-            case let v as TrackPoint: v.value.pdop = self
-            case let v as RoutePoint: v.value.pdop = self
-            default: break
+            if self.parent?.childs.contains(self) == false {
+                self.parent?.childs.insert(self)
+                switch parent {
+                case let v as WayPoint: v.value.pdop = self
+                case let v as TrackPoint: v.value.pdop = self
+                case let v as RoutePoint: v.value.pdop = self
+                default: break
+                }
             }
         }
     }
@@ -42,5 +44,4 @@ public class PositionDOP : SPXMLElement,  HasXMLElementValue, HasXMLElementSimpl
     public required init(attributes:[String:String]){
         super.init(attributes: attributes)
     }
-    
 }

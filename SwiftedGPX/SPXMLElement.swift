@@ -87,8 +87,11 @@ public extension SPXMLElement {
     }
 }
 
+/// XML Element base class
 public class SPXMLElement : Hashable {
+    // MARK: Hashable
     public var hashValue: Int { return unsafeAddressOf(self).hashValue }
+    
     public var parent:SPXMLElement? {
         willSet {
             if newValue == nil {
@@ -101,7 +104,7 @@ public class SPXMLElement : Hashable {
     public required init(attributes:[String:String]){
         self.attributes = attributes
     }
-    
+    public init(){}
 }
 
 public func == ( lhs: SPXMLElement, rhs: SPXMLElement) -> Bool {

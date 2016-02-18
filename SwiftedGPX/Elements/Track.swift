@@ -8,19 +8,28 @@
 
 import Foundation
 
+/// GPX Track
+///
+///  [GPX 1.1 schema](http://www.topografix.com/GPX/1/1/gpx.xsd)
+///
+///     <xsd:element name="trk"			type="trkType"	minOccurs="0" maxOccurs="unbounded">
+///       <xsd:annotation>
+///         <xsd:documentation>
+///           A list of tracks.
+///         </xsd:documentation>
+///       </xsd:annotation>
+///     </xsd:element>
 public class Track : SPXMLElement, HasXMLElementName {
     public static var elementName: String = "trk"
     public override var parent:SPXMLElement? {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            switch self.parent {
-            case let v as Gpx:
-                v.value.trk.append(self)
-                if v.childs.contains(self) == false {
-                    v.childs.insert(self)
+            if self.parent?.childs.contains(self) == false {
+                self.parent?.childs.insert(self)
+                switch self.parent {
+                case let v as Gpx: v.value.trk.append(self)
+                default: break
                 }
-
-            default: break
             }
         }
     }
@@ -28,9 +37,12 @@ public class Track : SPXMLElement, HasXMLElementName {
     public required init(attributes:[String:String]){
         super.init(attributes: attributes)
     }
-    
 }
 
+/// GPX TrkType
+///
+///  [GPX 1.1 schema](http://www.topografix.com/GPX/1/1/gpx.xsd)
+///
 //  <xsd:complexType name="trkType">
 //    <xsd:annotation>
 //      <xsd:documentation>
@@ -105,7 +117,6 @@ public class Track : SPXMLElement, HasXMLElementName {
 //      </xsd:element>
 //    </xsd:sequence>
 //  </xsd:complexType>
-
 public class TrkType {
     public var name:Name?
     public var cmt:Comment?

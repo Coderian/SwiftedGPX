@@ -8,30 +8,32 @@
 
 import Foundation
 
-//      <xsd:element name="cmt"			type="xsd:string"		minOccurs="0">
-//        <xsd:annotation>
-//          <xsd:documentation>
-//            GPS waypoint comment. Sent to GPS as comment.
-//          </xsd:documentation>
-//        </xsd:annotation>
-//      </xsd:element>
-
+/// GPX Comment
+///
+///  [GPX 1.1 schema](http://www.topografix.com/GPX/1/1/gpx.xsd)
+///
+///     <xsd:element name="cmt"			type="xsd:string"		minOccurs="0">
+///       <xsd:annotation>
+///         <xsd:documentation>
+///           GPS waypoint comment. Sent to GPS as comment.
+///         </xsd:documentation>
+///       </xsd:annotation>
+///     </xsd:element>
 public class Comment : SPXMLElement, HasXMLElementValue, HasXMLElementSimpleValue {
     public static var elementName: String = "cmt"
     public override var parent:SPXMLElement? {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            if self.parent?.childs.contains(self) == true {
-                return
-            }
-            self.parent?.childs.insert(self)
-            switch parent {
-            case let v as WayPoint: v.value.cmt = self
-            case let v as Route: v.value.cmt = self
-            case let v as RoutePoint: v.value.cmt = self
-            case let v as Track: v.value.cmt = self
-            case let v as TrackPoint: v.value.cmt = self
-            default: break
+            if self.parent?.childs.contains(self) == false {
+                self.parent?.childs.insert(self)
+                switch parent {
+                case let v as WayPoint: v.value.cmt = self
+                case let v as Route: v.value.cmt = self
+                case let v as RoutePoint: v.value.cmt = self
+                case let v as Track: v.value.cmt = self
+                case let v as TrackPoint: v.value.cmt = self
+                default: break
+                }
             }
         }
     }
@@ -44,5 +46,4 @@ public class Comment : SPXMLElement, HasXMLElementValue, HasXMLElementSimpleValu
     public required init(attributes:[String:String]){
         super.init(attributes: attributes)
     }
-    
 }

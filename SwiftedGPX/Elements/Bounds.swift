@@ -8,25 +8,28 @@
 
 import Foundation
 
-//      <xsd:element name="bounds"		type="boundsType"		minOccurs="0">
-//        <xsd:annotation>
-//          <xsd:documentation>
-//            Minimum and maximum coordinates which describe the extent of the coordinates in the file.
-//          </xsd:documentation>
-//        </xsd:annotation>
-//      </xsd:element>
+/// GPX Bounds
+///
+///  [GPX 1.1 schema](http://www.topografix.com/GPX/1/1/gpx.xsd)
+///
+///     <xsd:element name="bounds"		type="boundsType"		minOccurs="0">
+///       <xsd:annotation>
+///         <xsd:documentation>
+///           Minimum and maximum coordinates which describe the extent of the coordinates in the file.
+///         </xsd:documentation>
+///       </xsd:annotation>
+///     </xsd:element>
 public class Bounds : SPXMLElement, HasXMLElementValue {
     public static var elementName: String = "bounds"
     public override var parent:SPXMLElement? {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            if self.parent?.childs.contains(self) == true {
-                return
-            }
-            self.parent?.childs.insert(self)
-            switch parent {
-            case let v as Metadata: v.value.bounds = self
-            default: break
+            if self.parent?.childs.contains(self) == false {
+                self.parent?.childs.insert(self)
+                switch parent {
+                case let v as Metadata: v.value.bounds = self
+                default: break
+                }
             }
         }
     }
@@ -40,42 +43,45 @@ public class Bounds : SPXMLElement, HasXMLElementValue {
     }
 }
 
-//  <xsd:complexType name="boundsType">
-//    <xsd:annotation>
-//      <xsd:documentation>
-//        Two lat/lon pairs defining the extent of an element.
-//      </xsd:documentation>
-//    </xsd:annotation>
-//    <xsd:attribute name="minlat"		type="latitudeType"		use="required">
-//      <xsd:annotation>
-//        <xsd:documentation>
-//          The minimum latitude.
-//        </xsd:documentation>
-//      </xsd:annotation>
-//    </xsd:attribute>
-//    <xsd:attribute name="minlon"		type="longitudeType"	use="required">
-//      <xsd:annotation>
-//        <xsd:documentation>
-//          The minimum longitude.
-//        </xsd:documentation>
-//      </xsd:annotation>
-//    </xsd:attribute>
-//    <xsd:attribute name="maxlat"		type="latitudeType"		use="required">
-//      <xsd:annotation>
-//        <xsd:documentation>
-//          The maximum latitude.
-//        </xsd:documentation>
-//      </xsd:annotation>
-//    </xsd:attribute>
-//    <xsd:attribute name="maxlon"		type="longitudeType"	use="required">
-//      <xsd:annotation>
-//        <xsd:documentation>
-//          The maximum longitude.
-//        </xsd:documentation>
-//      </xsd:annotation>
-//    </xsd:attribute>
-//  </xsd:complexType>
-
+/// GPX boundsType
+///
+///  [GPX 1.1 schema](http://www.topografix.com/GPX/1/1/gpx.xsd)
+///
+///     <xsd:complexType name="boundsType">
+///       <xsd:annotation>
+///         <xsd:documentation>
+///           Two lat/lon pairs defining the extent of an element.
+///         </xsd:documentation>
+///       </xsd:annotation>
+///       <xsd:attribute name="minlat"		type="latitudeType"		use="required">
+///         <xsd:annotation>
+///           <xsd:documentation>
+///             The minimum latitude.
+///           </xsd:documentation>
+///         </xsd:annotation>
+///       </xsd:attribute>
+///       <xsd:attribute name="minlon"		type="longitudeType"	use="required">
+///         <xsd:annotation>
+///           <xsd:documentation>
+///             The minimum longitude.
+///           </xsd:documentation>
+///         </xsd:annotation>
+///       </xsd:attribute>
+///       <xsd:attribute name="maxlat"		type="latitudeType"		use="required">
+///         <xsd:annotation>
+///           <xsd:documentation>
+///             The maximum latitude.
+///           </xsd:documentation>
+///         </xsd:annotation>
+///       </xsd:attribute>
+///       <xsd:attribute name="maxlon"		type="longitudeType"	use="required">
+///         <xsd:annotation>
+///           <xsd:documentation>
+///             The maximum longitude.
+///           </xsd:documentation>
+///         </xsd:annotation>
+///       </xsd:attribute>
+///     </xsd:complexType>
 public class BoundsType {
     public struct MinLatitude : XMLAttributed {
         public static var attributeName: String = "minlat"

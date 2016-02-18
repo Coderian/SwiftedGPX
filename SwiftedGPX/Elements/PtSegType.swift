@@ -8,6 +8,8 @@
 
 import Foundation
 
+/// 未使用
+
 //  <xsd:complexType name="ptsegType">
 //    <xsd:annotation>
 //      <xsd:documentation>

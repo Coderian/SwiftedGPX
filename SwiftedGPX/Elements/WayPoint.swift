@@ -8,18 +8,28 @@
 
 import Foundation
 
+/// GPX WayPoint
+///
+///  [GPX 1.1 schema](http://www.topografix.com/GPX/1/1/gpx.xsd)
+///
+///     <xsd:element name="wpt"			type="wptType"	minOccurs="0" maxOccurs="unbounded">
+///       <xsd:annotation>
+///         <xsd:documentation>
+///           A list of waypoints.
+///         </xsd:documentation>
+///       </xsd:annotation>
+///     </xsd:element>
 public class WayPoint : SPXMLElement, HasXMLElementValue {
     public static var elementName: String = "wpt"
     public override var parent:SPXMLElement? {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            switch self.parent {
-            case let v as Gpx:
-                v.value.wpt.append(self)
-                if v.childs.contains(self) == false {
-                    v.childs.insert(self)
+            if self.parent?.childs.contains(self) == false {
+                self.parent?.childs.insert(self)
+                switch self.parent {
+                case let v as Gpx: v.value.wpt.append(self)
+                default: break
                 }
-            default: break
             }
         }
     }
@@ -31,6 +41,10 @@ public class WayPoint : SPXMLElement, HasXMLElementValue {
 }
 
 
+/// GPX WptType
+///
+///  [GPX 1.1 schema](http://www.topografix.com/GPX/1/1/gpx.xsd)
+///
 //  <xsd:complexType name="wptType">
 //    <xsd:annotation>
 //      <xsd:documentation>
@@ -194,7 +208,6 @@ public class WayPoint : SPXMLElement, HasXMLElementValue {
 //      </xsd:annotation>
 //    </xsd:attribute>
 //  </xsd:complexType>
-
 public class WptType {
     public var ele:Elevation?
     public var time:Time?

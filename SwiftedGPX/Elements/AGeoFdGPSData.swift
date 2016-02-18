@@ -15,21 +15,19 @@ import Foundation
 //          </xsd:documentation>
 //        </xsd:annotation>
 //      </xsd:element>
-
 public class AGeoFdGPSData : SPXMLElement,  HasXMLElementValue, HasXMLElementSimpleValue {
     public static var elementName: String = "ageofdgpsdata"
     public override var parent:SPXMLElement? {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            if self.parent?.childs.contains(self) == true {
-                return
-            }
-            self.parent?.childs.insert(self)
-            switch parent {
-            case let v as WayPoint: v.value.ageofdgpsdata = self
-            case let v as TrackPoint: v.value.ageofdgpsdata = self
-            case let v as RoutePoint: v.value.ageofdgpsdata = self
-            default: break
+            if self.parent?.childs.contains(self) == false {
+                self.parent?.childs.insert(self)
+                switch parent {
+                case let v as WayPoint: v.value.ageofdgpsdata = self
+                case let v as TrackPoint: v.value.ageofdgpsdata = self
+                case let v as RoutePoint: v.value.ageofdgpsdata = self
+                default: break
+                }
             }
         }
     }
@@ -42,5 +40,4 @@ public class AGeoFdGPSData : SPXMLElement,  HasXMLElementValue, HasXMLElementSim
     public required init(attributes:[String:String]){
         super.init(attributes: attributes)
     }
-    
 }

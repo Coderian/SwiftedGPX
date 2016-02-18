@@ -8,28 +8,31 @@
 
 import Foundation
 
-//      <xsd:element name="geoidheight"	type="xsd:decimal"		minOccurs="0">
-//        <xsd:annotation>
-//          <xsd:documentation>
-//            Height (in meters) of geoid (mean sea level) above WGS84 earth ellipsoid.  As defined in NMEA GGA message.
-//          </xsd:documentation>
-//        </xsd:annotation>
-//      </xsd:element>
 
+/// GPX GeoIdHeight
+///
+///  [GPX 1.1 schema](http://www.topografix.com/GPX/1/1/gpx.xsd)
+///
+///     <xsd:element name="geoidheight"	type="xsd:decimal"		minOccurs="0">
+///       <xsd:annotation>
+///         <xsd:documentation>
+///           Height (in meters) of geoid (mean sea level) above WGS84 earth ellipsoid.  As defined in NMEA GGA message.
+///         </xsd:documentation>
+///       </xsd:annotation>
+///     </xsd:element>
 public class GeoIdHeight : SPXMLElement, HasXMLElementValue, HasXMLElementSimpleValue {
     public static var elementName: String = "geoidheight"
     public override var parent:SPXMLElement? {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            if self.parent?.childs.contains(self) == true {
-                return
-            }
-            self.parent?.childs.insert(self)
-            switch parent {
-            case let v as WayPoint: v.value.geoidheight = self
-            case let v as TrackPoint: v.value.geoidheight = self
-            case let v as RoutePoint: v.value.geoidheight = self
-            default: break
+            if self.parent?.childs.contains(self) == false {
+                self.parent?.childs.insert(self)
+                switch parent {
+                case let v as WayPoint: v.value.geoidheight = self
+                case let v as TrackPoint: v.value.geoidheight = self
+                case let v as RoutePoint: v.value.geoidheight = self
+                default: break
+                }
             }
         }
     }
@@ -42,5 +45,4 @@ public class GeoIdHeight : SPXMLElement, HasXMLElementValue, HasXMLElementSimple
     public required init(attributes:[String:String]){
         super.init(attributes: attributes)
     }
-    
 }

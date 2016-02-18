@@ -8,18 +8,28 @@
 
 import Foundation
 
+/// GPX Year
+///
+///  [GPX 1.1 schema](http://www.topografix.com/GPX/1/1/gpx.xsd)
+///
+///     <xsd:element name="year"		type="xsd:gYear"	minOccurs="0">
+///       <xsd:annotation>
+///         <xsd:documentation>
+///           Year of copyright.
+///         </xsd:documentation>
+///       </xsd:annotation>
+///     </xsd:element>
 public class Year : SPXMLElement,  HasXMLElementValue, HasXMLElementSimpleValue {
     public static var elementName: String = "year"
     public override var parent:SPXMLElement? {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            if self.parent?.childs.contains(self) == true {
-                return
-            }
-            self.parent?.childs.insert(self)
-            switch parent {
-            case let v as Copyright: v.value.year = self
-            default: break
+            if self.parent?.childs.contains(self) == false {
+                self.parent?.childs.insert(self)
+                switch parent {
+                case let v as Copyright: v.value.year = self
+                default: break
+                }
             }
         }
     }
@@ -33,5 +43,4 @@ public class Year : SPXMLElement,  HasXMLElementValue, HasXMLElementSimpleValue 
     public required init(attributes:[String:String]){
         super.init(attributes: attributes)
     }
-    
 }

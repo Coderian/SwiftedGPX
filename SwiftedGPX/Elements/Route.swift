@@ -8,18 +8,28 @@
 
 import Foundation
 
+/// GPX Route
+///
+///  [GPX 1.1 schema](http://www.topografix.com/GPX/1/1/gpx.xsd)
+///
+///     <xsd:element name="rte"			type="rteType"	minOccurs="0" maxOccurs="unbounded">
+///       <xsd:annotation>
+///         <xsd:documentation>
+///           A list of routes.
+///         </xsd:documentation>
+///       </xsd:annotation>
+///     </xsd:element>
 public class Route : SPXMLElement, HasXMLElementValue {
     public static var elementName: String = "rte"
     public override var parent:SPXMLElement? {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            switch self.parent {
-            case let v as Gpx:
-                v.value.rte.append(self)
-                if v.childs.contains(self) == false {
-                    v.childs.insert(self)
+            if self.parent?.childs.contains(self) == false {
+                self.parent?.childs.insert(self)
+                switch self.parent {
+                case let v as Gpx: v.value.rte.append(self)
+                default: break
                 }
-            default: break
             }
         }
     }
@@ -27,9 +37,12 @@ public class Route : SPXMLElement, HasXMLElementValue {
     public required init(attributes:[String:String]){
         super.init(attributes: attributes)
     }
-    
 }
 
+/// GPX RteType
+///
+///  [GPX 1.1 schema](http://www.topografix.com/GPX/1/1/gpx.xsd)
+///
 //  <xsd:complexType name="rteType">
 //    <xsd:annotation>
 //      <xsd:documentation>

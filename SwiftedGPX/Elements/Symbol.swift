@@ -8,28 +8,30 @@
 
 import Foundation
 
-//      <xsd:element name="sym"			type="xsd:string"		minOccurs="0">
-//        <xsd:annotation>
-//          <xsd:documentation>
-//            Text of GPS symbol name. For interchange with other programs, use the exact spelling of the symbol as displayed on the GPS.  If the GPS abbreviates words, spell them out.
-//          </xsd:documentation>
-//        </xsd:annotation>
-//      </xsd:element>
-
+/// GPX Symbol
+///
+///  [GPX 1.1 schema](http://www.topografix.com/GPX/1/1/gpx.xsd)
+///
+///     <xsd:element name="sym"			type="xsd:string"		minOccurs="0">
+///       <xsd:annotation>
+///         <xsd:documentation>
+///           Text of GPS symbol name. For interchange with other programs, use the exact spelling of the symbol as displayed on the GPS.  If the GPS abbreviates words, spell them out.
+///         </xsd:documentation>
+///       </xsd:annotation>
+///     </xsd:element>
 public class Symbol : SPXMLElement, HasXMLElementValue, HasXMLElementSimpleValue {
     public static var elementName: String = "sym"
     public override var parent:SPXMLElement? {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            if self.parent?.childs.contains(self) == true {
-                return
-            }
-            self.parent?.childs.insert(self)
-            switch parent {
-            case let v as WayPoint: v.value.sym = self
-            case let v as TrackPoint: v.value.sym = self
-            case let v as RoutePoint: v.value.sym = self
-            default: break
+            if self.parent?.childs.contains(self) == false {
+                self.parent?.childs.insert(self)
+                switch parent {
+                case let v as WayPoint: v.value.sym = self
+                case let v as TrackPoint: v.value.sym = self
+                case let v as RoutePoint: v.value.sym = self
+                default: break
+                }
             }
         }
     }
@@ -42,5 +44,4 @@ public class Symbol : SPXMLElement, HasXMLElementValue, HasXMLElementSimpleValue
     public required init(attributes:[String:String]){
         super.init(attributes: attributes)
     }
-    
 }

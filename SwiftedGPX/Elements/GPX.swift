@@ -21,53 +21,58 @@ import Foundation
 ///     </xsd:element>
 public class Gpx : SPXMLElement, HasXMLElementValue, XMLElementRoot {
     public static var elementName: String = "gpx"
-    public var value : GPXType = GPXType()
+    public var value : GPXType
     public static var creaters:[String:SPXMLElement.Type] {
         get {
-            var creaters:[String:SPXMLElement.Type] = [:]
-            creaters[Gpx.elementName]           = Gpx.self
-            creaters[Metadata.elementName]      = Metadata.self
-            creaters[WayPoint.elementName]      = WayPoint.self
-            creaters[Route.elementName]         = Route.self
-            creaters[Track.elementName]         = Track.self
-            creaters[Extensions.elementName]    = Extensions.self
-            creaters[TrackSegment.elementName]  = TrackSegment.self
-            creaters[TrackPoint.elementName]    = TrackPoint.self
-            creaters[Copyright.elementName]     = Copyright.self
-            creaters[Link.elementName]          = Link.self
-            creaters[Author.elementName]        = Author.self
-            creaters[Bounds.elementName]        = Bounds.self
-            creaters[MagneticVariation.elementName]  = MagneticVariation.self
-            creaters[Fix.elementName]           = Fix.self
-            creaters[Name.elementName]          = Name.self
-            creaters[Description.elementName]   = Description.self
-            creaters[Time.elementName]          = Time.self
-            creaters[Keywords.elementName]      = Keywords.self
-            creaters[Elevation.elementName]     = Elevation.self
-            creaters[GeoIdHeight.elementName]   = GeoIdHeight.self
-            creaters[Comment.elementName]       = Comment.self
-            creaters[Source.elementName]        = Source.self
-            creaters[Symbol.elementName]        = Symbol.self
-            creaters[Type.elementName]          = Type.self
-            creaters[Satellites.elementName]    = Satellites.self
-            creaters[HorizontalDOP.elementName] = HorizontalDOP.self
-            creaters[VerticalDOP.elementName]   = VerticalDOP.self
-            creaters[PositionDOP.elementName]   = PositionDOP.self
-            creaters[DGPSId.elementName]        = DGPSId.self
-            creaters[Number.elementName]        = Number.self
-            creaters[RoutePoint.elementName]    = RoutePoint.self
-            creaters[Year.elementName]          = Year.self
-            creaters[License.elementName]       = License.self
-            creaters[Text.elementName]          = Text.self
+            let creaters:[String:SPXMLElement.Type] = [
+                Gpx.elementName:            Gpx.self,
+                Metadata.elementName:       Metadata.self,
+                WayPoint.elementName:       WayPoint.self,
+                Route.elementName:          Route.self,
+                Track.elementName:          Track.self,
+                Extensions.elementName:     Extensions.self,
+                TrackSegment.elementName:   TrackSegment.self,
+                TrackPoint.elementName:     TrackPoint.self,
+                Copyright.elementName:      Copyright.self,
+                Link.elementName:           Link.self,
+                Author.elementName:         Author.self,
+                Bounds.elementName:         Bounds.self,
+                MagneticVariation.elementName:MagneticVariation.self,
+                Fix.elementName:            Fix.self,
+                Name.elementName:           Name.self,
+                Description.elementName:    Description.self,
+                Time.elementName:           Time.self,
+                Keywords.elementName:       Keywords.self,
+                Elevation.elementName:      Elevation.self,
+                GeoIdHeight.elementName:    GeoIdHeight.self,
+                Comment.elementName:        Comment.self,
+                Source.elementName:         Source.self,
+                Symbol.elementName:         Symbol.self,
+                Type.elementName:           Type.self,
+                Satellites.elementName:     Satellites.self,
+                HorizontalDOP.elementName:  HorizontalDOP.self,
+                VerticalDOP.elementName:    VerticalDOP.self,
+                PositionDOP.elementName:    PositionDOP.self,
+                DGPSId.elementName:         DGPSId.self,
+                Number.elementName:         Number.self,
+                RoutePoint.elementName:     RoutePoint.self,
+                Year.elementName:           Year.self,
+                License.elementName:        License.self,
+                Text.elementName:           Text.self
+                ]
             return creaters
         }
     }
     public required init(attributes:[String:String]){
+        self.value = GPXType(version: attributes[GPXType.Version.attributeName]!, creator: attributes[GPXType.Creator.attributeName]!)
         super.init(attributes: attributes)
-        self.value.version = GPXType.Version(value: attributes[GPXType.Version.attributeName]!)
-        self.value.creator = GPXType.Creator(value: attributes[GPXType.Creator.attributeName]!)
     }
-    
+    public override init(){
+        self.value = GPXType(version: "1.1", creator: "SwiftedGPX")
+        super.init()
+        attributes[GPXType.Version.attributeName] = "1.1"
+        attributes[GPXType.Creator.attributeName] = "SwiftedGPX"
+    }
 }
 
 /// GPX pgxType
@@ -144,12 +149,22 @@ public class GPXType {
 
     public struct Version : XMLAttributed {
         public static var attributeName: String = "version"
-        public var value: String = String()
+        public var value: String
+        public init( version: String ) {
+            self.value = version
+        }
     }
-    public var version:Version?
+    public var version:Version
     public struct Creator : XMLAttributed {
         public static var attributeName: String = "creator"
         public var value: String = String()
+        public init( creator: String ) {
+            self.value = creator
+        }
     }
-    public var creator:Creator?
+    public var creator:Creator
+    public init( version:String, creator:String ){
+        self.version = Version(version: version)
+        self.creator = Creator(creator: creator)
+    }
 }
