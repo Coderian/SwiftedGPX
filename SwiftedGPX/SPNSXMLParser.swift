@@ -46,6 +46,7 @@ class SPXMLParser<T:HasXMLElementValue where T:XMLElementRoot>: NSObject,NSXMLPa
     // MARK: NSXMLParserDelegate
     
     func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
+        debugPrint("OnStart didStartElement=\(elementName)")
         let element = createXMLElement(stack,elementName: elementName,attributes: attributeDict)
         // elementが対象外
         if element == nil {
@@ -58,6 +59,7 @@ class SPXMLParser<T:HasXMLElementValue where T:XMLElementRoot>: NSObject,NSXMLPa
     }
     
     func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+        debugPrint("OnStart didEndElement=\(elementName)")
         if elementName == self.rootType.elementName {
             root = stack.pop() as? T
         }

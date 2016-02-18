@@ -12,7 +12,7 @@ import Foundation
 ///
 ///  [GPX 1.1 schema](http://www.topografix.com/GPX/1/1/gpx.xsd)
 ///
-public class Extensions : SPXMLElement,HasXMLElementValue {
+public class Extensions : SPXMLElement,HasXMLElementValue,HasXMLElementSimpleValue {
     public static var elementName: String = "extensions"
     public override var parent:SPXMLElement? {
         didSet {
@@ -29,9 +29,14 @@ public class Extensions : SPXMLElement,HasXMLElementValue {
             }
         }
     }
-    public var value:ExtensionsType = ExtensionsType()
+    public var value:ExtensionsType?
     public required init(attributes:[String:String]){
         super.init(attributes: attributes)
+    }
+    public func makeRelation(contents:String, parent:SPXMLElement) -> SPXMLElement{
+        self.value = ExtensionsType(value: contents)
+        self.parent = parent
+        return parent
     }
 }
 
@@ -56,6 +61,8 @@ public class Extensions : SPXMLElement,HasXMLElementValue {
 ///       </xsd:sequence>
 ///     </xsd:complexType>
 public class ExtensionsType {
-    public var namespace:String = String()
-    public var lax:String = String()
+    public var originalValue:String
+    init(value: String){
+        self.originalValue = value
+    }
 }
