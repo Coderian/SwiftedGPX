@@ -50,6 +50,8 @@
 		727392761C68A93A00F169BF /* gpx.xsd in Resources */ = {isa = PBXBuildFile; fileRef = 727392751C68A93A00F169BF /* gpx.xsd */; };
 		727392781C68A9BC00F169BF /* GPX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727392771C68A9BC00F169BF /* GPX.swift */; };
 		729CF43C1C76D95100DF2F2C /* test.xml in Resources */ = {isa = PBXBuildFile; fileRef = 729CF43B1C76D95100DF2F2C /* test.xml */; };
+		729CF43F1C76E13F00DF2F2C /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 729CF43D1C76E13F00DF2F2C /* README.md */; };
+		729CF4401C76E13F00DF2F2C /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 729CF43E1C76E13F00DF2F2C /* LICENSE */; };
 		72DE4A491C7415370007F51B /* Year.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE4A481C7415370007F51B /* Year.swift */; };
 		72DE4A4B1C74154B0007F51B /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DE4A4A1C74154B0007F51B /* License.swift */; };
 		72DE4ABA1C741A610007F51B /* 2012_03_21 15_41.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 72DE4A961C741A610007F51B /* 2012_03_21 15_41.gpx */; };
@@ -115,6 +117,8 @@
 		727392751C68A93A00F169BF /* gpx.xsd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = gpx.xsd; sourceTree = "<group>"; };
 		727392771C68A9BC00F169BF /* GPX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPX.swift; sourceTree = "<group>"; };
 		729CF43B1C76D95100DF2F2C /* test.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = test.xml; sourceTree = "<group>"; };
+		729CF43D1C76E13F00DF2F2C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		729CF43E1C76E13F00DF2F2C /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		72DE4A481C7415370007F51B /* Year.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Year.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		72DE4A4A1C74154B0007F51B /* License.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = License.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		72DE4A961C741A610007F51B /* 2012_03_21 15_41.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "2012_03_21 15_41.gpx"; sourceTree = "<group>"; };
@@ -145,6 +149,8 @@
 		7273924A1C68A82400F169BF = {
 			isa = PBXGroup;
 			children = (
+				729CF43D1C76E13F00DF2F2C /* README.md */,
+				729CF43E1C76E13F00DF2F2C /* LICENSE */,
 				727392561C68A82400F169BF /* SwiftedGPX */,
 				727392621C68A82400F169BF /* SwiftedGPXTests */,
 				727392551C68A82400F169BF /* Products */,
@@ -338,6 +344,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				729CF4401C76E13F00DF2F2C /* LICENSE in Resources */,
 				72DE4ABE1C741A610007F51B /* 20120326.gpx in Resources */,
 				72DE4ABA1C741A610007F51B /* 2012_03_21 15_41.gpx in Resources */,
 				729CF43C1C76D95100DF2F2C /* test.xml in Resources */,
@@ -401,6 +408,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				729CF43F1C76E13F00DF2F2C /* README.md in Sources */,
 				727392641C68A82400F169BF /* SwiftedGPXTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
