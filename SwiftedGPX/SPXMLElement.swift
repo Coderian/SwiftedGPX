@@ -118,9 +118,14 @@ public func == ( lhs: SPXMLElement, rhs: SPXMLElement) -> Bool {
     return lhs === rhs
 }
 
-public class UnSupportXMLElement:SPXMLElement {
-    public var elementName:String!
-    public var value:String!
+public class UnSupportXMLElement:SPXMLElement, CustomStringConvertible {
+    public var description: String {
+        get {
+            return "{"+self.elementName + "}:{ " + self.value + "}"
+        }
+    }
+    public var elementName:String=""
+    public var value:String=""
     public required init(attributes: [String : String]) {
         super.init(attributes: attributes)
     }

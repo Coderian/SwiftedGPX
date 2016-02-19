@@ -18,7 +18,7 @@ public class SPXMLParser<T:HasXMLElementValue where T:XMLElementRoot>: NSObject,
     private var contents:String = ""
     private var previewStackCount:Int = 0
     /// parse結果取得用
-    var root:T?
+    var root:T!
     /// root Element Type
     var rootType:T.Type
     var debugPrintOn:Bool = false

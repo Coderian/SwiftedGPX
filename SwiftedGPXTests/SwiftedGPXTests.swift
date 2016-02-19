@@ -66,22 +66,15 @@ class SwiftedGPXTests: XCTestCase {
         XCTAssert(root is Gpx, "root is nil")
         let rootfromChild = gpx?.childs.first?.root
         XCTAssert(rootfromChild is Gpx, "first child is nil")
-        
     }
     
-    func testGpxfromeTrex30JTrack() {
-        let gpxXmlUrl = bundle.URLForResource("軌跡_12-04-15 095638 PM", withExtension: "gpx")
+    func testUnSupportElement() {
+        let gpxXmlUrl = bundle.URLForResource("test", withExtension: "xml")
         let gpxParser = SPXMLParser(Url: gpxXmlUrl!, root: Gpx.self)
         let gpx = gpxParser.parse()
-        XCTAssertNotNil(gpx, "gpx is nil")
-        XCTAssert(2 == gpxParser.unSupported.count,"取りこぼし未検出")
-        let childs = gpx?.allChilds()
-        print(childs)
-        let root = gpx?.root
-        XCTAssert(root is Gpx, "root is nil")
-        let rootfromChild = gpx?.childs.first?.root
-        XCTAssert(rootfromChild is Gpx, "first child is nil")
-        
+        XCTAssertNil(gpx,"gpx is not nil")
+        XCTAssert(0 < gpxParser.unSupported.count,"取りこぼし未検出")
+        print(gpxParser.unSupported)
     }
     
     func testPerformanceExample() {
