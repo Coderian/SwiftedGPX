@@ -70,9 +70,9 @@ public class Fix : SPXMLElement, HasXMLElementValue, HasXMLElementSimpleValue {
 ///     </xsd:simpleType>
 public class FixType {
     public enum FixEnumType: String {
-        case none, fix2d="2d", fix3d="3d", dgps, pps
+        case None="none", Fix2d="2d", Fix3d="3d", DGps="dgps", Pps="pps"
     }
-    var value:FixEnumType = .none
+    var value:FixEnumType = .None
     init(contents:String){
         self.value = FixEnumType(rawValue: contents)!
     }
