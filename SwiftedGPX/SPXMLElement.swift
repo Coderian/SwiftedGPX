@@ -27,17 +27,24 @@ public protocol XMLAttributed {
 }
 
 /// XML Root Element
-public protocol XMLElementRoot {
+public protocol XMLElementRoot: class {
     static var creaters:[String:SPXMLElement.Type] { get }
+    static func createElement(elementName:String, attributes:[String:String], stack:Stack<SPXMLElement>) -> SPXMLElement?
+}
+
+public extension XMLElementRoot {
+    public static func createElement(elementName:String, attributes:[String:String], stack:Stack<SPXMLElement>) -> SPXMLElement? {
+        return creaters[elementName]?.init(attributes:attributes)
+    }
 }
 
 /// XML Element Name
-public protocol HasXMLElementName {
+public protocol HasXMLElementName : class, CustomStringConvertible {
     static var elementName:String { get }
 }
 
 /// XML Element Value
-public protocol HasXMLElementValue :HasXMLElementName, CustomStringConvertible {
+public protocol HasXMLElementValue :HasXMLElementName {
     typealias Element
     var value: Element {
         get

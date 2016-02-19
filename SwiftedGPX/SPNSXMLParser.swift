@@ -13,31 +13,31 @@ public class SPXMLParser<T:HasXMLElementValue where T:XMLElementRoot>: NSObject,
     var parser:NSXMLParser!
     /// 作成中 Elementを保持
     private var stack:Stack<SPXMLElement> = Stack()
+    /// 処理しなかったelements
     public var unSupported:Stack<UnSupportXMLElement> = Stack()
     private var contents:String = ""
     private var previewStackCount:Int = 0
-    /// element作成用クラス一覧
-    var creaters:[String:SPXMLElement.Type]
     /// parse結果取得用
     var root:T?
     /// root Element Type
     var rootType:T.Type
+    var debugPrintOn:Bool = false
 
-    init(Url:NSURL, root:T.Type) {
+    init(Url:NSURL, root:T.Type,debugPrintOn:Bool = false) {
+        self.debugPrintOn = debugPrintOn
         parser = NSXMLParser(contentsOfURL: Url)
         self.rootType = root
-        creaters = root.creaters
         super.init()
         parser.delegate = self
     }
     
     func parse() -> T?{
         parser.parse()
-        return root
+        return self.root
     }
     
     internal func createXMLElement(stack:Stack<SPXMLElement>, elementName:String,attributes:[String:String]) -> SPXMLElement {
-        guard let retValue = creaters[elementName]?.init(attributes:attributes) else {
+        guard let retValue = self.rootType.createElement(elementName, attributes: attributes, stack: stack) else {
             // elementが対象外
             return UnSupportXMLElement(elementName: elementName,attributes: attributes)
         }
@@ -49,32 +49,39 @@ public class SPXMLParser<T:HasXMLElementValue where T:XMLElementRoot>: NSObject,
     public func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         let element = createXMLElement(stack,elementName: elementName,attributes: attributeDict)
         stack.push(element)
-        debugPrint("OnStart didStartElement=\(elementName) pushd=\(element)")
+        if self.debugPrintOn {
+            debugPrint("OnStart didStartElement=\(elementName) pushd=\(element) namespaceURI=\(namespaceURI) qualifiedName=\(qName)")
+        }
         self.contents = ""
     }
     
     public func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         let current = stack.pop()
-        debugPrint("OnEnd poped=\(current) == \(elementName)")
-        if elementName == self.rootType.elementName {
-            root = current as? T
+        if self.debugPrintOn {
+            debugPrint("OnEnd poped=\(current) == \(elementName)")
         }
-        else if let v = current as? HasXMLElementName {
-            if v.dynamicType.elementName == elementName {
-//              let parent = stack.pop()
-                let parent = stack.items[stack.count-1]
-                // make the Relationship
-                current.parent = parent
-//              stack.push(parent)
+        switch current {
+        case let element as UnSupportXMLElement:
+            if element.elementName == elementName {
+                unSupported.push(element)
+            }
+        case let element as HasXMLElementName:
+            if element.dynamicType.elementName == elementName {
+                if self.rootType.elementName == elementName {
+                    self.root = element as? T
+                }
+                else {
+                    // let parent = stack.pop()
+                    let parent = stack.items[stack.count-1]
+                    // make the Relationship
+                    current.parent = parent
+                    // stack.push(parent)
+                }
             }
             else {
                 stack.push(current)
             }
-        }
-        else if let v = current as? UnSupportXMLElement {
-            if v.elementName == elementName {
-                unSupported.push(v)
-            }
+        default: break
         }
     }
     
@@ -89,17 +96,18 @@ public class SPXMLParser<T:HasXMLElementValue where T:XMLElementRoot>: NSObject,
         self.previewStackCount = stack.count
         
         let current = stack.items[stack.count-1]
-        debugPrint("OnCharacters [\(string)] poped=\(current) contents=\(self.contents)")
+        if self.debugPrintOn {
+            debugPrint("OnCharacters [\(string)] poped=\(current) contents=\(self.contents)")
+        }
         if let v = current as? HasXMLElementSimpleValue {
-//            stack.push(v.makeRelation( self.contents, parent: stack.pop()))
+            // stack.push(v.makeRelation( self.contents, parent: stack.pop()))
             v.makeRelation( self.contents, parent: stack.items[stack.count-2])
         } else if let v  = current as? UnSupportXMLElement{
             v.value = self.contents
         }
-
-//        stack.push(current)
-        
-        debugPrint(stack)
+        // stack.push(current)
+        if self.debugPrintOn {
+            debugPrint(stack)
+        }
     }
-    
 }
