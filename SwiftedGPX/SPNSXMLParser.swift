@@ -9,11 +9,11 @@
 import Foundation
 
 /// Generic Parser of NSXMLParser
-class SPXMLParser<T:HasXMLElementValue where T:XMLElementRoot>: NSObject,NSXMLParserDelegate{
+public class SPXMLParser<T:HasXMLElementValue where T:XMLElementRoot>: NSObject,NSXMLParserDelegate{
     var parser:NSXMLParser!
     /// 作成中 Elementを保持
     private var stack:Stack<SPXMLElement> = Stack()
-    private var isCallEnded:Bool = false
+    var unSupported:Stack<UnSupportXMLElement> = Stack()
     private var contents:String = ""
     private var previewStackCount:Int = 0
     /// element作成用クラス一覧
@@ -37,28 +37,24 @@ class SPXMLParser<T:HasXMLElementValue where T:XMLElementRoot>: NSObject,NSXMLPa
     }
     
     internal func createXMLElement(stack:Stack<SPXMLElement>, elementName:String,attributes:[String:String]) -> SPXMLElement? {
-        if let retValue = creaters[elementName]?.init(attributes:attributes) {
-            return retValue
+        guard let retValue = creaters[elementName]?.init(attributes:attributes) else {
+            // elementが対象外
+            return UnSupportXMLElement(elementName: elementName,attributes: attributes)
         }
-        return nil
+        return retValue
     }
     
     // MARK: NSXMLParserDelegate
     
-    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
+    public func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         debugPrint("OnStart didStartElement=\(elementName)")
         let element = createXMLElement(stack,elementName: elementName,attributes: attributeDict)
-        // elementが対象外
-        if element == nil {
-            return
-        }
         stack.push(element!)
         debugPrint("OnStart pushd=\(element)")
-        isCallEnded = false
         self.contents = ""
     }
     
-    func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+    public func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         debugPrint("OnStart didEndElement=\(elementName)")
         if elementName == self.rootType.elementName {
             root = stack.pop() as? T
@@ -77,15 +73,17 @@ class SPXMLParser<T:HasXMLElementValue where T:XMLElementRoot>: NSObject,NSXMLPa
                     stack.push(current)
                 }
             }
+            else if let v = current as? UnSupportXMLElement {
+                if v.elementName == elementName {
+                    unSupported.push(v)
+                }
+            }
         }
-        isCallEnded = true
     }
     
-    func parser(parser: NSXMLParser, foundCharacters string: String) {
-        debugPrint("OnCharacters isCallEnded=\(isCallEnded)")
-        if isCallEnded {
-            return
-        }
+    public func parser(parser: NSXMLParser, foundCharacters string: String) {
+        debugPrint("OnCharacters [\(string)]")
+
         // contentsが長い文字列の場合は複数回呼ばれるので対応が必要
         if self.previewStackCount == stack.count {
             self.contents += string
@@ -100,7 +98,10 @@ class SPXMLParser<T:HasXMLElementValue where T:XMLElementRoot>: NSObject,NSXMLPa
         debugPrint("self.contents=\(self.contents)")
         if let v = current as? HasXMLElementSimpleValue {
             stack.push(v.makeRelation( self.contents, parent: stack.pop()))
+        } else if let v  = current as? UnSupportXMLElement{
+            v.value = self.contents
         }
+
         stack.push(current)
         
         debugPrint(stack)

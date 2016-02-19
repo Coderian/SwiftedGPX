@@ -111,6 +111,17 @@ public func == ( lhs: SPXMLElement, rhs: SPXMLElement) -> Bool {
     return lhs === rhs
 }
 
+public class UnSupportXMLElement:SPXMLElement {
+    public var elementName:String!
+    public var value:String!
+    public required init(attributes: [String : String]) {
+        super.init(attributes: attributes)
+    }
+    public init(elementName:String, attributes: [String:String]){
+        self.elementName = elementName
+        super.init(attributes: attributes)
+    }
+}
 
 public extension NSDateFormatter {
     static func rfc3339Formatter(dateString:String) -> NSDateFormatter {
