@@ -81,6 +81,13 @@ public extension SPXMLElement {
         }
         return ret
     }
+    func select(attributeName:String, attributeValue:String) ->[SPXMLElement] {
+        var ret:[SPXMLElement] = []
+        for v in self.allChilds().filter({$0.attributes[attributeName] == attributeValue}){
+            ret.append(v)
+        }
+        return ret
+    }
     public func allChilds() -> [SPXMLElement]{
         var all:[SPXMLElement] = []
         allChilds( &all, current:self)
