@@ -135,7 +135,7 @@ public class Gpx : SPXMLElement, HasXMLElementValue, XMLElementRoot {
 ///     </xsd:attribute>
 ///   </xsd:complexType>
 public class GPXType {
-    public var metadata:Metadata?
+    public var metadata:Metadata!
     public var wpt:[WayPoint] = []
     public var rte:[Route] = []
     public var trk:[Track] = []

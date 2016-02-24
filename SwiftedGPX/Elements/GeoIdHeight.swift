@@ -22,11 +22,11 @@ import Foundation
 ///     </xsd:element>
 public class GeoIdHeight : SPXMLElement, HasXMLElementValue, HasXMLElementSimpleValue {
     public static var elementName: String = "geoidheight"
-    public override var parent:SPXMLElement? {
+    public override var parent:SPXMLElement! {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            if self.parent?.childs.contains(self) == false {
-                self.parent?.childs.insert(self)
+            if self.parent.childs.contains(self) == false {
+                self.parent.childs.insert(self)
                 switch parent {
                 case let v as WayPoint: v.value.geoidheight = self
                 case let v as TrackPoint: v.value.geoidheight = self

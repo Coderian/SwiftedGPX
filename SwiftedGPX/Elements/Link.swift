@@ -21,11 +21,11 @@ import Foundation
 ///     </xsd:element>
 public class Link : SPXMLElement, HasXMLElementValue {
     public static var elementName: String = "link"
-    public override var parent:SPXMLElement? {
+    public override var parent:SPXMLElement! {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            if self.parent?.childs.contains(self) == false {
-                self.parent?.childs.insert(self)
+            if self.parent.childs.contains(self) == false {
+                self.parent.childs.insert(self)
                 switch parent {
                 case let v as Metadata: v.value.link = self
                 default: break
@@ -53,11 +53,11 @@ public class Link : SPXMLElement, HasXMLElementValue {
 ///     </xsd:element>
 public class Text: SPXMLElement, HasXMLElementValue, HasXMLElementSimpleValue {
     public static var elementName: String = "text"
-    public override var parent:SPXMLElement? {
+    public override var parent:SPXMLElement! {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            if self.parent?.childs.contains(self) == false {
-                self.parent?.childs.insert(self)
+            if self.parent.childs.contains(self) == false {
+                self.parent.childs.insert(self)
                 switch parent {
                 case let v as Link: v.value.text = self
                 default: break

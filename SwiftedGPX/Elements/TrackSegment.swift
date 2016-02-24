@@ -21,11 +21,11 @@ import Foundation
 ///     </xsd:element>
 public class TrackSegment : SPXMLElement, HasXMLElementValue {
     public static var elementName: String = "trkseg"
-    public override var parent:SPXMLElement? {
+    public override var parent:SPXMLElement! {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            if self.parent?.childs.contains(self) == false {
-                self.parent?.childs.insert(self)
+            if self.parent.childs.contains(self) == false {
+                self.parent.childs.insert(self)
                 switch parent {
                 case let v as Track: v.value.trkseg.append(self)
                 default: break
@@ -86,11 +86,11 @@ public class TrkSegType {
 ///     </xsd:element>
 public class TrackPoint : SPXMLElement, HasXMLElementValue {
     public static var elementName: String = "trkpt"
-    public override var parent:SPXMLElement? {
+    public override var parent:SPXMLElement! {
         didSet {
             // 複数回呼ばれたて同じものがある場合は追加しない
-            if self.parent?.childs.contains(self) == false {
-                self.parent?.childs.insert(self)
+            if self.parent.childs.contains(self) == false {
+                self.parent.childs.insert(self)
                 switch parent {
                 case let v as TrackSegment: v.value.trkpt.append(self)
                 default: break
