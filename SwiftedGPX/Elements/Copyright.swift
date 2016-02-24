@@ -76,8 +76,8 @@ public class Copyright : SPXMLElement, HasXMLElementValue {
 ///       </xsd:attribute>
 ///     </xsd:complexType>
 public class CopyrightType {
-    public var year:Year?
-    public var license:License?
+    public var year:Year!
+    public var license:License!
     
     public struct Author : XMLAttributed {
         public static var attributeName: String = "author"

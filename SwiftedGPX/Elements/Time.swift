@@ -37,8 +37,8 @@ public class Time : SPXMLElement, HasXMLElementValue, HasXMLElementSimpleValue {
         }
     }
     static let dateFormatter:NSDateFormatter = NSDateFormatter.rfc3339Formatter("2012-03-26T02:10:01Z")
-    public var value: NSDate?
-    public var originalValue:String?
+    public var value: NSDate!
+    public var originalValue:String!
     public func makeRelation(contents:String, parent:SPXMLElement) -> SPXMLElement{
         self.originalValue = contents
         self.value = self.dynamicType.dateFormatter.dateFromString(contents)

@@ -70,8 +70,8 @@ public class PtSegType {
 //  </xsd:complexType>
 
 public class PtType {
-    var ele:Elevation?
-    var time:Time?
+    var ele:Elevation!
+    var time:Time!
     public struct Latitude : XMLAttributed {
         public static var attributeName: String = "lat"
         public var value: LatitudeType

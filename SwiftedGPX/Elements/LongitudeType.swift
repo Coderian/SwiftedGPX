@@ -25,7 +25,7 @@ import Foundation
 ///     </xsd:simpleType>
 public class LongitudeType {
     var value:Double = 0.0
-    var originalValue:String?
+    var originalValue:String!
     public init(longitude: String){
         self.originalValue = longitude
         self.value = Double(longitude)!

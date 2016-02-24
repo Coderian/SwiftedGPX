@@ -43,7 +43,7 @@ public class Number : SPXMLElement, HasXMLElementValue, HasXMLElementSimpleValue
             }
         }
     }
-    public var value: UInt?
+    public var value: UInt!
     public func makeRelation(contents:String, parent:SPXMLElement) -> SPXMLElement{
         self.value = UInt(contents)
         self.parent = parent

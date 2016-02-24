@@ -65,7 +65,7 @@ public class Text: SPXMLElement, HasXMLElementValue, HasXMLElementSimpleValue {
             }
         }
     }
-    public var value: String?
+    public var value: String!
     public func makeRelation(contents:String, parent:SPXMLElement) -> SPXMLElement{
         self.value = contents
         self.parent = parent
@@ -111,8 +111,8 @@ public class Text: SPXMLElement, HasXMLElementValue, HasXMLElementSimpleValue {
 ///       </xsd:attribute>
 ///     </xsd:complexType>
 public class LinkType {
-    var text:Text?
-    var type:Type?
+    var text:Text!
+    var type:Type!
     public struct Href : XMLAttributed {
         public static var attributeName: String = "href"
         public var value: String = String()

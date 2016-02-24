@@ -35,7 +35,7 @@ public class MagneticVariation : SPXMLElement, HasXMLElementValue, HasXMLElement
             }
         }
     }
-    public var value:DegreesType?
+    public var value:DegreesType!
     public required init(attributes:[String:String]){
         super.init(attributes: attributes)
     }

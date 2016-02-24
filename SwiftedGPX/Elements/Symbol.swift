@@ -35,7 +35,7 @@ public class Symbol : SPXMLElement, HasXMLElementValue, HasXMLElementSimpleValue
             }
         }
     }
-    public var value: String?
+    public var value: String!
     public func makeRelation(contents:String, parent:SPXMLElement) -> SPXMLElement{
         self.value = contents
         self.parent = parent

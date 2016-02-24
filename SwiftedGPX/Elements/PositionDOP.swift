@@ -35,7 +35,7 @@ public class PositionDOP : SPXMLElement,  HasXMLElementValue, HasXMLElementSimpl
             }
         }
     }
-    public var value: Double?
+    public var value: Double!
     public func makeRelation(contents:String, parent:SPXMLElement) -> SPXMLElement{
         self.value = Double(contents)
         self.parent = parent

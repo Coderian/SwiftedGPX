@@ -209,25 +209,25 @@ public class WayPoint : SPXMLElement, HasXMLElementValue {
 ///       </xsd:attribute>
 ///     </xsd:complexType>
 public class WptType {
-    public var ele:Elevation?
-    public var time:Time?
-    public var magvar:MagneticVariation?
-    public var geoidheight: GeoIdHeight?
-    public var name:Name?
-    public var cmt:Comment?
-    public var desc:Description?
-    public var src:Source?
-    public var link:Link?
-    public var sym:Symbol?
-    public var type:Type?
-    public var fix:Fix?
-    public var sat:Satellites?
-    public var hdop:HorizontalDOP?
-    public var vdop:VerticalDOP?
-    public var pdop:PositionDOP?
-    public var ageofdgpsdata:AGeoFdGPSData?
-    public var dgpsid:DGPSId?
-    public var extensions:Extensions?
+    public var ele:Elevation!
+    public var time:Time!
+    public var magvar:MagneticVariation!
+    public var geoidheight: GeoIdHeight!
+    public var name:Name!
+    public var cmt:Comment!
+    public var desc:Description!
+    public var src:Source!
+    public var link:Link!
+    public var sym:Symbol!
+    public var type:Type!
+    public var fix:Fix!
+    public var sat:Satellites!
+    public var hdop:HorizontalDOP!
+    public var vdop:VerticalDOP!
+    public var pdop:PositionDOP!
+    public var ageofdgpsdata:AGeoFdGPSData!
+    public var dgpsid:DGPSId!
+    public var extensions:Extensions!
     
     public struct Latitude : XMLAttributed {
         public static var attributeName: String = "lat"

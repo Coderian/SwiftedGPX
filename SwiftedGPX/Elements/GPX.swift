@@ -139,7 +139,7 @@ public class GPXType {
     public var wpt:[WayPoint] = []
     public var rte:[Route] = []
     public var trk:[Track] = []
-    public var extensions:Extensions?
+    public var extensions:Extensions!
 
     public struct Version : XMLAttributed {
         public static var attributeName: String = "version"

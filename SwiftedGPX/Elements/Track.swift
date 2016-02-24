@@ -118,13 +118,13 @@ public class Track : SPXMLElement, HasXMLElementName {
 ///       </xsd:sequence>
 ///     </xsd:complexType>
 public class TrkType {
-    public var name:Name?
-    public var cmt:Comment?
-    public var desc:Description?
-    public var src:Source?
-    public var link:Link?
-    public var number:Number?
-    public var type:Type?
-    public var extensions:Extensions?
+    public var name:Name!
+    public var cmt:Comment!
+    public var desc:Description!
+    public var src:Source!
+    public var link:Link!
+    public var number:Number!
+    public var type:Type!
+    public var extensions:Extensions!
     public var trkseg:[TrackSegment] = [TrackSegment]()
 }

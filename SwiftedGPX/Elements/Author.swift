@@ -74,7 +74,7 @@ public class Author : SPXMLElement, HasXMLElementValue {
 ///       </xsd:sequence>
 ///     </xsd:complexType>
 public class PersonType {
-    var name:Name?
-    var email:EmailType?
-    var link:LinkType?
+    var name:Name!
+    var email:EmailType!
+    var link:LinkType!
 }

@@ -70,7 +70,7 @@ public class TrackSegment : SPXMLElement, HasXMLElementValue {
 ///     </xsd:complexType>
 public class TrkSegType {
     var trkpt:[TrackPoint] = [TrackPoint]()
-    var extensions:Extensions?
+    var extensions:Extensions!
 }
 
 /// GPX TrackPoint

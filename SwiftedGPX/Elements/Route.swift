@@ -118,13 +118,13 @@ public class Route : SPXMLElement, HasXMLElementValue {
 ///       </xsd:sequence>
 ///     </xsd:complexType>
 public class RteType {
-    public var name:Name?
-    public var cmt:Comment?
-    public var desc:Description?
-    public var src:Source?
-    public var link:Link?
-    public var number:Number?
-    public var type:Type?
-    public var extensions:Extensions?
+    public var name:Name!
+    public var cmt:Comment!
+    public var desc:Description!
+    public var src:Source!
+    public var link:Link!
+    public var number:Number!
+    public var type:Type!
+    public var extensions:Extensions!
     public var rtept:[RoutePoint] = [RoutePoint]()
 }

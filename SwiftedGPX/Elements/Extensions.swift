@@ -29,7 +29,7 @@ public class Extensions : SPXMLElement,HasXMLElementValue {
             }
         }
     }
-    public var value:ExtensionsType?
+    public var value:ExtensionsType!
     public required init(attributes:[String:String]){
         super.init(attributes: attributes)
     }

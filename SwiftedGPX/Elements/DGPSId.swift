@@ -35,7 +35,7 @@ public class DGPSId : SPXMLElement,  HasXMLElementValue, HasXMLElementSimpleValu
             }
         }
     }
-    public var value: DGPSStationType?
+    public var value: DGPSStationType!
     public func makeRelation(contents:String, parent:SPXMLElement) -> SPXMLElement{
         self.value = DGPSStationType(value: Int(contents)!)
         self.parent = parent

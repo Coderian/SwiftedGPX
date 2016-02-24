@@ -118,13 +118,13 @@ public class Metadata : SPXMLElement, HasXMLElementValue {
 ///       </xsd:sequence>
 ///     </xsd:complexType>
 public class MetadataType {
-    var name:Name?
-    var desc:Description?
-    var author:Author?
-    var copyright:Copyright?
-    var link:Link?
-    var time:Time?
-    var keywords:Keywords?
-    var bounds:Bounds?
-    var extensions:Extensions?
+    var name:Name!
+    var desc:Description!
+    var author:Author!
+    var copyright:Copyright!
+    var link:Link!
+    var time:Time!
+    var keywords:Keywords!
+    var bounds:Bounds!
+    var extensions:Extensions!
 }

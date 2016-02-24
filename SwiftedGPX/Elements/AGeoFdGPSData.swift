@@ -35,7 +35,7 @@ public class AGeoFdGPSData : SPXMLElement,  HasXMLElementValue, HasXMLElementSim
             }
         }
     }
-    public var value: Double?
+    public var value: Double!
     public func makeRelation(contents:String, parent:SPXMLElement) -> SPXMLElement{
         self.value = Double(contents)
         self.parent = parent
