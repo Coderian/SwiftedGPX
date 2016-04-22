@@ -58,7 +58,8 @@ public class Name : SPXMLElement, HasXMLElementValue, HasXMLElementSimpleValue {
                 case let v as Track: v.value.name = self
                 case let v as TrackPoint: v.value.name = self
                 case let v as Author: v.value.name = self
-                default: break
+                default:
+                    break
                 }
             }
         }

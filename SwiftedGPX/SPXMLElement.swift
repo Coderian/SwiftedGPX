@@ -8,6 +8,10 @@
 
 import Foundation
 
+public enum SPXMLElementError: ErrorType {
+    case InvalidRelationshop
+}
+
 /// XML Attribute
 public protocol XMLAttributed {
         /// attribute name
@@ -16,7 +20,11 @@ public protocol XMLAttributed {
     static var attributeName:String {
         get
     }
+#if swift(>=3.0)
+    associatedtype Element
+#else
     typealias Element
+#endif
     /// attribute value
     ///
     /// - returns: attribute value
@@ -45,7 +53,11 @@ public protocol HasXMLElementName : class, CustomStringConvertible {
 
 /// XML Element Value
 public protocol HasXMLElementValue :HasXMLElementName {
+#if swift(>=3.0)
+    associatedtype Element
+#else
     typealias Element
+#endif
     var value: Element {
         get
         set

@@ -35,7 +35,7 @@ public class WayPoint : SPXMLElement, HasXMLElementValue {
     }
     public var value: WptType
     public required init(attributes:[String:String]){
-        self.value = WptType(latitude: attributes[WptType.Longitude.attributeName]!, longitude: attributes[WptType.Latitude.attributeName]!)
+        self.value = WptType(latitude: attributes[WptType.Latitude.attributeName]!, longitude: attributes[WptType.Longitude.attributeName]!)
         super.init(attributes: attributes)
     }
 }

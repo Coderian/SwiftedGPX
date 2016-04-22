@@ -9,7 +9,11 @@ import Foundation
 
 /// see [The Swift Programming Language(Swift 2.1)](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Generics.html#//apple_ref/doc/uid/TP40014097-CH26-ID179)
 public protocol Container {
+#if swift(>=3.0)
+    associatedtype ItemType
+#else
     typealias ItemType
+#endif
     mutating func append(item: ItemType)
     var count: Int { get }
     subscript(i: Int) -> ItemType { get }
